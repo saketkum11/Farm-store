@@ -1,9 +1,12 @@
+import React from "react"
+import Navbar from "../../Component/Navbar/Navbar";
+
 function Login() {
     return (
       <>
       <main>
   
-          <NavBar></NavBar>
+          <Navbar></Navbar>
           <section class=" box-shadow-1 m-auto m-y-11  wt-30 flex flex-column items-center pd-8 ">
               <div class="text-xm text-semi">
                   <span>Login</span>
