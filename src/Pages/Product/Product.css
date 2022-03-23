@@ -1,0 +1,43 @@
+.product-content{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+.text-center{
+    text-align: center;
+}
+/* absolute top*/
+.t-0{
+    top: 0;
+}
+.t-1{
+    top: 0.2rem;
+}
+.t-2{
+    top: 0.5rem;
+}
+/* asbolute right*/
+.r-0{
+    right: 0;
+}
+.r-1{
+    right: 0.25rem;
+}
+.r-2{
+    right: 0.5rem;
+}
+.r-3{
+    right: 0.75rem;
+}
+.r-4{
+    right: 1rem;
+}
+.r-5{
+    right: 1.25rem;
+}
+.r-6{
+    right: 1.5rem;
+}
+/*z-index*/
+.z-index{
+   z-index: 1;
+}
