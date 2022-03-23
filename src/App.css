@@ -49,3 +49,92 @@
   font-size: 1.2rem;
   margin: 1rem;
 }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --white-50:#ffff;
+}
+.bg-white-0{
+    background-color: var(--white-50);
+}
+body {
+    font-family: 'Montserrat',
+        sans-serif;
+    font-family: 'Poppins',
+        sans-serif;
+
+
+}
+/* margin negative*/
+
+
+
+
+
+/*position right*/
+
+.p-r-0 {
+    right: 0;
+}
+
+.p-r-1 {
+    right: 0.25rem;
+}
+
+.p-r-2 {
+    right: 0.5rem;
+}
+/*position left*/
+.p-lf-0{
+    left: 0;
+}
+.p-lf-1{
+    left:10%;
+}
+.p-lf-2{
+    left:20%
+}
+/*position top negative*/
+.p-t-n-4 {
+    top: -1rem;
+}
+.p-t-n-2 {
+    top: -0.5rem;
+}
+.p-t-0{
+    top: 0;
+}
+.p-t-1{
+    top:10%
+}
+.p-t-2{
+    top:20%;
+}
+.p-t-7{
+    top:70%
+}
+.p-t-8{
+    top:80%
+}
+.p-t-9{
+    top:90%;
+}
+.p-t-10{
+    top:100%;
+}
+/*height*/
+.h-vh-2{
+    height: 20vh;
+}
+.h-lg{
+    height: 20rem;
+}
+/*position fixed*/
+.t-0{
+    top:0;
+}
