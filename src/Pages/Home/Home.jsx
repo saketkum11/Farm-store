@@ -13,58 +13,58 @@ function Home() {
 return (
 <>
     <Navbar></Navbar>
-    <main class="wt-80 m-auto ">
-        <div class="flex items-start justify-center h-lg m-y-11 position-rel">
-            <img src={apple} alt="" class="rounded-L object-content wt-100 h-100" />
+    <main className="wt-80 m-auto ">
+        <div className="flex items-start justify-center h-lg m-y-11 position-rel">
+            <img src={apple} alt="" className="rounded-L object-content wt-100 h-100" />
             <Link to="/product"
                 className="text-color-9 text-dec text-m rounded-m pd-x-9 pd-y-3 position-ab bg-black-1 p-t-7 p-lf-1">
             More
             </Link>
         </div>
-        <div class="m-y-9">
-            <span class="text-lg text-bold">Categories</span>
+        <div className="m-y-9">
+            <span className="text-lg text-bold">Categories</span>
         </div>
-        <section class="flex m-y-3 justify-around flex-wrap">
-            <div class=" wt-20 flex justify-center  items-center position-rel flex-wrap">
-                <Link to="/product" class=" object-content rounded-m">
-                <img src={egg} class="wt-100 h-100 object-content rounded-m" alt="" /></Link>
-                <span class=" position-ab text-color-0 text-m text-bold p-t-5">Egg and Meat </span>
+        <section className="flex m-y-3 justify-around flex-wrap">
+            <div className=" wt-20 flex justify-center  items-center position-rel flex-wrap">
+                <Link to="/product" className=" object-content rounded-m">
+                <img src={egg} className="wt-100 h-100 object-content rounded-m" alt="" /></Link>
+                <span className=" position-ab text-color-0 text-m text-bold p-t-5">Egg and Meat </span>
 
             </div>
-            <div class=" wt-20 flex  justify-center items-center  position-rel flex-wrap">
-                <Link to="/product" class=" object-content rounded-m">
-                <img src={grain} class="wt-100 h-100 object-content rounded-m" alt="" /></Link>
-                <span class="position-ab  text-color-0 text-m text-bold p-t-5">Grain</span>
+            <div className=" wt-20 flex  justify-center items-center  position-rel flex-wrap">
+                <Link to="/product" className=" object-content rounded-m">
+                <img src={grain} className="wt-100 h-100 object-content rounded-m" alt="" /></Link>
+                <span className="position-ab  text-color-0 text-m text-bold p-t-5">Grain</span>
             </div>
-            <div class="  wt-20 flex  justify-center items-center  position-rel flex-wrap">
-                <Link to="/product" class=" object-content rounded-m">
-                <img src={vegetable2} class="wt-100 h-100 object-content rounded-m" alt="" /></Link>
-                <span class="position-ab  text-color-0 text-m text-bold p-t-5">Vegetable</span>
+            <div className="  wt-20 flex  justify-center items-center  position-rel flex-wrap">
+                <Link to="/product" className=" object-content rounded-m">
+                <img src={vegetable2} className="wt-100 h-100 object-content rounded-m" alt="" /></Link>
+                <span className="position-ab  text-color-0 text-m text-bold p-t-5">Vegetable</span>
 
             </div>
-            <div class="rounded-s wt-20 flex justify-center   position-rel flex-wrap">
-                <Link to="/product" class="wt-100 h-100 object-content rounded-m">
-                <img src={strawberri} class="wt-100 h-100 object-content rounded-m" alt="" /></Link>
+            <div className="rounded-s wt-20 flex justify-center   position-rel flex-wrap">
+                <Link to="/product" className="wt-100 h-100 object-content rounded-m">
+                <img src={strawberri} className="wt-100 h-100 object-content rounded-m" alt="" /></Link>
 
-                <span class="position-ab  text-color-0 text-m text-bold p-t-5">Fruits</span>
+                <span className="position-ab  text-color-0 text-m text-bold p-t-5">Fruits</span>
             </div>
         </section>
-        <section class="m-y-11">
-            <div class="m-y-11">
-                <span class="text-lg text-bold">Coming Soon</span>
+        <section className="m-y-11">
+            <div className="m-y-11">
+                <span className="text-lg text-bold">Coming Soon</span>
             </div>
-            <div class="flex wt-100 justify-btw m-x-4">
-                <div class=" rounded-s wt-30  flex justify-center position-rel items-start">
+            <div className="flex wt-100 justify-btw m-x-4">
+                <div className=" rounded-s wt-30  flex justify-center position-rel items-start">
 
-                    <Link to="/product" class="wt-100 h-100 object-content rounded-m">
-                    <img src={egg} alt="" class="rounded-L object-content wt-100 h-50" />
+                    <Link to="/product" className="wt-100 h-100 object-content rounded-m">
+                    <img src={egg} alt="" className="rounded-L object-content wt-100 h-50" />
                     </Link>
 
                 </div>
-                <div class="roounded-s wt-80 flex justify-center position-rel  m-x-4">
+                <div className="roounded-s wt-80 flex justify-center position-rel  m-x-4">
 
-                    <Link to="/product" class="wt-100 h-100 object-content rounded-m">
-                    <img src={guava} alt="" class="rounded-L object-content wt-100 h-50" />
+                    <Link to="/product" className="wt-100 h-100 object-content rounded-m">
+                    <img src={guava} alt="" className="rounded-L object-content wt-100 h-50" />
                     </Link>
                 </div>
             </div>
