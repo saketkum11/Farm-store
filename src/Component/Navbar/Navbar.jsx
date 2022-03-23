@@ -3,9 +3,7 @@ import React from  "react";
 function Navbar() {
 return ((<div>
 
-    <Link to="/product">Product</Link>
-    <Link to="/signup">SignUp</Link>
-    <Link to="/forgot">Forgot</Link>
+    
     <nav class=" bg-green-7 text-color-0 pd-5 position-fixed t-0">
         <div class="wt-80  m-auto  flex items-center">
             <div class="text-xm">

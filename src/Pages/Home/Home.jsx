@@ -11,7 +11,7 @@ import vegetable2 from "../../Assets/vegetable (2).jpg"
 import vegetable from "../../Assets/Vegetable.jpg"
 function Home() {
 return (
-    <>
+<>
     <Navbar></Navbar>
     <main class="wt-80 m-auto ">
         <div class="flex items-start justify-center h-lg m-y-11 position-rel">
@@ -25,24 +25,24 @@ return (
             <span class="text-lg text-bold">Categories</span>
         </div>
         <section class="flex m-y-3 justify-around flex-wrap">
-            <div class=" wt-20 flex flex-column justify-center items-center  position-rel">
-                <Link to="/product">
+            <div class=" wt-20 flex justify-center  items-center position-rel flex-wrap">
+                <Link to="/product" class=" object-content rounded-m">
                 <img src={egg} class="wt-100 h-100 object-content rounded-m" alt="" /></Link>
                 <span class=" position-ab text-color-0 text-m text-bold p-t-5">Egg and Meat </span>
 
             </div>
-            <div class=" wt-20 flex justify-center position-rel">
-                <Link to="/product">
+            <div class=" wt-20 flex  justify-center items-center  position-rel flex-wrap">
+                <Link to="/product" class=" object-content rounded-m">
                 <img src={grain} class="wt-100 h-100 object-content rounded-m" alt="" /></Link>
                 <span class="position-ab  text-color-0 text-m text-bold p-t-5">Grain</span>
             </div>
-            <div class="  wt-20 flex justify-center position-rel">
+            <div class="  wt-20 flex  justify-center items-center  position-rel flex-wrap">
                 <Link to="/product" class=" object-content rounded-m">
-                <img src={vegetable} class="wt-100 h-100 object-content rounded-m" alt="" /></Link>
+                <img src={vegetable2} class="wt-100 h-100 object-content rounded-m" alt="" /></Link>
                 <span class="position-ab  text-color-0 text-m text-bold p-t-5">Vegetable</span>
 
             </div>
-            <div class="rounded-s wt-20 flex justify-center position-rel">
+            <div class="rounded-s wt-20 flex justify-center   position-rel flex-wrap">
                 <Link to="/product" class="wt-100 h-100 object-content rounded-m">
                 <img src={strawberri} class="wt-100 h-100 object-content rounded-m" alt="" /></Link>
 
@@ -55,14 +55,14 @@ return (
             </div>
             <div class="flex wt-100 justify-btw m-x-4">
                 <div class=" rounded-s wt-30  flex justify-center position-rel items-start">
-                    
+
                     <Link to="/product" class="wt-100 h-100 object-content rounded-m">
                     <img src={egg} alt="" class="rounded-L object-content wt-100 h-50" />
                     </Link>
 
                 </div>
                 <div class="roounded-s wt-80 flex justify-center position-rel  m-x-4">
-                   
+
                     <Link to="/product" class="wt-100 h-100 object-content rounded-m">
                     <img src={guava} alt="" class="rounded-L object-content wt-100 h-50" />
                     </Link>
