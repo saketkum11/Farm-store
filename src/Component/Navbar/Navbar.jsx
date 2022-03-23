@@ -31,7 +31,7 @@ return ((<div>
                     </li>
 
                     <li class=" pd-x-4 flex  items-center position-rel justify-center">
-                        <Link to="/cartlist" className="text-dec text-color-0 cursor" target="_blank"><i
+                        <Link to="/cart" className="text-dec text-color-0 cursor" target="_blank"><i
                             class="fa-solid fa-cart-shopping"></i></Link>
                         <span
                             class=" text-s position-ab p-t-n-2 flex items-center justify-center bg-red-7 wt-fixed-5 h-fixed-5 rounded-full p-r-0">0</span>
