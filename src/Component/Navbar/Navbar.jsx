@@ -1,9 +1,10 @@
 import {Link} from "react-router-dom";
 import React from  "react";
-function Navbar() {
-return ((<div>
+import { useCart } from "../Cart/Cart-Context";
 
-    
+function Navbar() {
+    const {counter} = useCart();
+   return (<div>
     <nav className=" bg-green-7 text-color-0 pd-5 position-fixed t-0">
         <div className="wt-80  m-auto  flex items-center">
             <div className="text-xm">
@@ -34,7 +35,7 @@ return ((<div>
                         <Link to="/cart" className="text-dec text-color-0 cursor" target="_blank"><i
                             className="fa-solid fa-cart-shopping"></i></Link>
                         <span
-                            className=" text-s position-ab p-t-n-2 flex items-center justify-center bg-red-7 wt-fixed-5 h-fixed-5 rounded-full p-r-0">0</span>
+                            className=" text-s position-ab p-t-n-2 flex items-center justify-center bg-red-7 wt-fixed-5 h-fixed-5 rounded-full p-r-0">{counter}</span>
                     </li>
                     <li className="pd-x-4">
                         <small>cart</small>
@@ -46,7 +47,7 @@ return ((<div>
         </div>
 
     </nav>
-</div>)
+</div>
 
 );
 }
