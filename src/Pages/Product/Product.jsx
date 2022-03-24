@@ -1,7 +1,8 @@
-import React from "react";
+import React ,{useEffect,useState} from "react";
 import { useCart } from "../../Component/Cart/Cart-Context";
 import Navbar from "../../Component/Navbar/Navbar";
 import "./Product.css";
+import axios from "axios";
 
 
 function Product() {
@@ -9,6 +10,15 @@ function Product() {
   function clickHandler(){
     setCounter((counter)=>counter+1)
   }
+useEffect(()=>{
+  const data = async() => {
+
+    const value = await(axios.get("/api/products")) 
+
+  }
+  
+})
+
  
 return (<>
 
