@@ -1,5 +1,7 @@
 import React from "react"
 import Navbar from "../../Component/Navbar/Navbar";
+import { Link } from "react-router-dom";
+
 
 function Login() {
     return (
