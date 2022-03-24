@@ -12,4 +12,3 @@ const CartProvider = ({children}) =>  {
 }
 
 export {useCart,CartProvider};
-
