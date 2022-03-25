@@ -5,6 +5,7 @@ const AuthContext = createContext();
 const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({children})  => {
+  
    return(<AuthContext.Provider value={{id:"saket",password:"djshdjhf"}}>{children}</AuthContext.Provider>)
 }
 
