@@ -1,9 +1,30 @@
 import React from "react"
 import Navbar from "../../Component/Navbar/Navbar";
 import { Link } from "react-router-dom";
-
-
+import { useState } from "react";
+import axios from "axios";
 function Login() {
+  
+    
+    const encodedToken = localStorage.getItem("token");
+    const [foo, setFoo] = useState([]);
+    const fetchFooDetails = async (email,password) => {
+      try {
+        const response = await axios.get(`/api/user/private-route`, {
+          headers: {
+            authorization: encodedToken, // passing token as an authorization header
+          },
+          
+        }
+       
+        );
+
+        setFoo(response.data.bar);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    
     return (
       <>
       <main>
@@ -32,7 +53,7 @@ function Login() {
   
               </div>
               <div className="wt-100">
-                  <button
+                  <button onClick={fetchFooDetails}
                       className="cursor bg-red-7 text-color-0 text-xm outline-none border-none pd-x-11 pd-y-3 rounded-xs wt-100">Login</button>
               </div>
               <div className="m-y-3">
@@ -40,6 +61,7 @@ function Login() {
                       Account</a>
               </div>
           </section>
+          <div>{foo}</div>
       </main>
   </>
     );
