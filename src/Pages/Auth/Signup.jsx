@@ -1,26 +1,35 @@
 import React from "react";
-import { useEffect,useState } from "react";
+import { useState } from "react";
 import Navbar from "../../Component/Navbar/Navbar";
 import { useAuth } from "../../Context/Auth/Auth";
+import { useNavigate } from 'react-router';
 
 
 function Signup() {
-const {signupHandler} = useAuth()
+const navigate = useNavigate();
+const {signupHandler,loader,setLoader} = useAuth();
+// show loading //
+//const [loader,setLoader] = useState(false);
 const [newClient,setNewClient] = useState({
-firstName:"",
-lastName:"",
-email:"",
-password:""
-})
+           firstName:"",
+           lastName:"",
+           email:"",
+           password:""
+});
 
 return (
 <>
     <div className="h-100">
         <Navbar></Navbar>
         <main>
-            <form onSubmit={(e)=>{ e.preventDefault();
-            signupHandler(newClient)}
-           } className=" box-shadow-1 m-auto m-y-11 wt-30 flex
+            <form onSubmit={function (e) {
+                    e.preventDefault();
+                    
+                    signupHandler(newClient);
+                   
+                    navigate("/");
+                }
+                } className=" box-shadow-1 m-auto m-y-11 wt-30 flex
                 flex-column items-center pd-8 ">
                 <div className="text-xm text-semi">
                     <span>Sign Up</span>
@@ -29,6 +38,7 @@ return (
                     <label for="" className="bg-white-0 ">First Name
                         <input onChange={(e)=>setNewClient({...newClient,firstName:e.target.value})}
                         type="text"
+                        required
                         placeholder="Anish"
                         className=" rounded-xs pd-3 wt-100 " />
                     </label>
@@ -37,6 +47,7 @@ return (
                     <label for="" className="bg-white-0 ">Last Name
                         <input onChange={(e)=>setNewClient({...newClient,lastName:e.target.value})}
                         type="text"
+                        required
                         placeholder="Kumar"
                         className=" rounded-xs pd-3 wt-100 " />
                     </label>
@@ -45,6 +56,7 @@ return (
                     <label for="" className="bg-white-0 ">Email address
                         <input onChange={(e)=>setNewClient({...newClient,email:e.target.value})}
                         type="email"
+                        required
                         placeholder="saketkumar@gmail.com"
                         className=" rounded-xs pd-3 wt-100 " /></label>
                 </div>
@@ -52,6 +64,7 @@ return (
                     <label for="" className="bg-white-0">Password
                         <input onChange={(e)=>setNewClient({...newClient,password:e.target.value})}
                         type="password"
+                        required
                         placeholder="***************************"
                         className="rounded-xs pd-3 wt-100" /></label>
                 </div>
@@ -72,6 +85,7 @@ return (
                     <a href="/component/login/login.html" target="_blank" className="text-dec text-color-9">Already have
                         account?</a>
                 </div>
+                {loader&&<h4>Loading You data .....</h4>}
             </form>
         </main>
     </div>
