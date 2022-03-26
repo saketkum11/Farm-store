@@ -1,46 +1,59 @@
 import React from "react";
+import { useEffect,useState } from "react";
 import Navbar from "../../Component/Navbar/Navbar";
+import { useAuth } from "../../Context/Auth/Auth";
+
 
 function Signup() {
-
-const {email} = useAuth();
+const {signupHandler} = useAuth()
+const [newClient,setNewClient] = useState({
+firstName:"",
+lastName:"",
+email:"",
+password:""
+})
 
 return (
 <>
     <div className="h-100">
         <Navbar></Navbar>
         <main>
-            <form className=" box-shadow-1 m-auto m-y-11  wt-30 flex flex-column items-center pd-8 ">
+            <form onSubmit={(e)=>{ e.preventDefault();
+            signupHandler(newClient)}
+           } className=" box-shadow-1 m-auto m-y-11 wt-30 flex
+                flex-column items-center pd-8 ">
                 <div className="text-xm text-semi">
                     <span>Sign Up</span>
                 </div>
                 <div className=" bg-black-0 flex flex-column  m-t-8 wt-100 ">
                     <label for="" className="bg-white-0 ">First Name
-                        <input 
-                         type="text" 
-                         placeholder="Anish"
-                         className=" rounded-xs pd-3 wt-100 " />
+                        <input onChange={(e)=>setNewClient({...newClient,firstName:e.target.value})}
+                        type="text"
+                        placeholder="Anish"
+                        className=" rounded-xs pd-3 wt-100 " />
                     </label>
                 </div>
                 <div className=" bg-black-0 flex flex-column  m-t-8 wt-100 ">
                     <label for="" className="bg-white-0 ">Last Name
-                        <input 
-                        type="text" 
-                        placeholder="Kumar" 
+                        <input onChange={(e)=>setNewClient({...newClient,lastName:e.target.value})}
+                        type="text"
+                        placeholder="Kumar"
                         className=" rounded-xs pd-3 wt-100 " />
                     </label>
                 </div>
                 <div className=" bg-black-0 flex flex-column  m-t-8 wt-100 ">
                     <label for="" className="bg-white-0 ">Email address
-                        <input 
-                        type="email" 
+                        <input onChange={(e)=>setNewClient({...newClient,email:e.target.value})}
+                        type="email"
                         placeholder="saketkumar@gmail.com"
                         className=" rounded-xs pd-3 wt-100 " /></label>
                 </div>
                 <div className="bg-black-0 flex  flex-column  m-y-4 wt-100">
                     <label for="" className="bg-white-0">Password
-                        <input type="password" placeholder="***************************"
-                            className="rounded-xs pd-3  wt-100" /></label>
+                        <input onChange={(e)=>setNewClient({...newClient,password:e.target.value})}
+                        type="password"
+                        placeholder="***************************"
+                        className="rounded-xs pd-3 wt-100" /></label>
                 </div>
                 <div className="flex  text-s m-y-4 justify-btw wt-100 flex-wrap">
                     <div className="flex items-center   ">
@@ -51,8 +64,7 @@ return (
 
                 </div>
                 <div className="wt-100">
-                    <button
-                       onClick={()=>dispatch({type:"SIGN_UP",payload:""})}
+                    <button type="submit"
                         className="cursor bg-red-7 text-color-0 text-xm outline-none border-none pd-x-11 pd-y-3 rounded-xs wt-100">Sign
                         Up</button>
                 </div>
