@@ -55,10 +55,7 @@ return (
 
                 </div>
                 <div className="wt-100">
-                    <button type="submit" onClick={(e)=>{
-                        e.preventDefault();
-                        fetchLoginDetails("adarshbalika@gmail.com","adarshbalika")
-                        }}
+                    <button type="submit"
                         className="cursor bg-red-7 text-color-0 text-xm outline-none border-none pd-x-11 pd-y-3
                         rounded-xs wt-100">Login</button>
                 </div>

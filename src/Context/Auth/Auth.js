@@ -30,7 +30,7 @@ const fetchLoginDetails = async (email,password) => {
     
     localStorage.setItem("token", response.data.encodedToken);
     localStorage.getItem("token", response.data.encodedToken)
-    
+    console.log(response.data.encodedToken)
      navigate("/");
   }  catch (error) {
     console.log(error);
