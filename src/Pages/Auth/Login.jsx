@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../Context/Auth/Auth";
 
+
+
 function Login() {
 
-const {fetchFooDetails} = useAuth();
+
+const {fetchLoginDetails} = useAuth();
 const [newClient,setNewClient] = useState({email:"",password:""})
 
-console.log(newClient)
+
 
 return (
 <>
@@ -22,12 +25,13 @@ return (
             </div>
             <form onSubmit={(e)=>{
                 e.preventDefault();
-                fetchFooDetails(newClient);
-            }}>
+                fetchLoginDetails(newClient.email,newClient.password)
+                ;
+
+                }}>
                 <div className=" bg-black-0 flex flex-column  m-t-8 wt-100 ">
                     <label for="" className="bg-white-0 "> Email address
-                        <input 
-                        onChange={(e)=>setNewClient({...newClient,email:e.target.value})}
+                        <input onChange={(e)=>setNewClient({...newClient,email:e.target.value})}
                         type="email"
                         placeholder="saketkumar@gmail.com"
                         className=" rounded-xs pd-3 wt-100 " />
@@ -35,11 +39,10 @@ return (
                 </div>
                 <div className="bg-black-0 flex  flex-column  m-y-4 wt-100">
                     <label for="" className="bg-white-0">Password</label>
-                    <input 
-                    onChange={(e)=>setNewClient({...newClient,password:e.target.value})}
-                    type="password" 
+                    <input onChange={(e)=>setNewClient({...newClient,password:e.target.value})}
+                    type="password"
                     placeholder="***************************"
-                    className="rounded-xs pd-3  wt-100" />
+                    className="rounded-xs pd-3 wt-100" />
                 </div>
                 <div className="flex  text-s m-y-4 justify-btw wt-100 flex-wrap">
                     <div className="flex items-center   ">
@@ -52,8 +55,12 @@ return (
 
                 </div>
                 <div className="wt-100">
-                    <button type="submit"
-                        className="cursor bg-red-7 text-color-0 text-xm outline-none border-none pd-x-11 pd-y-3 rounded-xs wt-100">Login</button>
+                    <button type="submit" onClick={(e)=>{
+                        e.preventDefault();
+                        fetchLoginDetails("adarshbalika@gmail.com","adarshbalika")
+                        }}
+                        className="cursor bg-red-7 text-color-0 text-xm outline-none border-none pd-x-11 pd-y-3
+                        rounded-xs wt-100">Login</button>
                 </div>
             </form>
             <div className="m-y-3">

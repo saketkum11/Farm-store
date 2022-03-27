@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Navbar from "../../Component/Navbar/Navbar";
 import { useAuth } from "../../Context/Auth/Auth";
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 
 function Signup() {
@@ -27,7 +27,7 @@ return (
                     
                     signupHandler(newClient);
                    
-                    navigate("/");
+                    navigate("/login");
                 }
                 } className=" box-shadow-1 m-auto m-y-11 wt-30 flex
                 flex-column items-center pd-8 ">

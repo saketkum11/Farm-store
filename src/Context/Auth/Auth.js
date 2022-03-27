@@ -2,27 +2,37 @@ import { createContext } from "react";
 import { useContext } from "react";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const AuthContext = createContext();
 const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({children})  => {
   const [loader,setLoader] = useState(false)
+  const navigate = useNavigate()
 
 
  /* login data */ 
 
 const encodedToken = localStorage.getItem("token");
-const [foo, setFoo] = useState([]);
-const fetchFooDetails = async (event) => {
-  try {
-    const response = await axios.get(`/api/user/private-route`, {
-      headers: {
-        authorization: encodedToken, // passing token as an authorization header
-      },
-    });
-    setFoo(response.data.bar);
-    console.log(response)
-  } catch (error) {
+const [login, setLogin] = useState([]);
+const fetchLoginDetails = async (email,password) => {
+  try{
+        
+    const response = await axios.post(`/api/auth/login`, 
+    
+    {
+     email,
+     password
+    }
+    );
+   
+    // saving the encodedToken in the localStorage
+    
+    localStorage.setItem("token", response.data.encodedToken);
+    localStorage.getItem("token", response.data.encodedToken)
+    
+     navigate("/");
+  }  catch (error) {
     console.log(error);
   }
 };
@@ -54,7 +64,7 @@ const fetchFooDetails = async (event) => {
     };
 
   
-   return(<AuthContext.Provider value={{signupHandler,loader,setLoader,fetchFooDetails}}>{children}</AuthContext.Provider>)
+   return(<AuthContext.Provider value={{signupHandler,loader,setLoader,fetchLoginDetails,login}}>{children}</AuthContext.Provider>)
 }
 
 export  {useAuth,AuthProvider}
