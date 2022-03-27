@@ -50,7 +50,8 @@ return (
                         <label for="">Remember me</label>
                     </div>
                     <div className="">
-                        <a href="#" className="text-dec color-red-7">Forgot your password?</a>
+                        <Link to="/forgot" className="text-dec color-red-7">Forgot your password?</Link>
+                       
                     </div>
 
                 </div>
