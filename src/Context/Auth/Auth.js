@@ -14,7 +14,7 @@ const AuthProvider = ({children})  => {
  /* login data */ 
 
 const encodedToken = localStorage.getItem("token");
-const [login, setLogin] = useState([]);
+
 const fetchLoginDetails = async (email,password) => {
   try{
         
@@ -29,8 +29,7 @@ const fetchLoginDetails = async (email,password) => {
     // saving the encodedToken in the localStorage
     
     localStorage.setItem("token", response.data.encodedToken);
-    localStorage.getItem("token", response.data.encodedToken)
-    console.log(response.data.encodedToken)
+    localStorage.getItem("token", response.data.encodedToken);
      navigate("/");
   }  catch (error) {
     console.log(error);

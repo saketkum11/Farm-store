@@ -8,8 +8,8 @@ import { useNavigate } from 'react-router-dom';
 function Signup() {
 const navigate = useNavigate();
 const {signupHandler,loader,setLoader} = useAuth();
-// show loading //
-//const [loader,setLoader] = useState(false);
+
+
 const [newClient,setNewClient] = useState({
            firstName:"",
            lastName:"",
