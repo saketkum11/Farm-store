@@ -10,8 +10,8 @@ export const products = [
     _id: uuid(),
     title: "You Can WIN",
     author: "Shiv Khera",
-    price: "5000",
-    categoryName: "non-fiction",
+    price: "250",
+    categoryName: "Fruit",
   },
   {
     _id: uuid(),
