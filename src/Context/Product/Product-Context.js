@@ -9,10 +9,17 @@ const useProduct = () => useContext(productContext);
 const ProductProvider = ({children})  => {
     const [items,setItems] = useState([])
   
-     useEffect(()=>{
-         const response = axios.get("/api/products");
-         setItems(response.data.products);
-         console.log(items)
+     useEffect(()=>{     
+             const productName = async () => {
+                 try {
+                     const response = await axios.get("/api/products")
+                     setItems(response.data.products)
+                     console.log(response.data.products)
+                 } catch (error) {
+                     console.log(error)
+                 }
+             }  
+
      },[])
          
    

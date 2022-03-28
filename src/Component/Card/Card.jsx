@@ -3,13 +3,12 @@ import { useProduct } from "../../Context/Product/Product-Context";
 
 
 function Card(){
-  const {items} = useProduct();
- //const clickHandler = () =>{
- //  console.log(items)
- //}
+const {items} = useProduct();
+ const clickHandler = () =>{
+ console.log(items)
+}
 return (<>
    
-   <div>{items.map((element)=><li>{items.title}</li>)}</div>
    
 
   <div className="wt-80 bg-black-2">
@@ -29,7 +28,7 @@ return (<>
           <div className=" flex flex-column items-center wt-100 ">
             <span className="text-xm text-light">Fruit</span>
             <small className="text-bold text-xm">₹250</small>
-            <button  className="wt-100 border-none cursor pd-y-3 m-t-5 text-color-0 bg-red-7 text-dec ">Added
+            <button onClick={clickHandler} className="wt-100 border-none cursor pd-y-3 m-t-5 text-color-0 bg-red-7 text-dec ">Added
               to cart</button>
           </div>
         </div>
