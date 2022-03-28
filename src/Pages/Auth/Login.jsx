@@ -30,24 +30,26 @@ return (
 
                 }}>
                 <div className=" bg-black-0 flex flex-column  m-t-8 wt-100 ">
-                    <label for="" className="bg-white-0 "> Email address
+                    <label for="email" className="bg-white-0 "> Email address
                         <input onChange={(e)=>setNewClient({...newClient,email:e.target.value})}
                         type="email"
                         placeholder="saketkumar@gmail.com"
-                        className=" rounded-xs pd-3 wt-100 " />
+                        className=" rounded-xs pd-3 wt-100 "
+                        id="email" />
                     </label>
                 </div>
                 <div className="bg-black-0 flex  flex-column  m-y-4 wt-100">
-                    <label for="" className="bg-white-0">Password</label>
+                    <label for="password" className="bg-white-0">Password</label>
                     <input onChange={(e)=>setNewClient({...newClient,password:e.target.value})}
                     type="password"
                     placeholder="***************************"
-                    className="rounded-xs pd-3 wt-100" />
+                    className="rounded-xs pd-3 wt-100" 
+                    id="password"/>
                 </div>
                 <div className="flex  text-s m-y-4 justify-btw wt-100 flex-wrap">
                     <div className="flex items-center   ">
-                        <input type="checkbox" className="m-x-2" name="" id="" />
-                        <label for="">Remember me</label>
+                        <input type="checkbox" className="m-x-2" name="" id="checkout" />
+                        <label for="checkout">Remember me</label>
                     </div>
                     <div className="">
                         <Link to="/forgot" className="text-dec color-red-7">Forgot your password?</Link>
