@@ -1,28 +1,23 @@
 import axios from "axios";
 import React ,{ createContext ,useContext,useEffect,useState } from "react";
 
-const ProductContext = createContext();
-const useProduct = () => useContext(ProductContext); 
+const productContext = createContext();
+const useProduct = () => useContext(productContext); 
 
 
 
 const ProductProvider = ({children})  => {
     const [items,setItems] = useState([])
-    useEffect(()=>{
+  
+     useEffect(()=>{
+         const response = axios.get("/api/products");
+         setItems(response.data.products);
+         console.log(items)
+     },[])
+         
+   
 
-        const productData = async() =>{
-            try {
-                const response = await axios.get("/api/products")
-                
-                setItems(response.data.product)
-                console.log(response.data.product);
-            } catch (error) {
-                console.log("error")
-            }
-        }
-    },[])
-
-    return(<ProductContext.Provider value={{items}}>{children}</ProductContext.Provider>)
+    return(<productContext.Provider value={{items}}>{children}</productContext.Provider>)
 }
 
 export {useProduct,ProductProvider};
