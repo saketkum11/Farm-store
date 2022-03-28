@@ -1,11 +1,7 @@
 import React from "react";
 import Navbar from "../../Component/Navbar/Navbar";
 import "./Product.css";
-import apple from "../../Assets/Apple.jpg"
-import egg from "../../Assets/Egg.jpg"
-import grain from "../../Assets/Grain.jpg"
-import guava from "../../Assets/Guava.jpg"
-import strawberri from "../../Assets/strawberri.jpg"
+
 function Product() {
 return (<>
 
