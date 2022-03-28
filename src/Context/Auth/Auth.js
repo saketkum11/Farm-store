@@ -63,7 +63,7 @@ const fetchLoginDetails = async (email,password) => {
     };
 
   
-   return(<AuthContext.Provider value={{signupHandler,loader,setLoader,fetchLoginDetails,login}}>{children}</AuthContext.Provider>)
+   return(<AuthContext.Provider value={{signupHandler,loader,setLoader,fetchLoginDetails}}>{children}</AuthContext.Provider>)
 }
 
 export  {useAuth,AuthProvider}
