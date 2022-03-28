@@ -126,4 +126,4 @@ return(<>
 </>)
 }
 
-export default Filter
+export default Filter;
