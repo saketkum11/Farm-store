@@ -18,18 +18,24 @@ return (<>
         <div className="pd-4 bg-black-3 ">
           <img src={product.imageSrc} className=" m-t-8 wt-100  rounded-m object-content" alt="have  no imgae" />
         </div>
-        <div className="wt-100 m-y-8 flex flex-column items-end">
+        <div className="wt-100 m-y-9 flex flex-column items-end">
           <div className=" flex flex-column items-start pd-x-2 wt-100 ">
             <span className="text-sm text-light">{product.title}</span>
             <small className=" text-sm">Rs.{product.price}</small>
             {product.inStock?<small className=" text-sm">inStock</small>:<small className=" text-sm">outofStock</small>}
+            <small className=" text-sm">{product.quantity}</small>
             <small className=" text-sm">{product.categoryName}</small>
             <small className=" text-sm">{product.rating}</small>
-           
+
           </div>
-          <button className="wt-100 border-none cursor pd-y-3 m-t-5 text-color-0 bg-black-8 text-dec ">Added
-              to cart</button>
+
         </div>
+        <div>
+          <button
+            className=" flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3  text-color-0 bg-black-8 text-dec ">Added
+            to cart</button>
+        </div>
+
       </div>
       )
       })}
