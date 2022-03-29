@@ -59,7 +59,7 @@ export const products = [
   },{
     _id: uuid(),
     title: "BoneLess chicken",
-    imageSrc: ["/Assets/products/chicken.jpg"],
+    imageSrc: ["/Assets/products/boneless.jpg"],
     price: 724,
     quantity: 1,
     inStock: true,
