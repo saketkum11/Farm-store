@@ -4,174 +4,37 @@ import { useProduct } from "../../Context/Product/Product-Context";
 
 function Card(){
 const {items} = useProduct();
- const clickHandler = () =>{
- console.log(items)
-}
 return (<>
-   
-   
-
   <div className="wt-80 bg-black-2">
-    <div className="grid product-content pd-3">
+    <div className="grid product-content pd-3">{items.map((product)=>{
 
-
+      return (
       <div className="flex flex-column bg-black-0 wt-100 position-rel">
 
         <div className="position-ab t-2 r-5">
-          <button  className="pd-x-3 bg-black-0 border-none pd-y-2 rounded-full cursor"><i
+          <button className="pd-x-3 bg-black-0 border-none pd-y-2 rounded-full cursor"><i
               className="fa-solid fa-heart color-red-7"></i></button>
         </div>
         <div className="pd-4 bg-black-3 ">
-          <img src="/css/image/Guava.jpg" className=" m-t-8 wt-100  rounded-m object-content" alt="" />
+          <img src={product.imageSrc} className=" m-t-8 wt-100  rounded-m object-content" alt="have  no imgae" />
         </div>
-        <div className="wt-100 m-t-8">
-          <div className=" flex flex-column items-center wt-100 ">
-            <span className="text-xm text-light">Fruit</span>
-            <small className="text-bold text-xm">₹250</small>
-            <button onClick={clickHandler} className="wt-100 border-none cursor pd-y-3 m-t-5 text-color-0 bg-red-7 text-dec ">Added
-              to cart</button>
+        <div className="wt-100 m-y-8 flex flex-column items-end">
+          <div className=" flex flex-column items-start pd-x-2 wt-100 ">
+            <span className="text-sm text-light">{product.title}</span>
+            <small className=" text-sm">Rs.{product.price}</small>
+            {product.inStock?<small className=" text-sm">inStock</small>:<small className=" text-sm">outofStock</small>}
+            <small className=" text-sm">{product.categoryName}</small>
+            <small className=" text-sm">{product.rating}</small>
+           
           </div>
+          <button className="wt-100 border-none cursor pd-y-3 m-t-5 text-color-0 bg-black-8 text-dec ">Added
+              to cart</button>
         </div>
       </div>
-
-      <div className="flex flex-column bg-black-0 wt-100 position-rel">
-
-        <div className="position-ab t-2 r-5">
-          <button className="pd-x-3 bg-black-0 border-none pd-y-2 rounded-full cursor"><i
-              className="fa-regular fa-heart color-red-7"></i></button>
-        </div>
-        <div className="pd-4 bg-black-3 ">
-          <img src="/css/image/Apple.jpg" className=" m-t-8 wt-100  rounded-m object-content" alt="" />
-        </div>
-        <div className="wt-100 m-t-8">
-          <div className=" flex flex-column items-center wt-100 ">
-            <span className="text-xm text-light">Fruit</span>
-            <small className="text-bold text-xm">₹250</small>
-            <button className="wt-100 border-none cursor pd-y-3 m-t-5 text-color-0 bg-black-5 text-dec ">Add
-              to cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-column bg-black-0 wt-100 position-rel">
-
-        <div className="position-ab t-2 r-5">
-          <button className="pd-x-3 bg-black-0 border-none pd-y-2 rounded-full cursor"><i
-              className="fa-regular fa-heart color-red-7"></i></button>
-        </div>
-        <div className="pd-4 bg-black-3 ">
-          <img src="/css/image/Apple.jpg" className=" m-t-8 wt-100  rounded-m object-content" alt="" />
-        </div>
-        <div className="wt-100 m-t-8">
-          <div className=" flex flex-column items-center wt-100 ">
-            <span className="text-xm text-light">Fruit</span>
-            <small className="text-bold text-xm">₹250</small>
-            <button className="wt-100 border-none cursor pd-y-3 m-t-5 text-color-0 bg-black-5 text-dec ">Add
-              to cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-column bg-black-0 wt-100 position-rel">
-
-        <div className="position-ab t-2 r-5">
-          <button className="pd-x-3 bg-black-0 border-none pd-y-2 rounded-full cursor"><i
-              className="fa-regular fa-heart color-red-7"></i></button>
-        </div>
-        <div className="pd-4 bg-black-3 ">
-          <img src="/css/image/strawberri.jpg" className=" m-t-8 wt-100  rounded-m object-content" alt="" />
-        </div>
-        <div className="wt-100 m-t-8">
-          <div className=" flex flex-column items-center wt-100 ">
-            <span className="text-xm text-light">Fruit</span>
-            <small className="text-bold text-xm">₹250</small>
-            <button className="wt-100 border-none cursor pd-y-3 m-t-5 text-color-0 bg-black-5 text-dec ">Add
-              to cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-column bg-black-0 wt-100 position-rel">
-
-        <div className="position-ab t-2 r-5">
-          <button className="pd-x-3 bg-black-0 border-none pd-y-2 rounded-full cursor"><i
-              className="fa-regular fa-heart color-red-7"></i></button>
-        </div>
-        <div className="pd-4 bg-black-3  ">
-          <img src="/css/image/strawberri.jpg" className=" m-t-8 wt-100 rounded-m object-content" alt="" />
-        </div>
-        <div className="wt-100 m-t-8">
-          <div className=" flex flex-column items-center wt-100 ">
-            <span className="text-xm text-light">Fruit</span>
-            <small className="text-bold text-xm">₹250</small>
-            <button className="wt-100 border-none cursor pd-y-3 m-t-5 text-color-0 bg-black-5 text-dec ">Add
-              to cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-column bg-black-0 wt-100 position-rel">
-
-        <div className="position-ab t-2 r-5">
-          <button className="pd-x-3 bg-black-0 border-none pd-y-2 rounded-full cursor"><i
-              className="fa-regular fa-heart color-red-7"></i></button>
-        </div>
-        <div className="pd-4 bg-black-3 ">
-          <img src="/css/image/strawberri.jpg" className=" m-t-8 wt-100  rounded-m object-content" alt="" />
-        </div>
-        <div className="wt-100 m-t-8">
-          <div className=" flex flex-column items-center wt-100 ">
-            <span className="text-xm text-light">Fruit</span>
-            <small className="text-bold text-xm">₹250</small>
-            <button className="wt-100 border-none cursor pd-y-3 m-t-5 text-color-0 bg-black-5 text-dec ">Add
-              to cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-column bg-black-0 wt-100 position-rel">
-
-        <div className="position-ab t-2 r-5">
-          <button className="pd-x-3 bg-black-0 border-none pd-y-2 rounded-full cursor"><i
-              className="fa-regular fa-heart color-red-7"></i></button>
-        </div>
-        <div className="pd-4 bg-black-3 ">
-          <img src="/css/image/strawberri.jpg" className=" m-t-8 wt-100  rounded-m object-content" alt="" />
-        </div>
-        <div className="wt-100 m-t-8">
-          <div className=" flex flex-column items-center wt-100 ">
-            <span className="text-xm text-light">Fruit</span>
-            <small className="text-bold text-xm">₹100</small>
-            <button className="wt-100 border-none cursor pd-y-3 m-t-5 text-color-0 bg-black-5 text-dec ">Add
-              to cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-column bg-black-0 wt-100 position-rel">
-
-        <div className="position-ab t-2 r-5">
-          <button className="pd-x-3 bg-black-0 border-none pd-y-2 rounded-full cursor"><i
-              className="fa-regular fa-heart color-red-7"></i></button>
-        </div>
-        <div className="pd-4 bg-black-3 ">
-          <img src="/css/image/Apple.jpg" className=" m-t-8 wt-100  rounded-m object-content" alt="" />
-        </div>
-        <div className="wt-100 m-t-8">
-          <div className=" flex flex-column items-center wt-100 ">
-            <span className="text-xm text-light">Fruit</span>
-            <small className="text-bold text-xm">₹250</small>
-            <button className="wt-100 border-none cursor pd-y-3 m-t-5 text-color-0 bg-black-5 text-dec ">Add
-              to cart</button>
-          </div>
-        </div>
-      </div>
+      )
+      })}
     </div>
-
-
   </div>
-
-
 </>)
 }
 

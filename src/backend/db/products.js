@@ -9,7 +9,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Cauliflower",
-    imageSrc: ["Assets/products/cauliflower"],
+    imageSrc: ["Assets/products/cauliflower.jpg"],
     price: 250,
     quantity: 1,
     inStock: true,
@@ -19,7 +19,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Green-Peas",
-    imageSrc: ["Assets/products/cauliflower"],
+    imageSrc: ["Assets/products/cauliflower.jpg"],
     price: 250,
     quantity: 1,
     inStock: true,
@@ -30,7 +30,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Sapodta",
-    imageSrc: ["Assets/products/cauliflower"],
+    imageSrc: ["Assets/products/cauliflower.jpg"],
     price: 96,
     quantity: 1,
     inStock: true,
@@ -40,7 +40,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Coconut",
-    imageSrc: ["Assets/products/cauliflower"],
+    imageSrc: ["Assets/products/cauliflower.jpg"],
     price: 23,
     quantity: 1,
     inStock: true,
@@ -50,7 +50,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Egg",
-    imageSrc: ["Assets/products/cauliflower"],
+    imageSrc: ["Assets/products/cauliflower.jpg"],
     price: 210,
     quantity: 30,
     inStock: true,
@@ -59,7 +59,7 @@ export const products = [
   },{
     _id: uuid(),
     title: "BoneLess chicken",
-    imageSrc: ["Assets/products/cauliflower"],
+    imageSrc: ["src/Assets/products/cauliflower.jpg"],
     price: 724,
     quantity: 1,
     inStock: true,
@@ -69,7 +69,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Wheat Sharbati",
-    imageSrc: ["Assets/products/cauliflower"],
+    imageSrc: ["Assets/products/cauliflower.jpg"],
     price: 57,
     quantity: 1,
     inStock: true,
@@ -78,7 +78,7 @@ export const products = [
   },{
     _id: uuid(),
     title: "Salt",
-    imageSrc: ["Assets/products/cauliflower"],
+    imageSrc: ["Assets/products/cauliflower.jpg"],
     price: 36,
     quantity: 1,
     inStock: true,
