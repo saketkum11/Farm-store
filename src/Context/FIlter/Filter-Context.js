@@ -35,7 +35,7 @@ const FilterProvider =  ({children}) => {
         }
     }
 
-    const sortedData = getSortedData(items,)
+    const sortedData = getSortedData(items)
         
     console.log("state",state)
 
