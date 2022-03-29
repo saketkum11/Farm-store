@@ -6,7 +6,7 @@ import { makeServer } from "./server";
 import {BrowserRouter} from "react-router-dom"
 import { AuthProvider } from "./Context/Auth/Auth";
 import { ProductProvider } from "./Context/Product/Product-Context";
-import { FilterProvider } from "./Context/FIlter/Filter-Context";
+import { FilterProvider } from "./Context/Filter/Filter-Context";
 
 // Call make Server
 makeServer();

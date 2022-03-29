@@ -7,10 +7,12 @@ const useFilter = () => useContext(filterContext);
 
 
 const FilterProvider =  ({children}) => {
-    const [filter,setFilter] =  useState();
-    const {items} = useProduct()
+    const [filter,setFilter] =  useState("Hey saket great work yr");
+    const {items} = useProduct();
 
-    return(<filterContext.Provider value={{}}>{children}</filterContext.Provider>)
+    console.log("saksdkj",filter)
+
+    return(<filterContext.Provider value={{filter}}>{children}</filterContext.Provider>)
 }
 
 export {FilterProvider,useFilter};

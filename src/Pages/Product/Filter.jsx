@@ -1,7 +1,12 @@
 import React from "react";
-import { useFilter } from "."
+import { useFilter } from "../../Context/Filter/Filter-Context";
+import { useProduct } from "../../Context/Product/Product-Context";
+
 
 function Filter(){
+    const {filter} = useFilter();
+    const {items} = useProduct();
+    
 return(<>
 
     <aside className="wt-20 h-vh-100 bg-black-2 text-color-9 position-fixed t-0">
@@ -12,7 +17,7 @@ return(<>
                     <span>Filter</span>
                 </div>
                 <div className="text-s text-bold ">
-                    <button className=" cursor">clear</button>
+                    <button  className=" cursor">clear</button>
                 </div>
             </div>
 
