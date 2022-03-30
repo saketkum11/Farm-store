@@ -7,35 +7,45 @@ const filterContext = createContext(null)
 const useFilter = () => useContext(filterContext);
 
 const FilterProvider =  ({children}) => {
-    const [filter,setFilter] =  useState("Hey saket great work yr");
+    const [filter,setFilter] =  useState();
     const {items} = useProduct();
 
-    const reducerFunction = (state,action) => {
+    const filterReducer = (state,action) => {
         switch (action.type) {
             case "SORT": {
                return {
                   ...state,sortBy:action.payload
                 }
             }
+            case "":
                 
-                break;
+             
         
             default:
                 break;
         }
     }
     
-    const [state,dispatch] = useReducer( reducerFunction,
+    const [state,dispatch] = useReducer( filterReducer,
         
-        {inventoryAll:true,sort:null,inventoryFilter:false})
-       
-    function getSortedData(productList,state){
-        if(state.sortBy && sortBy === "PRICE_LOW_TO_HIGH"){
-                 console.log(productList.sort((a,b)=>a.price-b.price))
-        }
-    }
+        {
+        inventoryAll:true,
+        sortBy:null,
+        inventoryFilter:false,
+        })
+   
+   const getSortedData = (productList, sortBy ) =>{
 
-    const sortedData = getSortedData(items)
+       if(sortBy && sortBy === "PRICE_LOW_TO_HIGH"){
+           return productList.sort((a,b)=>a.price-b.price)
+       }
+       if(sortBy && sortBy === "PRICE_HIGH_TO_LOW") {
+           return productList.sort((a,b)=>b["price"]-a["price"])
+       }
+
+   } 
+
+    const sortedData = getSortedData(items,state.sortBy);
         
     console.log("state",state)
 

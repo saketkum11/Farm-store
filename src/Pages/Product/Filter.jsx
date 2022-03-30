@@ -4,7 +4,7 @@ import { useProduct } from "../../Context/Product/Product-Context";
 
 
 function Filter(){
-    const {filter,dispatch} = useFilter();
+    const {filter,state,dispatch} = useFilter();
     const {items} = useProduct();
     
 return(<>
@@ -112,13 +112,21 @@ return(<>
                 </div>
                 <div>
                     <div>
-                        <label for="">
-                            <input type="radio" name="price" onChange={()=>dispatch({type:"SORT",payload:"PRICE_LOW_TO_HIGH"})} id="" />
+                        <label for="LOW_TO_HIGH">
+                            <input 
+                            type="radio" 
+                            name="price" 
+                            onChange={()=>dispatch({type:"SORT",payload:"PRICE_LOW_TO_HIGH"})} 
+                            checked={ state.sortby && state.sortby==="PRICE_LOW_TO_HIGH"} id="LOW_TO_HIGH" />
                             Price - Low to High</label>
                     </div>
                     <div>
-                        <label>
-                            <input type="radio" onChange={()=>dispatch({type:"SORT",payload:"PRICE_HIGH_TO_LOW"})} name="price" id="" />
+                        <label for="High_TO_LOW">
+                            <input 
+                            type="radio" 
+                            onChange={()=>dispatch({type:"SORT",payload:"PRICE_HIGH_TO_LOW"})} 
+                            name="price" 
+                            id="High_TO_LOW" />
                             Price - High to Low</label>
                     </div>
                 </div>
