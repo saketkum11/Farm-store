@@ -1,31 +1,33 @@
 import React from "react";
+import { useFilter } from "../../Context/Filter/Filter-Context";
 import { useProduct } from "../../Context/Product/Product-Context";
 
 
 function Card(){
 const {items} = useProduct();
+const {sortedData} = useFilter();
 return (<>
   <div className="wt-80 bg-black-2">
-    <div className="grid product-content pd-3">{items.map((product)=>{
+    <div className="grid product-content pd-3">{sortedData.map(({id,imageSrc,price,categoryName,title,quantity,rating,inStock})=>{
 
       return (
-      <div className="flex flex-column bg-black-0 wt-100 position-rel">
+      <div key={id} className="flex flex-column bg-black-0 wt-100 position-rel">
 
         <div className="position-ab t-2 r-5">
           <button className="pd-x-3 bg-black-0 border-none pd-y-2 rounded-full cursor"><i
               className="fa-solid fa-heart color-red-7"></i></button>
         </div>
         <div className="pd-4 bg-black-3 ">
-          <img src={product.imageSrc} className=" m-t-8 wt-100  rounded-m object-content" alt="have  no imgae" />
+          <img src={imageSrc} className=" m-t-8 wt-100  rounded-m object-content" alt="have  no imgae" />
         </div>
         <div className="wt-100 m-y-9 flex flex-column items-end">
           <div className=" flex flex-column items-start pd-x-2 wt-100 ">
-            <span className="text-sm text-light">{product.title}</span>
-            <small className=" text-sm">Rs.{product.price}</small>
-            {product.inStock?<small className=" text-sm">inStock</small>:<small className=" text-sm">outofStock</small>}
-            <small className=" text-sm">{product.quantity}</small>
-            <small className=" text-sm">{product.categoryName}</small>
-            <small className=" text-sm">{product.rating}</small>
+            <span className="text-sm text-light">{title}</span>
+            <small className=" text-sm">Rs.{price}</small>
+            {inStock?<small className=" text-sm">inStock</small>:<small className=" text-sm">outofStock</small>}
+            <small className=" text-sm">{quantity}</small>
+            <small className=" text-sm">{categoryName}</small>
+            <small className=" text-sm">{rating}</small>
 
           </div>
 

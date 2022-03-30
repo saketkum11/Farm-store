@@ -4,10 +4,12 @@ import { useProduct } from "../../Context/Product/Product-Context";
 
 
 function Filter(){
-    const {filter,state,dispatch} = useFilter();
-    const {items} = useProduct();
-    
+const {state,dispatch,showCategoryInventory} = useFilter();
+const {items} = useProduct();
+
 return(<>
+
+   
 
     <aside className="wt-20 h-vh-100 bg-black-2 text-color-9 position-fixed t-0">
         <div className="flex flex-column items-start h-100 pd-8 ">
@@ -17,7 +19,7 @@ return(<>
                     <span>Filter</span>
                 </div>
                 <div className="text-s text-bold ">
-                    <button  className=" cursor">clear</button>
+                    <button className=" cursor">clear</button>
                 </div>
             </div>
 
@@ -48,22 +50,39 @@ return(<>
                 <div>
                     <div className="">
                         <label for="">
-                            <input type="checkbox" name="" id="" />
+                            <input
+                            checked={showCategoryInventory} 
+                            onChange={()=>dispatch({type:"INVENTORY",payload:"fruit"})}
+                            type="checkbox" 
+                            name="fruit" 
+                            id="fruitName" />
                             Fruits</label>
                     </div>
                     <div>
                         <label for="">
-                            <input type="checkbox" name="" id="" />
+                            <input 
+                            onChange={()=>dispatch({type:"INVENTORY",payload:"grain"})}
+                            type="checkbox" 
+                            name="" 
+                            id="" />
                             Grains</label>
                     </div>
                     <div>
                         <label for="">
-                            <input type="checkbox" name="" id="" />
+                            <input 
+                            onChange={()=>dispatch({type:"INVENTORY",payload:"egg and meat"})}
+                            type="checkbox" 
+                            name="" 
+                            id="" />
                             Egg & Meat</label>
                     </div>
                     <div>
                         <label for="">
-                            <input type="checkbox" name="" id="" />
+                            <input 
+                            onChange={()=>dispatch({type:"INVENTORY",payload:"vegetable"})}
+                            type="checkbox" 
+                            name="" 
+                            id="" />
                             Vegetables</label>
                     </div>
                 </div>
@@ -113,19 +132,16 @@ return(<>
                 <div>
                     <div>
                         <label for="LOW_TO_HIGH">
-                            <input 
-                            type="radio" 
-                            name="price" 
-                            onChange={()=>dispatch({type:"SORT",payload:"PRICE_LOW_TO_HIGH"})} 
-                            checked={ state.sortby && state.sortby==="PRICE_LOW_TO_HIGH"} id="LOW_TO_HIGH" />
+                            <input type="radio" name="price"
+                                onChange={()=>dispatch({type:"SORT",payload:"PRICE_LOW_TO_HIGH"})}
+                            checked={ state.sortBy && state.sortBy==="PRICE_LOW_TO_HIGH"} id="LOW_TO_HIGH" />
                             Price - Low to High</label>
                     </div>
                     <div>
                         <label for="High_TO_LOW">
-                            <input 
-                            type="radio" 
-                            onChange={()=>dispatch({type:"SORT",payload:"PRICE_HIGH_TO_LOW"})} 
-                            name="price" 
+                            <input type="radio" onChange={()=>dispatch({type:"SORT",payload:"PRICE_HIGH_TO_LOW"})}
+                            name="price"
+                            checked={state.sortBy && state.sortBy === "PRICE_HIGH_TO_LOW" }
                             id="High_TO_LOW" />
                             Price - High to Low</label>
                     </div>

@@ -55,7 +55,7 @@ export const products = [
     quantity: 30,
     inStock: true,
     rating: 1,
-    categoryName: "egg & meat",
+    categoryName: "egg and meat",
   },{
     _id: uuid(),
     title: "BoneLess chicken",
@@ -64,7 +64,7 @@ export const products = [
     quantity: 1,
     inStock: true,
     rating: 1,
-    categoryName: "egg & meat",
+    categoryName: "egg and meat",
   },
   {
     _id: uuid(),
