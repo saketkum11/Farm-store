@@ -19,7 +19,7 @@ const FilterProvider =  ({children}) => {
             }
             case "INVENTORY":
               return {
-                  ...state,showCategoryInventory:state.showCategoryInventory.includes(action.payload)? state.showCategoryInventory.filter((value)=>{value !== action.payload}):null
+                  ...state,showCategoryInventory:state.showCategoryInventory + action.payload
               }
             default:
                 break;
@@ -29,7 +29,7 @@ const FilterProvider =  ({children}) => {
     const [state,dispatch] = useReducer( filterReducer,
         
         {
-         showCategoryInventory:{},
+         showCategoryInventory:[],
          sortBy:null,
         })
    
@@ -50,10 +50,13 @@ const FilterProvider =  ({children}) => {
 
    const getFiltered = (data,state) => {
 
-   // console.log("data",data)
+    data.filter((product)=>{
+
+      
+    })
 
    }
-   console.log("initial value",state)
+   console.log("initicail",state)
    
     const sortedData = getSortedData(items,state.sortBy);
     const filteredData = getFiltered(sortedData,state);
