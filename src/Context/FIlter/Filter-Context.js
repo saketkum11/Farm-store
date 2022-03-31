@@ -25,7 +25,7 @@ const FilterProvider =  ({children}) => {
     
     useEffect(()=>{console.log(state);
     },[])
-  
+    
 
     return(<filterContext.Provider value={{state,dispatch,items}}>{children}</filterContext.Provider>)
 }
