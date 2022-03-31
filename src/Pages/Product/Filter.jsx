@@ -4,7 +4,7 @@ import { useProduct } from "../../Context/Product/Product-Context";
 
 
 function Filter(){
-const {state,dispatch,showCategoryInventory} = useFilter();
+const {state,dispatch} = useFilter();
 const {items} = useProduct();
 
 return(<>
@@ -51,7 +51,7 @@ return(<>
                     <div className="">
                         <label for="">
                             <input
-                            checked={showCategoryInventory} 
+                            
                             onChange={()=>dispatch({type:"INVENTORY",payload:"fruit"})}
                             type="checkbox" 
                             name="fruit" 
