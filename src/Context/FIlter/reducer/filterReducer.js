@@ -1,12 +1,10 @@
-import { useFilter } from "../Filter-Context";
 
-const {state,dispatch} = useFilter();
+const filterReducer = (state,{type,payload}) => {
 
-const filterReducer = (state,action) => {
-
-       switch (action.type) {
+       switch (type) {
            case "SORT":
-               
+               console.log({...state,showSort:payload})
+               productSort(state,showSort)
                break;
        
            default:

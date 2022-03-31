@@ -134,14 +134,14 @@ return(<>
                         <label for="LOW_TO_HIGH">
                             <input type="radio" name="price"
                                 onChange={()=>dispatch({type:"SORT",payload:"PRICE_LOW_TO_HIGH"})}
-                            checked={ state.sortBy && state.sortBy==="PRICE_LOW_TO_HIGH"} id="LOW_TO_HIGH" />
+                           id="LOW_TO_HIGH" />
                             Price - Low to High</label>
                     </div>
                     <div>
                         <label for="High_TO_LOW">
                             <input type="radio" onChange={()=>dispatch({type:"SORT",payload:"PRICE_HIGH_TO_LOW"})}
                             name="price"
-                            checked={state.sortBy && state.sortBy === "PRICE_HIGH_TO_LOW" }
+                           
                             id="High_TO_LOW" />
                             Price - High to Low</label>
                     </div>
