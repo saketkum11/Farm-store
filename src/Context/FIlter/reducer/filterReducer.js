@@ -2,6 +2,8 @@
 
 const filterReducer = (state,{type,payload}) => {
 
+    const {grain,eggAndMeat,vegetable,fruit} = state.showCategoryInventory;
+
        switch (type) {
            case "SORT":
               return {
@@ -11,14 +13,22 @@ const filterReducer = (state,{type,payload}) => {
               return {
                   ...state,showRating:payload
               }  
-            case "INVENTORY":
+            case "GRAIN":
                 return{
-                       ...state,showCategoryInventory:payload
+                       ...state,showCategoryInventory:{...state.showCategoryInventory,grain:!grain}
                 }
-             case "RANGE":
-                 return{
-                     ...state,maxPrice:payload
-                 }   
+             case "FRUIT":
+                return{
+                    ...state,showCategoryInventory:{...state.showCategoryInventory,fruit:!fruit}
+             }  
+             case "EGGANDMEAT":
+                return{
+                    ...state,showCategoryInventory:{...state.showCategoryInventory,eggAndMeat:!eggAndMeat}
+             }  
+             case "VEGETABLE":
+                return{
+                    ...state,showCategoryInventory:{...state.showCategoryInventory,vegetable:!vegetable}
+             } 
            default:
                return {
                    showRating:null,

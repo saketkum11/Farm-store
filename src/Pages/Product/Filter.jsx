@@ -52,7 +52,7 @@ return(<>
                         <label for="">
                             <input
                             
-                            onChange={()=>dispatch({type:"INVENTORY",payload:"fruit"})}
+                            onChange={()=>dispatch({type:"FRUIT",payload:"fruit"})}
                             type="checkbox" 
                             name="fruit" 
                             id="fruitName" />
@@ -61,7 +61,7 @@ return(<>
                     <div>
                         <label for="">
                             <input 
-                            onChange={()=>dispatch({type:"INVENTORY",payload:"grain"})}
+                            onChange={()=>dispatch({type:"GRAIN"})}
                             type="checkbox" 
                             name="" 
                             id="" />
@@ -70,7 +70,7 @@ return(<>
                     <div>
                         <label for="">
                             <input 
-                            onChange={()=>dispatch({type:"INVENTORY",payload:"egg and meat"})}
+                            onChange={()=>dispatch({type:"EGGANDMEAT",payload:"egg and meat"})}
                             type="checkbox" 
                             name="" 
                             id="" />
@@ -79,7 +79,7 @@ return(<>
                     <div>
                         <label for="">
                             <input 
-                            onChange={()=>dispatch({type:"INVENTORY",payload:"vegetable"})}
+                            onChange={()=>dispatch({type:"VEGETABLE",payload:"vegetable"})}
                             type="checkbox" 
                             name="" 
                             id="" />
