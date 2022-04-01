@@ -39,6 +39,8 @@ const FilterProvider =  ({children}) => {
  
    const getFilteredData = (sortedData,fruit,vegetable,eggAndMeat,grain)=>{
 
+    
+
     if(state.showCategoryInventory.grain === true){
         return sortedData.filter((product)=> product.categoryName === "grain")
     }
