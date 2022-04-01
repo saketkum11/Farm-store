@@ -2,10 +2,11 @@
 import React  from "react";
 import { createContext, useContext ,useReducer} from "react";
 
+
 import { useProduct } from "../Product/Product-Context";
 import { getSortedData } from "./getSortedData";
 import filterReducer from "./reducer/filterReducer";
-//import { sortData,FilterCategoryData,FilterPriceData,FilterRatingData,compose} from "../../utilities/filterUtilities";
+
 
 
 const filterContext = createContext()
@@ -21,7 +22,7 @@ const FilterProvider =  ({children}) => {
                                 eggAndMeat:false,
                                 grain:false},
         showSort:null,
-        showRating:null,
+        showRating:0,
         maxPrice:null,
 
     }
@@ -44,6 +45,9 @@ const FilterProvider =  ({children}) => {
     const getVegetable = [];
     const getEggAndMeat = [];
 
+    if(grain && fruit && eggAndMeat && vegetable){
+        return sortedData;
+    }
     if(grain === true){
        getFruit = sortedData.filter((product)=> product.categoryName === "grain")
     }
@@ -60,18 +64,22 @@ const FilterProvider =  ({children}) => {
            ...getFruit,
            ...getEggAndMeat,
            ...getGrain,
-           ...getVegetable
-       }
+           ...getVegetable,
+     }
    }
-   console.log(getFilteredData);
+  const getSortRating = (filteredData,showRating)=> {
+      
+        if(showRating === 4){
+            /*return*/ console.log(filteredData.filter((product)=> product.rating >= 4 ))
+        }
+      
+  }
     
-   const sortedData = getSortedData(items,state);
-   const filtedData = getFilteredData(sortedData,fruit,vegetable,eggAndMeat,grain);
-    // const data = compose(state,items,sortData,FilterCategoryData,FilterPriceData,FilterRatingData);
-    
-
-
-
-    return(<filterContext.Provider value={{state,dispatch,sortedData,filtedData}}>{children}</filterContext.Provider>)
+  const filteredData = getFilteredData(items,fruit,vegetable,eggAndMeat,grain);
+   const sortedData = getSortedData(filteredData,state);
+   const sortRating = getSortRating(filteredData,showRating)
+   console.log(state)
+  
+    return(<filterContext.Provider value={{state,dispatch,sortedData,filteredData}}>{children}</filterContext.Provider>)
 }
 export {FilterProvider,useFilter};

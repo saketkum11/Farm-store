@@ -5,7 +5,7 @@ import { useProduct } from "../../Context/Product/Product-Context";
 
 
 function Card(){
-const {sortedData,filtedData} = useFilter();
+const {sortedData,filteredData} = useFilter();
 const {items} = useProduct()
 return (<>
   <div className="wt-80 bg-black-2">

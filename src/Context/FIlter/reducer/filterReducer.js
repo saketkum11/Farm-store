@@ -29,6 +29,22 @@ const filterReducer = (state,{type,payload}) => {
                 return{
                     ...state,showCategoryInventory:{...state.showCategoryInventory,vegetable:!vegetable}
              } 
+             case "ONE_STAR":
+                 return {
+                     ...state,showRating:payload
+                 }
+             case "TWO_STAR":
+                 return {
+                     ...state,showRating:payload
+                 }
+             case "THREE_STAR":
+                 return {
+                      ...state,showRating:payload
+                    }  
+             case "FOUR_STAR":
+                 return {
+                         ...state,showRating:payload
+                        } 
            default:
                return {
                    showRating:null,

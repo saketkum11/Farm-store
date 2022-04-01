@@ -51,7 +51,7 @@ return(<>
                     <div className="">
                         <label for="">
                             <input
-                            
+                            checked={state.showCategoryInventory.fruit === true}
                             onChange={()=>dispatch({type:"FRUIT",payload:"fruit"})}
                             type="checkbox" 
                             name="fruit" 
@@ -61,6 +61,7 @@ return(<>
                     <div>
                         <label for="">
                             <input 
+                             checked={state.showCategoryInventory.grain === true}
                             onChange={()=>dispatch({type:"GRAIN"})}
                             type="checkbox" 
                             name="" 
@@ -70,6 +71,7 @@ return(<>
                     <div>
                         <label for="">
                             <input 
+                             checked={state.showCategoryInventory.eggAndMeat===true}
                             onChange={()=>dispatch({type:"EGGANDMEAT",payload:"egg and meat"})}
                             type="checkbox" 
                             name="" 
@@ -79,6 +81,7 @@ return(<>
                     <div>
                         <label for="">
                             <input 
+                             checked={state.showCategoryInventory.vegetable === true}
                             onChange={()=>dispatch({type:"VEGETABLE",payload:"vegetable"})}
                             type="checkbox" 
                             name="" 
@@ -98,34 +101,34 @@ return(<>
                     <div>
                         <label for="">
                             <input type="radio"
-                            onChange={()=>dispatch({type:"RATING",payload:"FOUR_STAR"})}
+                            onChange={()=>dispatch({type:"FOUR_STAR",payload:4})}
                             name="rating" id="" />
                             4 stars & above</label>
                     </div>
                     <div>
                         <label for="">
                             <input type="radio" 
-                            onChange={()=>dispatch({type:"RATING",payload:"THREE_STAR"})}
+                            onChange={()=>dispatch({type:"THREE_STAR",payload:3})}
                             name="rating" id="" />
                             3 stars & above</label>
                     </div>
                     <div>
                         <label for="">
                             <input 
-                            onChange={()=>dispatch({type:"RATING",payload:"TWO_STAR"})}
+                            onChange={()=>dispatch({type:"TWO_STAR",payload:2})}
                             type="radio" name="rating" id="" />
                             2 stars & above</label>
                     </div>
                     <div>
                         <label for="">
                             <input 
-                            onChange={()=>dispatch({type:"RATING",payload:"ONE_STAR"})}
+                            onChange={()=>dispatch({type:"ONE_STAR",payload:1})}
                             type="radio" name="rating" id="" />
                             1 stars & above</label>
                     </div>
                     <div>
                         <label for="">
-                            <input type="radio" onChange={()=>dispatch({type:"RATING",payload:"ZERO_STAR"})} name="rating" id="" />
+                            <input type="radio" onChange={()=>dispatch({type:"ZERO_STAR",payload:0})} name="rating" id="" />
                             0 stars & above</label>
                     </div>
 
