@@ -14,7 +14,7 @@ function filterRatingData(){
 
 }
 
-
+ compose(state,data,sortData,filterCategoryData,filterPriceData,filterRatingData);
 
 
 export {sortData,filterCategoryData,filterPriceData,filterRatingData}
