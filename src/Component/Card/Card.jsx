@@ -3,9 +3,10 @@ import { useFilter } from "../../Context/Filter/Filter-Context";
 import { useProduct } from "../../Context/Product/Product-Context";
 
 
+
 function Card(){
-const {items} = useProduct();
-const {sortedData} = useFilter();
+const {data} = useFilter();
+const {items} = useProduct()
 return (<>
   <div className="wt-80 bg-black-2">
     <div className="grid product-content pd-3">{items.map(({id,imageSrc,price,categoryName,title,quantity,rating,inStock})=>{

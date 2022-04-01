@@ -35,7 +35,7 @@ return(<>
                     <span>100</span>
                 </div>
                 <div className="wt-100">
-                    <input type="range" name="" className="wt-100" id="" />
+                    <input type="range" onChange={(e)=>dispatch({type:"RANGE",payload:e.target.value})} name="" className="wt-100" id="" />
                 </div>
             </div>
 
@@ -97,27 +97,35 @@ return(<>
                 <div>
                     <div>
                         <label for="">
-                            <input type="radio" name="rating" id="" />
+                            <input type="radio"
+                            onChange={()=>dispatch({type:"RATING",payload:"FOUR_STAR"})}
+                            name="rating" id="" />
                             4 stars & above</label>
                     </div>
                     <div>
                         <label for="">
-                            <input type="radio" name="rating" id="" />
+                            <input type="radio" 
+                            onChange={()=>dispatch({type:"RATING",payload:"THREE_STAR"})}
+                            name="rating" id="" />
                             3 stars & above</label>
                     </div>
                     <div>
                         <label for="">
-                            <input type="radio" name="rating" id="" />
+                            <input 
+                            onChange={()=>dispatch({type:"RATING",payload:"TWO_STAR"})}
+                            type="radio" name="rating" id="" />
                             2 stars & above</label>
                     </div>
                     <div>
                         <label for="">
-                            <input type="radio" name="rating" id="" />
+                            <input 
+                            onChange={()=>dispatch({type:"RATING",payload:"ONE_STAR"})}
+                            type="radio" name="rating" id="" />
                             1 stars & above</label>
                     </div>
                     <div>
                         <label for="">
-                            <input type="radio" name="rating" id="" />
+                            <input type="radio" onChange={()=>dispatch({type:"RATING",payload:"ZERO_STAR"})} name="rating" id="" />
                             0 stars & above</label>
                     </div>
 
@@ -133,13 +141,16 @@ return(<>
                     <div>
                         <label for="LOW_TO_HIGH">
                             <input type="radio" name="price"
+                                checked={state.showSort === "PRICE_LOW_TO_HIGH"}
                                 onChange={()=>dispatch({type:"SORT",payload:"PRICE_LOW_TO_HIGH"})}
                            id="LOW_TO_HIGH" />
                             Price - Low to High</label>
                     </div>
                     <div>
                         <label for="High_TO_LOW">
-                            <input type="radio" onChange={()=>dispatch({type:"SORT",payload:"PRICE_HIGH_TO_LOW"})}
+                            <input type="radio" 
+                            checked={state.showSort === "PRICE_HIGH_TO_LOW"}
+                            onChange={()=>dispatch({type:"SORT",payload:"PRICE_HIGH_TO_LOW"})}
                             name="price"
                            
                             id="High_TO_LOW" />

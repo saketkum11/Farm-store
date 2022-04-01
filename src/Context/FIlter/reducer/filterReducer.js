@@ -1,14 +1,31 @@
-import { sortData,filterCategoryData,filterPriceData,filterRatingData } from "../../../utilities/filterUtilities";
+
 
 const filterReducer = (state,{type,payload}) => {
 
        switch (type) {
            case "SORT":
-              return 
-               
-       
+              return {
+                   ...state,showSort:payload
+              }
+             case "RATING":
+              return {
+                  ...state,showRating:payload
+              }  
+            case "INVENTORY":
+                return{
+                       ...state,showCategoryInventory:payload
+                }
+             case "RANGE":
+                 return{
+                     ...state,maxPrice:payload
+                 }   
            default:
-               break;
+               return {
+                   showRating:null,
+                   showSort:null,
+                   showCategoryInventory:[]
+                   
+               }
        }
 
 }
