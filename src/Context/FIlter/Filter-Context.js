@@ -39,26 +39,34 @@ const FilterProvider =  ({children}) => {
  
    const getFilteredData = (sortedData,fruit,vegetable,eggAndMeat,grain)=>{
 
-    
+    const getFruit = [];
+    const getGrain = [];
+    const getVegetable = [];
+    const getEggAndMeat = [];
 
-    if(state.showCategoryInventory.grain === true){
-        return sortedData.filter((product)=> product.categoryName === "grain")
+    if(grain === true){
+       getFruit = sortedData.filter((product)=> product.categoryName === "grain")
     }
-    if(state.showCategoryInventory.fruit === true){
-        return sortedData.filter((product)=> product.categoryName === "fruit")
+    if(fruit === true){
+        getGrain = sortedData.filter((product)=> product.categoryName === "fruit")
     }
-    if(state.showCategoryInventory.eggAndMeat === true){
-        return sortedData.filter((product)=> product.categoryName === "egg and meat")
+    if(eggAndMeat === true){
+       getEggAndMeat = sortedData.filter((product)=> product.categoryName === "egg and meat")
     }
-    if(state.showCategoryInventory.vegetable === true){
-        return sortedData.filter((product)=> product.categoryName === "vegetable")
+    if(vegetable === true){
+       getVegetable = sortedData.filter((product)=> product.categoryName === "vegetable")
     }
-       return sortedData
+       return {
+           ...getFruit,
+           ...getEggAndMeat,
+           ...getGrain,
+           ...getVegetable
+       }
    }
-   console.log(state);
+   console.log(getFilteredData);
     
    const sortedData = getSortedData(items,state);
-   const filtedData = getFilteredData(sortedData,state)
+   const filtedData = getFilteredData(sortedData,fruit,vegetable,eggAndMeat,grain);
     // const data = compose(state,items,sortData,FilterCategoryData,FilterPriceData,FilterRatingData);
     
 

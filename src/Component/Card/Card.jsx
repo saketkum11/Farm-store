@@ -9,7 +9,7 @@ const {sortedData,filtedData} = useFilter();
 const {items} = useProduct()
 return (<>
   <div className="wt-80 bg-black-2">
-    <div className="grid product-content pd-3">{filtedData.map(({id,imageSrc,price,categoryName,title,quantity,rating,inStock})=>{
+    <div className="grid product-content pd-3">{sortedData.map(({id,imageSrc,price,categoryName,title,quantity,rating,inStock})=>{
 
       return (
       <div key={id} className="flex flex-column bg-black-0 wt-100 position-rel">
