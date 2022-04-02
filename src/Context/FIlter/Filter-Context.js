@@ -54,7 +54,7 @@ const FilterProvider =  ({children}) => {
     let getGrain = [];
     let getVegetable = [];
     let getEggAndMeat = [];
-    let getFruitGrain = [];
+   
     
 
     if(!grain && !fruit && !eggAndMeat && !vegetable){
