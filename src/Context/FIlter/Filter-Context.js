@@ -2,8 +2,7 @@
 import React  from "react";
 import { createContext, useContext ,useReducer} from "react";
 import { useProduct } from "../Product/Product-Context";
-import { getSortedData } from "./getSortedData";
-import filterReducer from "./reducer/filterReducer";
+import filterReducer from "../../reducer/filterReducer";
 
 
 
@@ -36,6 +35,18 @@ const FilterProvider =  ({children}) => {
          showSort,
          maxPrice} = state;
 
+         const getSortedData = (items, state) => {
+
+            if (state.showSort === "PRICE_LOW_TO_HIGH") {
+                return items.sort((a, b) => a.price - b.price);
+            }
+            if (state.showSort === "PRICE_HIGH_TO_LOW") {
+                return items.sort((a, b) => b.price - a.price);
+            }
+        
+            return items;
+        
+        };
  
    const getFilteredData = (sortedData,fruit,vegetable,eggAndMeat,grain)=>{
 
