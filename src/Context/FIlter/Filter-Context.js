@@ -43,6 +43,8 @@ const FilterProvider =  ({children}) => {
     let getGrain = [];
     let getVegetable = [];
     let getEggAndMeat = [];
+    let getFruitGrain = [];
+    
 
     if(!grain && !fruit && !eggAndMeat && !vegetable){
         return sortedData;
@@ -59,6 +61,7 @@ const FilterProvider =  ({children}) => {
     if(vegetable === true){
        getVegetable = sortedData.filter((product)=> product.categoryName === "vegetable")
     }
+   
        return [
            ...getFruit,
            ...getEggAndMeat,

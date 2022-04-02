@@ -58,6 +58,7 @@ const filterReducer = (state,{type,payload}) => {
                       ...state,
                       showSort:null,
                       showRating:0,
+                      maxPrice:null,
                     showCategoryInventory:{
                         fruit:false,
                         grain:false,

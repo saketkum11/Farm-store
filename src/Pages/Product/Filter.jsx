@@ -34,7 +34,9 @@ return(<>
                    
                 </div>
                 <div className="wt-100">
-                    <input type="range"min={0} max={1000} onChange={(event)=>dispatch({type:"RANGE",payload:event.target.value})} name="" className="wt-100" id="" />
+                    <input type="range"min={0} max={1000}
+                    checked={state.maxPrice}
+                    onChange={(event)=>dispatch({type:"RANGE",payload:event.target.value})} name="" className="wt-100" id="" />
                 </div>
             </div>
 
