@@ -5,8 +5,8 @@ import { useProduct } from "../../Context/Product/Product-Context";
 
 
 function Card(){
-const {sortedData,filteredData,sortRating,sortPriceData} = useFilter();
-const {items} = useProduct()
+const {sortPriceData} = useFilter();
+
 return (<>
   <div className="wt-80 bg-black-2">
     <div className="grid product-content pd-3">{sortPriceData.map(({id,imageSrc,price,categoryName,title,quantity,rating,inStock})=>{
@@ -28,7 +28,7 @@ return (<>
             {inStock?<small className=" text-sm">inStock</small>:<small className=" text-sm">outofStock</small>}
             <small className=" text-sm">{quantity}</small>
             <small className=" text-sm">{categoryName}</small>
-            <small className=" text-sm">{rating}</small>
+            <small className=" text-sm">rating - {rating}/5</small>
 
           </div>
 

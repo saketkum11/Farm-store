@@ -19,7 +19,7 @@ return(<>
                     <span>Filter</span>
                 </div>
                 <div className="text-s text-bold ">
-                    <button className=" cursor">clear</button>
+                    <button className="cursor" onClick={()=>dispatch({type:"CLEAR"})}>clear</button>
                 </div>
             </div>
 
@@ -100,6 +100,7 @@ return(<>
                     <div>
                         <label for="">
                             <input type="radio"
+                            
                             onChange={()=>dispatch({type:"FOUR_STAR",payload:4})}
                             name="rating" id="" />
                             4 stars & above</label>
@@ -107,6 +108,7 @@ return(<>
                     <div>
                         <label for="">
                             <input type="radio" 
+                         
                             onChange={()=>dispatch({type:"THREE_STAR",payload:3})}
                             name="rating" id="" />
                             3 stars & above</label>
@@ -114,6 +116,7 @@ return(<>
                     <div>
                         <label for="">
                             <input 
+                            
                             onChange={()=>dispatch({type:"TWO_STAR",payload:2})}
                             type="radio" name="rating" id="" />
                             2 stars & above</label>
@@ -121,13 +124,16 @@ return(<>
                     <div>
                         <label for="">
                             <input 
+                          
                             onChange={()=>dispatch({type:"ONE_STAR",payload:1})}
                             type="radio" name="rating" id="" />
                             1 stars & above</label>
                     </div>
                     <div>
                         <label for="">
-                            <input type="radio" onChange={()=>dispatch({type:"ZERO_STAR",payload:0})} name="rating" id="" />
+                            <input type="radio"
+                            
+                            onChange={()=>dispatch({type:"ZERO_STAR",payload:0})} name="rating" id="" />
                             0 stars & above</label>
                     </div>
 

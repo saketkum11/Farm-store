@@ -49,10 +49,21 @@ const filterReducer = (state,{type,payload}) => {
                  return {
                           ...state,showRating:payload
                         } 
-                case "RANGE":
+              case "RANGE":
                     return{
                         ...state,maxPrice:payload
                     }
+              case "CLEAR":
+                  return {
+                      ...state,
+                      showSort:null,
+                      showRating:0,
+                    showCategoryInventory:{
+                        fruit:false,
+                        grain:false,
+                        vegetable:false,
+                        eggAndMeat:false
+                    }                  } 
                 
            default:
                return {

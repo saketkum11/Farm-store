@@ -1,8 +1,6 @@
 
 import React  from "react";
 import { createContext, useContext ,useReducer} from "react";
-
-
 import { useProduct } from "../Product/Product-Context";
 import { getSortedData } from "./getSortedData";
 import filterReducer from "./reducer/filterReducer";
@@ -23,7 +21,7 @@ const FilterProvider =  ({children}) => {
                                 eggAndMeat:false,
                                 grain:false},
         showSort:null,
-        showRating:0,
+        showRating:null,
         maxPrice:null,
 
     }
@@ -102,18 +100,15 @@ const FilterProvider =  ({children}) => {
 
   }
   const sortedData = getSortedData(items,state);
-  //console.log("sortedData",sortedData)
+  
   const filteredData = getFilteredData(sortedData,fruit,vegetable,eggAndMeat,grain);
-  // console.log("filtered",filteredData) 
+  
    const sortRating = getSortRating(filteredData,showRating);
-   // console.log("sortbyRating",sortRating)
+
    const sortPriceData = getPriceData(sortRating,maxPrice);
 
-   console.log("range product", sortPriceData)
-
-   console.log(state)
   
   
-    return(<filterContext.Provider value={{state,dispatch,sortedData,filteredData,sortRating,sortPriceData}}>{children}</filterContext.Provider>)
+    return(<filterContext.Provider value={{state,dispatch,sortPriceData}}>{children}</filterContext.Provider>)
 }
 export {FilterProvider,useFilter};
