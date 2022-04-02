@@ -8,9 +8,7 @@ const useProduct = () => useContext(productContext);
 
 
 const ProductProvider = ({children})  => {
-    const [items,setItems] = useState([])
-  
-    
+    const [items,setItems] = useState([])  
     useEffect(()=>{
         async function productName(){
         try {
@@ -22,16 +20,7 @@ const ProductProvider = ({children})  => {
         }
        
     } productName() },[])
-   
-
-     
-             
-
-    
-         
-   
-
-    return(<productContext.Provider value={{items}}>{children}</productContext.Provider>)
+    return(<productContext.Provider value={{items,setItems}}>{children}</productContext.Provider>)
 }
 
 export {useProduct,ProductProvider};

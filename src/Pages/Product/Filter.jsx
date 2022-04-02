@@ -5,7 +5,7 @@ import { useProduct } from "../../Context/Product/Product-Context";
 
 function Filter(){
 const {state,dispatch} = useFilter();
-const {items} = useProduct();
+
 
 return(<>
 
@@ -30,12 +30,11 @@ return(<>
                     <span>Price</span>
                 </div>
                 <div className="text-s text-bold wt-100 flex justify-btw">
-                    <span>0</span>
-                    <span>50</span>
-                    <span>100</span>
+                    <span>{state.maxPrice}0</span>
+                   
                 </div>
                 <div className="wt-100">
-                    <input type="range" onChange={(e)=>dispatch({type:"RANGE",payload:e.target.value})} name="" className="wt-100" id="" />
+                    <input type="range"min={0} max={1000} onChange={(event)=>dispatch({type:"RANGE",payload:event.target.value})} name="" className="wt-100" id="" />
                 </div>
             </div>
 
@@ -51,7 +50,7 @@ return(<>
                     <div className="">
                         <label for="">
                             <input
-                            checked={state.showCategoryInventory.fruit === true}
+                            checked={state.showCategoryInventory.fruit}
                             onChange={()=>dispatch({type:"FRUIT",payload:"fruit"})}
                             type="checkbox" 
                             name="fruit" 
@@ -61,8 +60,8 @@ return(<>
                     <div>
                         <label for="">
                             <input 
-                             checked={state.showCategoryInventory.grain === true}
-                            onChange={()=>dispatch({type:"GRAIN"})}
+                             checked={state.showCategoryInventory.grain }
+                            onChange={()=>dispatch({type:"GRAIN",payload:"grain"})}
                             type="checkbox" 
                             name="" 
                             id="" />
@@ -71,7 +70,7 @@ return(<>
                     <div>
                         <label for="">
                             <input 
-                             checked={state.showCategoryInventory.eggAndMeat===true}
+                             checked={state.showCategoryInventory.eggAndMeat}
                             onChange={()=>dispatch({type:"EGGANDMEAT",payload:"egg and meat"})}
                             type="checkbox" 
                             name="" 
@@ -81,7 +80,7 @@ return(<>
                     <div>
                         <label for="">
                             <input 
-                             checked={state.showCategoryInventory.vegetable === true}
+                             checked={state.showCategoryInventory.vegetable }
                             onChange={()=>dispatch({type:"VEGETABLE",payload:"vegetable"})}
                             type="checkbox" 
                             name="" 

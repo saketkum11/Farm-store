@@ -45,6 +45,15 @@ const filterReducer = (state,{type,payload}) => {
                  return {
                          ...state,showRating:payload
                         } 
+              case "ZERO_STAR":
+                 return {
+                          ...state,showRating:payload
+                        } 
+                case "RANGE":
+                    return{
+                        ...state,maxPrice:payload
+                    }
+                
            default:
                return {
                    showRating:null,

@@ -20,7 +20,7 @@ export const products = [
     _id: uuid(),
     title: "Green-Peas",
     imageSrc: ["/Assets/products/green-peas.jpg"],
-    price: 250,
+    price: 255,
     quantity: 1,
     inStock: true,
     rating: 4,
