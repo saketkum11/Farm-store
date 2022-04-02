@@ -15,11 +15,13 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
+      <FilterProvider>
         <ProductProvider>
-          <FilterProvider>
+         
             <App />
-           </FilterProvider>
+           
         </ProductProvider>
+        </FilterProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
