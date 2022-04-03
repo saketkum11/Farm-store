@@ -12,9 +12,17 @@ const WishlistProvider = ({children}) => {
     const [wishlist,setWishlist] = useState([])
 
 
-  const wishlistAdded = () =>{
-      
+  const wishlistAdded = async () =>{
+      if(authToken){
+          try {
+              const response = await axios.post("/api/user/wishlist")
+              console.log(response.data.wishlist)
+          } catch (error) {
+              console.log("error",error)
+          }
+      }
   }
+  
 
     useEffect(()=>{
 
@@ -42,6 +50,6 @@ const WishlistProvider = ({children}) => {
 
         console.log("setWishlist",authToken)
  
-    return(<wishlistContext.Provider value={{wishlist,setWishlist}}>{children}</wishlistContext.Provider>)
+    return(<wishlistContext.Provider value={{wishlist,setWishlist,wishlistAdded}}>{children}</wishlistContext.Provider>)
 }
 export {WishlistProvider,useWishlist}
