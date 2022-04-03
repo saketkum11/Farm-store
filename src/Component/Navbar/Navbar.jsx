@@ -1,6 +1,10 @@
 import {Link} from "react-router-dom";
 import React from  "react";
+import { useAuth } from "../../Context/Auth/Auth";
+
 function Navbar() {
+ const{authToken} = useAuth()
+
 return ((<div>
 
     
@@ -19,8 +23,10 @@ return ((<div>
 
                 <ul className="style-none flex items-center">
                     <li className="pd-x-4">
-                        <Link to="/login" target="_blank" className="text-dec text-color-0 pd-x-5 pd-y-3 bg-red-7">Login
-                        </Link>
+                        {authToken ? <Link to="/login" target="_blank" className="text-dec text-color-0 pd-x-5 pd-y-3 bg-red-7">logout
+                        </Link>:<Link to="/login" target="_blank" className="text-dec text-color-0 pd-x-5 pd-y-3 bg-red-7">Login
+                        </Link>}
+                       
                     </li>
 
                     <li className="pd-x-4 flex  items-center position-rel justify-center">

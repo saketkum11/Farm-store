@@ -3,16 +3,14 @@ import Navbar from "../../Component/Navbar/Navbar";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../Context/Auth/Auth";
-
-
-
+import { useNavigate } from 'react-router-dom';
 function Login() {
 
 
 const {fetchLoginDetails} = useAuth();
 const [newClient,setNewClient] = useState({email:"",password:""})
 
-
+const navigate = useNavigate();
 
 return (
 <>
@@ -27,11 +25,11 @@ return (
                 e.preventDefault();
                 fetchLoginDetails(newClient.email,newClient.password)
                 ;
-
+                navigate("/")
                 }}>
                 <div className=" bg-black-0 flex flex-column  m-t-8 wt-100 ">
                     <label for="email" className="bg-white-0 "> Email address
-                        <input onChange={(e)=>setNewClient({...newClient,email:e.target.value})}
+                        <input onChange={(e)=>setNewClient({...newClient,email:"saketkumar@gmail.com"})}
                         type="email"
                         placeholder="saketkumar@gmail.com"
                         className=" rounded-xs pd-3 wt-100 "
@@ -40,7 +38,7 @@ return (
                 </div>
                 <div className="bg-black-0 flex  flex-column  m-y-4 wt-100">
                     <label for="password" className="bg-white-0">Password</label>
-                    <input onChange={(e)=>setNewClient({...newClient,password:e.target.value})}
+                    <input onChange={(e)=>setNewClient({...newClient,password:"12345"})}
                     type="password"
                     placeholder="***************************"
                     className="rounded-xs pd-3 wt-100" 

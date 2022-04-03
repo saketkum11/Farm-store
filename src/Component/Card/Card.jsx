@@ -12,10 +12,10 @@ return (<>
     <div className="grid product-content pd-3">{sortPriceData.map(({id,imageSrc,price,categoryName,title,quantity,rating,inStock})=>{
 
       return (
-      <div key={id} className="flex flex-column bg-black-0 wt-100 position-rel">
+      <div key={id} className="flex flex-column  bg-black-0 wt-100 position-rel">
 
         <div className="position-ab t-2 r-5">
-          <button className="pd-x-3 bg-black-0 border-none pd-y-2 rounded-full cursor"><i
+          <button className="pd-x-3 bg-black-2 border-none pd-y-2 rounded-full cursor"><i
               className="fa-solid fa-heart color-red-7"></i></button>
         </div>
         <div className="pd-4 bg-black-3 ">
@@ -33,6 +33,7 @@ return (<>
           </div>
 
         </div>
+        
         <div>
           <button
             className=" flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3  text-color-0 bg-black-8 text-dec ">Added

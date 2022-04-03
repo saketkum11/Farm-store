@@ -1,23 +1,37 @@
 import axios from "axios";
 import React  from "react";
-import { useEffect,createContext,useContext} from "react";
+import { useEffect,createContext,useContext,useState} from "react";
+import { useAuth } from "../Auth/Auth";
 
 const wishlistContext = createContext();
 const useWishlist = () => useContext(wishlistContext);
 
+
 const WishlistProvider = ({children}) => {
-   
+    const {authToken} = useAuth();
+    const [wishlist,setWishlist] = useState([])
+
+
+  const wishlistAdded = () =>{
+      
+  }
+
     useEffect(()=>{
 
        const getWishlist = async () => {
 
         try {
 
-            const response = await axios.post("/api/user/wishlist");
-            console.log("response",response.data.wishlist)
+            const response = await axios.get("/api/user/wishlist",{
+
+                headers:{
+                    authorization: authToken
+                }
+            })
+           setWishlist(response.data.wishlist)
             
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
 
        }
@@ -26,6 +40,8 @@ const WishlistProvider = ({children}) => {
     }
     ,[])
 
-    return(<wishlistContext.Provider value={{items:8}}>{children}</wishlistContext.Provider>)
+        console.log("setWishlist",authToken)
+ 
+    return(<wishlistContext.Provider value={{wishlist,setWishlist}}>{children}</wishlistContext.Provider>)
 }
 export {WishlistProvider,useWishlist}

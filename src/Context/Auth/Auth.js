@@ -8,6 +8,7 @@ const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({children})  => {
   const [loader,setLoader] = useState(false)
+  const [authToken,setAuthToken] = useState([]);
   const navigate = useNavigate()
 
 
@@ -55,15 +56,17 @@ const fetchLoginDetails = async (email,password) => {
         // saving the encodedToken in the localStorage
         
         localStorage.setItem("token", response.data.encodedToken);
+        setAuthToken(localStorage.getItem("token", response.data.encodedToken))
        setLoader(true)
         
       } catch (error) {
         console.log(error);
       }
     };
-
   
-   return(<AuthContext.Provider value={{signupHandler,loader,setLoader,fetchLoginDetails}}>{children}</AuthContext.Provider>)
+    console.log({encodedToken})
+ 
+   return(<AuthContext.Provider value={{signupHandler,loader,authToken,setLoader,fetchLoginDetails}}>{children}</AuthContext.Provider>)
 }
 
 export  {useAuth,AuthProvider}
