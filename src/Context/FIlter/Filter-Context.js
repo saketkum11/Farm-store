@@ -126,11 +126,11 @@ const FilterProvider =  ({children}) => {
     return filteredData;
 
   }
-  const sortedData = getSortedData(items,state);
+   const sortedData = getSortedData(items,state);
   
-  const filteredData = getFilteredData(sortedData,fruit,vegetable,eggAndMeat,grain);
+   const filteredData = getFilteredData(sortedData,fruit,vegetable,eggAndMeat,grain);
   
-  const sortFilteredData = getSortFilterData(filteredData)
+   const sortFilteredData = getSortFilterData(filteredData)
 
    const sortRating = getSortRating(sortFilteredData,showRating);
 
