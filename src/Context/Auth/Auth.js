@@ -8,13 +8,14 @@ const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({children})  => {
   const [loader,setLoader] = useState(false)
-  const [authToken,setAuthToken] = useState([]);
+  const [authToken,setAuthToken] = useState({encodedToken:localStorage.getItem("token") ? true:false,tokenValue:localStorage.getItem("token")});
   const navigate = useNavigate()
-
+  
 
  /* login data */ 
 
-const encodedToken = localStorage.getItem("token");
+
+
 
 const fetchLoginDetails = async (email,password) => {
   try{
@@ -56,7 +57,7 @@ const fetchLoginDetails = async (email,password) => {
         // saving the encodedToken in the localStorage
         
         localStorage.setItem("token", response.data.encodedToken);
-        setAuthToken(localStorage.getItem("token", response.data.encodedToken))
+        
        setLoader(true)
         
       } catch (error) {
@@ -64,7 +65,8 @@ const fetchLoginDetails = async (email,password) => {
       }
     };
   
-    console.log({encodedToken})
+    
+    console.log({authToken})
  
    return(<AuthContext.Provider value={{signupHandler,loader,authToken,setLoader,fetchLoginDetails}}>{children}</AuthContext.Provider>)
 }
