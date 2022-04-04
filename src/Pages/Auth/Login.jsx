@@ -23,7 +23,8 @@ return (
             </div>
             <form onSubmit={(e)=>{
                 e.preventDefault();
-               
+                fetchLoginDetails(newClient.email,newClient.password)
+                ;
                 navigate("/")
                 }}>
                 <div className=" bg-black-0 flex flex-column  m-t-8 wt-100 ">

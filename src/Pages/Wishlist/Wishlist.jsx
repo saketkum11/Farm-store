@@ -5,7 +5,7 @@ import { useWishlist } from "../../Context/Wishlist/Wishlist-Context";
 
 function Wishlist() {
     const {items} = useProduct()
-    const {wishlistAdded,wishlistProduct} = useWishlist();
+    const {wishlistProduct} = useWishlist();
 
     
     return (
@@ -19,8 +19,8 @@ function Wishlist() {
               </div>
   
               <div className="grid product-content ">{
-                  wishlistProduct.map(({imageSrc,title,id,price,inStock,quantity,rating,categoryName})=>{
-                          return ( <div key={id} className="flex flex-column  bg-black-0 wt-100 position-rel">
+                  wishlistProduct.map(({_id,imageSrc,title,id,price,inStock,quantity,rating,categoryName})=>{
+                          return ( <div key={_id} className="flex flex-column  bg-black-0 wt-100 position-rel">
 
                           <div className="position-ab t-2 r-5">
                             <button className="pd-x-3 bg-black-2 border-none pd-y-2 rounded-full cursor"><i

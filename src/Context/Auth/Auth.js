@@ -68,8 +68,7 @@ const fetchLoginDetails = async (email,password) => {
         console.log(error);
       }
     };
-    console.log(itemToken,tokenValue)
-    console.log("token",localStorage.getItem("token"))
+   
  
    return(<AuthContext.Provider value={{signupHandler,loader,authToken,tokenValue,setLoader,fetchLoginDetails}}>{children}</AuthContext.Provider>)
 }

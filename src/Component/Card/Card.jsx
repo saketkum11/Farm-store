@@ -1,25 +1,25 @@
 import React from "react";
 import { useFilter } from "../../Context/Filter/Filter-Context";
-import { useProduct } from "../../Context/Product/Product-Context";
+
 import { useWishlist } from "../../Context/Wishlist/Wishlist-Context";
 
 
 
 function Card(){
 const {sortPriceData} = useFilter();
-const {wishlistAdded,wishlistProduct} = useWishlist();
+const {wishlistAdded,wishlistProduct,removeWishlist} = useWishlist();
 
 return (<>
   <div className="wt-80 bg-black-2">
-    <div className="grid product-content pd-3">{sortPriceData.map(({id,imageSrc,price,categoryName,title,quantity,rating,inStock})=>{
+    <div className="grid product-content pd-3">
+      
+      
+      {sortPriceData.map(({_id,id,imageSrc,price,categoryName,title,quantity,rating,inStock})=>{
 
       return (
       <div key={id} className="flex flex-column  bg-black-0 wt-100 position-rel">
 
-        <div className="position-ab t-2 r-5">
-          <button className="pd-x-3 bg-black-2 border-none pd-y-2 rounded-full cursor"><i
-              className="fa-solid fa-heart color-red-7"></i></button>
-        </div>
+        
         <div className="pd-4 bg-black-3 ">
           <img src={imageSrc} className=" m-t-8 wt-100  rounded-m object-content" alt="have  no imgae" />
         </div>
@@ -36,20 +36,22 @@ return (<>
 
         </div>
         
-        <div>
-         {wishlistProduct.some((item)=> item._id === sortPriceData._id)?  
+        
+         {wishlistProduct.some((item)=> item._id === _id)?  
          
-           <button
-            className=" flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3  text-color-0 bg-black-8 text-dec ">Added
-            to cart</button>:  
+         <button 
+         onClick={()=>{removeWishlist(sortPriceData)}}
+          className=" flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3  text-color-0 bg-black-8 text-dec ">Added
+          to cart</button>:  
           <button 
            onClick={()=>{wishlistAdded(sortPriceData)}}
-            className=" flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3  text-color-0 bg-black-8 text-dec ">Added
-            to cart</button>}
-          
-        </div>
+            className=" flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3  text-color-0 bg-black-8 text-dec ">add to
+         cart</button>}
 
-      </div>
+           {
+
+           }
+        </div>
       )
       })}
     </div>

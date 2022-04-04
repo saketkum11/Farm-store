@@ -11,10 +11,7 @@ const WishlistProvider = ({children}) => {
     const {authToken,tokenValue} = useAuth();
     
     const [wishlistProduct,setWishlistProduct] = useState([])
-
-
-  
-
+    
     useEffect(()=>{
 
        const getWishlist = async () => {
@@ -52,8 +49,20 @@ const WishlistProvider = ({children}) => {
 
  
     }
+    const removeWishlist = async (product) => {
+        try {
+            const response = await axios.delete(`/api/user/wishlist/${product._id}`,{
+                headers:{
+                    authorization: tokenValue,
+                }
+            });
+           setWishlistProduct(response.data.wishlist);
+        } catch (error) {
+         console.error(error)
+        }
+    }
     console.log("setWishlist",{authToken},wishlistProduct)
  
-    return(<wishlistContext.Provider value={{wishlistProduct,wishlistAdded}}>{children}</wishlistContext.Provider>)
+    return(<wishlistContext.Provider value={{wishlistProduct,removeWishlist,wishlistAdded}}>{children}</wishlistContext.Provider>)
 }
 export {WishlistProvider,useWishlist}
