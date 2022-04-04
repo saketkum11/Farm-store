@@ -23,13 +23,12 @@ return (
             </div>
             <form onSubmit={(e)=>{
                 e.preventDefault();
-                fetchLoginDetails(newClient.email,newClient.password)
-                ;
+               
                 navigate("/")
                 }}>
                 <div className=" bg-black-0 flex flex-column  m-t-8 wt-100 ">
                     <label for="email" className="bg-white-0 "> Email address
-                        <input onChange={(e)=>setNewClient({...newClient,email:"saketkumar@gmail.com"})}
+                        <input onChange={()=>setNewClient({...newClient,email:"adarshbalika@gmail.com"})}
                         type="email"
                         placeholder="saketkumar@gmail.com"
                         className=" rounded-xs pd-3 wt-100 "
@@ -38,7 +37,7 @@ return (
                 </div>
                 <div className="bg-black-0 flex  flex-column  m-y-4 wt-100">
                     <label for="password" className="bg-white-0">Password</label>
-                    <input onChange={(e)=>setNewClient({...newClient,password:"12345"})}
+                    <input onChange={()=>setNewClient({...newClient,password:"adarshbalika"})}
                     type="password"
                     placeholder="***************************"
                     className="rounded-xs pd-3 wt-100" 
@@ -56,7 +55,7 @@ return (
 
                 </div>
                 <div className="wt-100">
-                    <button type="submit"
+                    <button type="submit" onClick={()=> fetchLoginDetails("adarshbalika@gmail.com","adarshbalika")}
                         className="cursor bg-red-7 text-color-0 text-xm outline-none border-none pd-x-11 pd-y-3
                         rounded-xs wt-100">Login</button>
                 </div>

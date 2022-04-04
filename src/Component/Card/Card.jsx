@@ -7,7 +7,7 @@ import { useWishlist } from "../../Context/Wishlist/Wishlist-Context";
 
 function Card(){
 const {sortPriceData} = useFilter();
-const {wishlistAdded} = useWishlist();
+const {wishlistAdded,wishlistProduct} = useWishlist();
 
 return (<>
   <div className="wt-80 bg-black-2">
@@ -37,10 +37,16 @@ return (<>
         </div>
         
         <div>
-          <button 
-           onClick={()=>wishlistAdded(sortPriceData)}
+         {wishlistProduct.some((item)=> item._id === sortPriceData._id)?  
+         
+           <button
             className=" flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3  text-color-0 bg-black-8 text-dec ">Added
-            to cart</button>
+            to cart</button>:  
+          <button 
+           onClick={()=>{wishlistAdded(sortPriceData)}}
+            className=" flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3  text-color-0 bg-black-8 text-dec ">Added
+            to cart</button>}
+          
         </div>
 
       </div>

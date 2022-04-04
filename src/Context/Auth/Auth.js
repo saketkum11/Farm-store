@@ -3,12 +3,20 @@ import { useContext } from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+
+
 const AuthContext = createContext();
+
+
 const useAuth = () => useContext(AuthContext);
+
 
 const AuthProvider = ({children})  => {
   const [loader,setLoader] = useState(false)
-  const [authToken,setAuthToken] = useState({encodedToken:localStorage.getItem("token") ? true:false,tokenValue:localStorage.getItem("token")});
+  const itemToken = localStorage.getItem("token") ? true:false;
+   const tokenValue = localStorage.getItem("token");
+  const [authToken,setAuthToken] = useState(itemToken);
   const navigate = useNavigate()
   
 
@@ -20,7 +28,7 @@ const AuthProvider = ({children})  => {
 const fetchLoginDetails = async (email,password) => {
   try{
         
-    const response = await axios.post(`/api/auth/login`, 
+    const response = await axios.post("/api/auth/login", 
     
     {
      email,
@@ -31,7 +39,7 @@ const fetchLoginDetails = async (email,password) => {
     // saving the encodedToken in the localStorage
     
     localStorage.setItem("token", response.data.encodedToken);
-    localStorage.getItem("token", response.data.encodedToken);
+   // setAuthToken(localStorage.getItem("token"))
      navigate("/");
   }  catch (error) {
     console.log(error);
@@ -43,9 +51,7 @@ const fetchLoginDetails = async (email,password) => {
    const signupHandler = async (data) => {
      setLoader(true)
       try {
-        
-        const response = await axios.post(`/api/auth/signup`, 
-        
+        const response = await axios.post("/api/auth/signup", 
         {
           firstName: data.firstName,
           lastName: data.lastName,
@@ -53,22 +59,19 @@ const fetchLoginDetails = async (email,password) => {
           password: data.password,
         }
         );
-       
         // saving the encodedToken in the localStorage
-        
         localStorage.setItem("token", response.data.encodedToken);
         
-       setLoader(true)
+        setLoader(true)
         
       } catch (error) {
         console.log(error);
       }
     };
-  
-    
-    console.log({authToken})
+    console.log(itemToken,tokenValue)
+    console.log("token",localStorage.getItem("token"))
  
-   return(<AuthContext.Provider value={{signupHandler,loader,authToken,setLoader,fetchLoginDetails}}>{children}</AuthContext.Provider>)
+   return(<AuthContext.Provider value={{signupHandler,loader,authToken,tokenValue,setLoader,fetchLoginDetails}}>{children}</AuthContext.Provider>)
 }
 
 export  {useAuth,AuthProvider}

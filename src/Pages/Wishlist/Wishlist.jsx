@@ -5,12 +5,9 @@ import { useWishlist } from "../../Context/Wishlist/Wishlist-Context";
 
 function Wishlist() {
     const {items} = useProduct()
-    const {wishlistAdded} = useWishlist();
+    const {wishlistAdded,wishlistProduct} = useWishlist();
 
-    function clickHandler(){
-        wishlistAdded();
-        console.log("wishlist",wishlistAdded());
-    }
+    
     return (
       <>
       <div className="h-100">
@@ -22,7 +19,7 @@ function Wishlist() {
               </div>
   
               <div className="grid product-content ">{
-                  items.map(({imageSrc,title,id,price,inStock,quantity,rating,categoryName})=>{
+                  wishlistProduct.map(({imageSrc,title,id,price,inStock,quantity,rating,categoryName})=>{
                           return ( <div key={id} className="flex flex-column  bg-black-0 wt-100 position-rel">
 
                           <div className="position-ab t-2 r-5">
