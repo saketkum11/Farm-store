@@ -1,5 +1,6 @@
 import React from "react";
 import { useFilter } from "../../Context/Filter/Filter-Context";
+import { useProduct } from "../../Context/Product/Product-Context";
 
 import { useWishlist } from "../../Context/Wishlist/Wishlist-Context";
 
@@ -7,19 +8,20 @@ import { useWishlist } from "../../Context/Wishlist/Wishlist-Context";
 
 function Card(){
 const {sortPriceData} = useFilter();
-const {wishlistAdded,wishlistProduct,removeWishlist} = useWishlist();
+const {items} = useProduct
+const {addItem,wishlistProduct,removeItem} = useWishlist();
 
 return (<>
   <div className="wt-80 bg-black-2">
     <div className="grid product-content pd-3">
-      
-      
+
+
       {sortPriceData.map(({_id,id,imageSrc,price,categoryName,title,quantity,rating,inStock})=>{
 
       return (
-      <div key={id} className="flex flex-column  bg-black-0 wt-100 position-rel">
+      <div key={_id} className="flex flex-column  bg-black-0 wt-100 position-rel">
 
-        
+
         <div className="pd-4 bg-black-3 ">
           <img src={imageSrc} className=" m-t-8 wt-100  rounded-m object-content" alt="have  no imgae" />
         </div>
@@ -31,27 +33,20 @@ return (<>
             <small className=" text-sm">{quantity}</small>
             <small className=" text-sm">{categoryName}</small>
             <small className=" text-sm">rating - {rating}/5</small>
-
           </div>
-
         </div>
-        
-        
-         {wishlistProduct.some((item)=> item._id === _id)?  
-         
-         <button 
-         onClick={()=>{removeWishlist(sortPriceData)}}
-          className=" flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3  text-color-0 bg-black-8 text-dec ">Added
-          to cart</button>:  
-          <button 
-           onClick={()=>{wishlistAdded(sortPriceData)}}
-            className=" flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3  text-color-0 bg-black-8 text-dec ">add to
-         cart</button>}
 
-           {
+        {wishlistProduct.find((prod)=>prod._id === _id)? <button onClick={()=>{addItem(sortPriceData)}}
 
-           }
-        </div>
+          className=" flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3 text-color-0 bg-black-8
+          text-dec ">add to
+          cart</button>
+        :
+        <button onClick={()=>{addItem(sortPriceData)}}
+          className=" flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3 text-color-0 bg-black-8
+          text-dec ">add to
+          cart</button>}
+      </div>
       )
       })}
     </div>
