@@ -38,7 +38,7 @@ function Wishlist() {
                   key={_id}
                   className='flex flex-column  bg-black-0 wt-100 position-rel'
                 >
-                  {wishlist.some((prodt) => prodt._id === _id) ? (
+                  {wishlist.find((prodt) => prodt._id === _id) ? (
                     <div className='position-ab t-2 r-5'>
                       <button
                         onClick={() => removeItem(product)}
