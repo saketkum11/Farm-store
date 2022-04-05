@@ -39,7 +39,7 @@ const fetchLoginDetails = async (email,password) => {
     // saving the encodedToken in the localStorage
     
     localStorage.setItem("token", response.data.encodedToken);
-   // setAuthToken(localStorage.getItem("token"))
+   
      navigate("/");
   }  catch (error) {
     console.log(error);
