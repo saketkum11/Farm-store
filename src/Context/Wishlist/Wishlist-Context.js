@@ -18,7 +18,7 @@ const WishlistProvider = ({children}) => {
                 },
             })
            setWishlist(response.data.wishlist);
-           console.log("getwishlist",response)
+          
         } catch (error) {
             console.log(error);
         }
@@ -35,7 +35,7 @@ const WishlistProvider = ({children}) => {
                console.error(error)
            }
     }
-    console.log("wislist",wishlist)
+    
     const removeItem = async (product) => {
         try {
             const response = await axios.delete(`/api/user/wishlist/${product._id}`,{
