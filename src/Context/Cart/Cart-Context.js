@@ -39,6 +39,7 @@ const CartProvider = ({children}) => {
         });
         setCart(response.data.cart)
         console.log(response)
+
        } catch (error) {
            console.log(error)
        }
@@ -55,13 +56,41 @@ const CartProvider = ({children}) => {
              setCart(response.data.cart)
              console.log(response)
         } catch (error) {
-            
+            console.log(error)
+        }
+    }
+    const incrementCart = async(product)=>{
+        try {
+            const response = await axios.post(`/api/user/cart/${product._id}`,
+                { action: { type: "increment" } },{
+                headers:{
+                    authorization: tokenValue,
+                }
+            })
+            setCart(response.data.cart)
+            console.log(response)
+        } catch (error) {
+            console.error(error);
         }
     }
 
+    const decrementCart = async(product)=>{
+        try {
+            const response = await axios.post(`/api/user/cart/${product._id}`,
+                { action: { type: "decrement" } },{
+                headers:{
+                    authorization: tokenValue,
+                }
+            })
+            setCart(response.data.cart)
+            console.log(response)
+        } catch (error) {
+            console.error(error);
+        }
+    }
+      
 
-
-    return(<cartContext.Provider value={{cart,addCart,removeCart}}>{children}</cartContext.Provider>)
+    return(<cartContext.Provider value={{cart,addCart,removeCart,incrementCart,decrementCart}}>{children}</cartContext.Provider>)
 }
 
 export {CartProvider,useCart}

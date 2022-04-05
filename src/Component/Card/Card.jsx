@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCart } from '../../Context/Cart/Cart-Context';
 import { useFilter } from '../../Context/Filter/Filter-Context';
 import { useProduct } from '../../Context/Product/Product-Context';
 import { useWishlist } from '../../Context/Wishlist/Wishlist-Context';
@@ -7,6 +8,7 @@ function Card() {
   const { sortPriceData } = useFilter();
   const { items } = useProduct();
   const { addItem, wishlist, removeItem } = useWishlist();
+  const { removeCart, addCart, cart } = useCart();
 
   return (
     <>
@@ -73,12 +75,23 @@ function Card() {
                     </div>
                   </div>
 
-                  <button
-                    className=' flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3 text-color-0 bg-black-8
+                  {cart.some((prod) => prod._id === _id) ? (
+                    <button
+                      onClick={() => removeCart(product)}
+                      className=' flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3 text-color-0 bg-black-8
                       text-dec '
-                  >
-                    Add to cart
-                  </button>
+                    >
+                      remove from cart
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => addCart(product)}
+                      className=' flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3 text-color-0 bg-black-8
+                      text-dec '
+                    >
+                      Add to cart
+                    </button>
+                  )}
                 </div>
               );
             })}
