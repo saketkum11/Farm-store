@@ -39,7 +39,7 @@ function Cart() {
                           <div className=' flex flex-column items-start '>
                             <div className='flex flex-column items-start '>
                               <span className='text-xm text-light'>
-                                {title}
+                                {title}l
                               </span>
                               <span className='text-m'>Rs{price}</span>
                               <span className='text-s'>{categoryName}</span>
