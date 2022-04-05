@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFilter } from '../../Context/Filter/Filter-Context';
+import { useFilter } from '../../../Filter-Context';
 import { useProduct } from '../../Context/Product/Product-Context';
 
 import { useWishlist } from '../../Context/Wishlist/Wishlist-Context';
