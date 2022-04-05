@@ -37,10 +37,10 @@ const FilterProvider =  ({children}) => {
 
          const getSortedData = (items, state) => {
 
-            if (state.showSort === "PRICE_LOW_TO_HIGH") {
+            if (showSort === "PRICE_LOW_TO_HIGH") {
                 return items.sort((a, b) => a.price - b.price);
             }
-            if (state.showSort === "PRICE_HIGH_TO_LOW") {
+            if (showSort === "PRICE_HIGH_TO_LOW") {
                 return items.sort((a, b) => b.price - a.price);
             }
         
@@ -113,11 +113,26 @@ const FilterProvider =  ({children}) => {
       
 
   }
-  const sortedData = getSortedData(items,state);
+  const getSortFilterData = (filteredData) => {
+     
+    if(showSort === "PRICE_LOW_TO_HIGH"){
+          
+        filteredData.sort((a,b)=>a.price-b.price)
+    }
+    if(showSort === "PRICE_HIGH_TO_LOW"){
+        filteredData.sort((a,b)=>b.price-a.price)
+    }
+
+    return filteredData;
+
+  }
+   const sortedData = getSortedData(items,state);
   
-  const filteredData = getFilteredData(sortedData,fruit,vegetable,eggAndMeat,grain);
+   const filteredData = getFilteredData(sortedData,fruit,vegetable,eggAndMeat,grain);
   
-   const sortRating = getSortRating(filteredData,showRating);
+   const sortFilteredData = getSortFilterData(filteredData)
+
+   const sortRating = getSortRating(sortFilteredData,showRating);
 
    const sortPriceData = getPriceData(sortRating,maxPrice);
 

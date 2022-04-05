@@ -36,7 +36,7 @@ return (
                 </div>
                 <div className=" bg-black-0 flex flex-column  m-t-8 wt-100 ">
                     <label for="" className="bg-white-0 ">First Name
-                        <input onChange={(e)=>setNewClient({...newClient,firstName:e.target.value})}
+                        <input onChange={()=>setNewClient({...newClient,firstName:"Adarsh"})}
                         type="text"
                         required
                         placeholder="Anish"
@@ -45,7 +45,7 @@ return (
                 </div>
                 <div className=" bg-black-0 flex flex-column  m-t-8 wt-100 ">
                     <label for="" className="bg-white-0 ">Last Name
-                        <input onChange={(e)=>setNewClient({...newClient,lastName:e.target.value})}
+                        <input onChange={()=>setNewClient({...newClient,lastName:"Balika"})}
                         type="text"
                         required
                         placeholder="Kumar"
@@ -54,7 +54,7 @@ return (
                 </div>
                 <div className=" bg-black-0 flex flex-column  m-t-8 wt-100 ">
                     <label for="" className="bg-white-0 ">Email address
-                        <input onChange={(e)=>setNewClient({...newClient,email:e.target.value})}
+                        <input onChange={()=>setNewClient({...newClient,email:"adarshbalika@gmail.com"})}
                         type="email"
                         required
                         placeholder="saketkumar@gmail.com"
@@ -62,7 +62,7 @@ return (
                 </div>
                 <div className="bg-black-0 flex  flex-column  m-y-4 wt-100">
                     <label for="" className="bg-white-0">Password
-                        <input onChange={(e)=>setNewClient({...newClient,password:e.target.value})}
+                        <input onChange={()=>setNewClient({...newClient,password:"adarshbalika"})}
                         type="password"
                         required
                         placeholder="***************************"
