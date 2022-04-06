@@ -4,7 +4,7 @@ import { createContext,useContext,useState} from "react";
 import { useAuth } from "../Auth/Auth";
 
 const wishlistContext = createContext();
-
+const useWishlist = () => useContext(wishlistContext);
 const WishlistProvider = ({children}) => {
 
 
@@ -50,6 +50,6 @@ const WishlistProvider = ({children}) => {
     }
     return(<wishlistContext.Provider value={{wishlist,getWishlist,removeItem,addItem}}>{children}</wishlistContext.Provider>)   
 }
-const useWishlist = () => useContext(wishlistContext);
+
 
 export {WishlistProvider,useWishlist}

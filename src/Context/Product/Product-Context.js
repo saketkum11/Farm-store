@@ -17,7 +17,6 @@ const ProductProvider = ({children})  => {
         try {
             const response = await axios.get("/api/products")
             setItems(response.data.products)
-            console.log("Response",response.data.products);
         } catch (error) {
             console.log(error)
         }

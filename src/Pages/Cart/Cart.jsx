@@ -2,8 +2,10 @@ import Navbar from '../../Component/Navbar/Navbar';
 import React from 'react';
 import { useCart } from '../../Context/Cart/Cart-Context';
 function Cart() {
-  const { cart, removeCart, incrementQuantity, decrementQuantity } = useCart();
+  const { cart, removeCart, incrementQuantity, decrementQuantity, priceData } =
+    useCart();
 
+  const { totalDiscount, totalProductPrice, deliveryPrice } = priceData;
   return (
     <>
       <div className='h-100'>
@@ -23,8 +25,11 @@ function Cart() {
                   inStock,
                   quantity,
                   rating,
+                  qty,
+                  discount,
                   categoryName,
                 } = product;
+
                 return (
                   <>
                     <div key={_id} className='flex '>
@@ -44,6 +49,9 @@ function Cart() {
                               <span className='text-m'>Rs {price}</span>
                               <span className='text-s'>{categoryName}</span>
                               <span className='text-s'>{quantity}</span>
+                              <span className='text-s'>
+                                Discount - Rs {discount}
+                              </span>
                             </div>
                             <div className='flex justify-even items-center '>
                               <span>Quantity: </span>
@@ -53,7 +61,7 @@ function Cart() {
                               >
                                 -
                               </button>
-                              <span className=''>{product.qty}</span>
+                              <span className=''>{qty}</span>
                               <button
                                 onClick={() => incrementQuantity(product)}
                                 className='cursor rounded-full wt-fixed-5 h-fixed-5'
@@ -89,24 +97,26 @@ function Cart() {
 
                 <div className='flex items-center justify-btw pd-2'>
                   <span className='text-s'>Product Price</span>
-                  <span>Rs 100</span>
+                  <span>Rs {totalProductPrice}</span>
                 </div>
                 <div className='flex items-center justify-btw pd-2'>
                   <span className='text-s'>Discount Price </span>
-                  <span>-Rs 10</span>
+                  <span>-Rs {totalDiscount}</span>
                 </div>
                 <div className='flex items-center justify-btw pd-2'>
                   <span className='text-s'>Delivery Charges </span>
-                  <span>Rs 40</span>
+                  <span>Rs {deliveryPrice}</span>
                 </div>
 
                 <div className='flex items-center justify-btw pd-2'>
                   <h4>Total Amount</h4>
-                  <span className='text-bold'>Rs 130</span>
+                  <span className='text-bold'>
+                    Rs {totalProductPrice + deliveryPrice - totalDiscount}
+                  </span>
                 </div>
 
                 <div className='pd-2'>
-                  <p>You have saved Rs 10!</p>
+                  <p>You have saved Rs {totalDiscount}!</p>
                   <button className='cursor bg-red-7 text-color-0 rounded-xs outline-none border-none text-s pd-y-3 m-y-2 wt-100'>
                     Place your Order
                   </button>
