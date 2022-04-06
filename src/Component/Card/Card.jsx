@@ -62,7 +62,7 @@ function Card() {
                   </div>
                   <div className=' m-y-9 '>
                     <div className=' flex flex-column items-start pd-4 '>
-                      <span className='text-sm text-light'>{title}</span>
+                      <span className='text-s text-light'>{title}</span>
 
                       {inStock ? (
                         <small className=' text-sm'>inStock</small>

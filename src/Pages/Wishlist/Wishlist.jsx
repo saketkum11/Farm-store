@@ -67,18 +67,29 @@ function Wishlist() {
                       alt='have  no imgae'
                     />
                   </div>
-                  <div className='wt-100 m-y-9 flex flex-column items-end'>
-                    <div className=' flex flex-column items-start pd-x-2 wt-100 '>
+                  <div className='wt-100 m-y-9  '>
+                    <div className=' flex flex-column items-start pd-4 '>
                       <span className='text-sm text-light'>{title}</span>
-                      <small className=' text-sm'>Rs.{price}</small>
+                      <small className=' text-s'>Rs.{price}</small>
                       {inStock ? (
                         <small className=' text-sm'>inStock</small>
                       ) : (
                         <small className=' text-sm'>outofStock</small>
                       )}
-                      <small className=' text-sm'>{quantity}</small>
+                      <small className=' text-s'>{quantity}</small>
                       <small className=' text-sm'>{categoryName}</small>
-                      <small className=' text-sm'>rating - {rating}/5</small>
+                      <div class='bg-green-7 pd-2 m-y-5'>
+                        <small className='text-color-0 text-sm'>
+                          rating {rating}/5{' '}
+                          <i class='fas fa-star text-color-0'></i>
+                        </small>
+                      </div>
+                      <button
+                        className=' flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3 text-color-0 bg-black-8
+                      text-dec '
+                      >
+                        Move to cart
+                      </button>
                     </div>
                   </div>
                 </div>
