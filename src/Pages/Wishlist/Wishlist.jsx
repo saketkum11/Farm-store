@@ -81,13 +81,6 @@ function Wishlist() {
                       <small className=' text-sm'>rating - {rating}/5</small>
                     </div>
                   </div>
-
-                  <button
-                    onClick={() => moveToCart(product)}
-                    className=' flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3  text-color-0 bg-black-8 text-dec '
-                  >
-                    Move to cart
-                  </button>
                 </div>
               );
             })}

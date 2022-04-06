@@ -83,13 +83,6 @@ function Cart() {
                             >
                               Remove from cart
                             </button>
-
-                            <button
-                              onClick={() => moveToWishlist(product)}
-                              className='cursor border-none rounded-xs text-color-0 pd-y-3 bg-black-4 text-color-0 outline-none text-s m-y-2 wt-100'
-                            >
-                              Move to wishlist
-                            </button>
                           </div>
                         </div>
                       </section>

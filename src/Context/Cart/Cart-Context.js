@@ -85,7 +85,6 @@ const CartProvider = ({ children }) => {
         }
       );
       setCart(response.data.cart);
-      console.log(response);
     } catch (error) {
       console.error(error);
     }
@@ -121,8 +120,6 @@ const CartProvider = ({ children }) => {
         incrementQuantity,
         decrementQuantity,
         priceData,
-        moveToWishlist,
-        moveToCart,
       }}
     >
       {children}
