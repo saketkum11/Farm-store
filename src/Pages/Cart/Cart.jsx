@@ -41,7 +41,7 @@ function Cart() {
                               <span className='text-xm text-light'>
                                 {title}l
                               </span>
-                              <span className='text-m'>Rs{price}</span>
+                              <span className='text-m'>Rs {price}</span>
                               <span className='text-s'>{categoryName}</span>
                               <span className='text-s'>{quantity}</span>
                             </div>
