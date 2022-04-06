@@ -120,6 +120,8 @@ const CartProvider = ({ children }) => {
         incrementQuantity,
         decrementQuantity,
         priceData,
+        moveToWishlist,
+        moveToCart,
       }}
     >
       {children}
