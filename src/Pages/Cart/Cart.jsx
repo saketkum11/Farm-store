@@ -2,8 +2,14 @@ import Navbar from '../../Component/Navbar/Navbar';
 import React from 'react';
 import { useCart } from '../../Context/Cart/Cart-Context';
 function Cart() {
-  const { cart, removeCart, incrementQuantity, decrementQuantity, priceData } =
-    useCart();
+  const {
+    cart,
+    removeCart,
+    incrementQuantity,
+    decrementQuantity,
+    priceData,
+    moveToWishlist,
+  } = useCart();
 
   const { totalDiscount, totalProductPrice, deliveryPrice } = priceData;
   return (
@@ -78,7 +84,10 @@ function Cart() {
                               Remove from cart
                             </button>
 
-                            <button className='cursor border-none rounded-xs text-color-0 pd-y-3 bg-black-4 text-color-0 outline-none text-s m-y-2 wt-100'>
+                            <button
+                              onClick={() => moveToWishlist(product)}
+                              className='cursor border-none rounded-xs text-color-0 pd-y-3 bg-black-4 text-color-0 outline-none text-s m-y-2 wt-100'
+                            >
                               Move to wishlist
                             </button>
                           </div>

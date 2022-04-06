@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Component/Navbar/Navbar';
+import { useCart } from '../../Context/Cart/Cart-Context';
 
 import { useWishlist } from '../../Context/Wishlist/Wishlist-Context';
 
@@ -11,6 +12,7 @@ function Wishlist() {
   useEffect(() => getWishlist(), []);
 
   const { removeItem } = useWishlist();
+  const { moveToCart } = useCart();
   return (
     <>
       <div className='h-100'>
@@ -80,7 +82,10 @@ function Wishlist() {
                     </div>
                   </div>
 
-                  <button className=' flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3  text-color-0 bg-black-8 text-dec '>
+                  <button
+                    onClick={() => moveToCart(product)}
+                    className=' flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3  text-color-0 bg-black-8 text-dec '
+                  >
                     Move to cart
                   </button>
                 </div>

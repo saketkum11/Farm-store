@@ -1,55 +1,65 @@
-import axios from "axios";
-import React  from "react";
-import { createContext,useContext,useState} from "react";
-import { useAuth } from "../Auth/Auth";
+import axios from 'axios';
+import React from 'react';
+import { createContext, useContext, useState } from 'react';
+import { useAuth } from '../Auth/Auth';
+import { useCart } from '../Cart/Cart-Context';
 
 const wishlistContext = createContext();
 const useWishlist = () => useContext(wishlistContext);
-const WishlistProvider = ({children}) => {
 
+const WishlistProvider = ({ children }) => {
+  const { authToken, tokenValue } = useAuth();
+  const [wishlist, setWishlist] = useState([]);
 
-    const {authToken,tokenValue} = useAuth();
-    const [wishlist,setWishlist] = useState([])
-    const getWishlist = async () => {
-        try {
-            const response = await axios.get("/api/user/wishlist",{
-                headers: {
-                    authorization: tokenValue,
-                },
-            })
-           setWishlist(response.data.wishlist);
-          
-        } catch (error) {
-            console.log(error);
-        }
-       }
-    const addItem = async (product) =>{
-           try {
-               const response = await axios.post("/api/user/wishlist",{product},{
-                   headers :{
-                       authorization: tokenValue,
-                   }
-               });
-               setWishlist(response.data.wishlist)
-           } catch (error) {
-               console.error(error)
-           }
+  const getWishlist = async () => {
+    try {
+      const response = await axios.get('/api/user/wishlist', {
+        headers: {
+          authorization: tokenValue,
+        },
+      });
+      setWishlist(response.data.wishlist);
+    } catch (error) {
+      console.log(error);
     }
-    
-    const removeItem = async (product) => {
-        try {
-            const response = await axios.delete(`/api/user/wishlist/${product._id}`,{
-                headers:{
-                    authorization: tokenValue,
-                }
-            });
-           setWishlist(response.data.wishlist);
-        } catch (error) {
-         console.error(error)
+  };
+  const addItem = async (product) => {
+    try {
+      const response = await axios.post(
+        '/api/user/wishlist',
+        { product },
+        {
+          headers: {
+            authorization: tokenValue,
+          },
         }
+      );
+      setWishlist(response.data.wishlist);
+    } catch (error) {
+      console.error(error);
     }
-    return(<wishlistContext.Provider value={{wishlist,getWishlist,removeItem,addItem}}>{children}</wishlistContext.Provider>)   
-}
+  };
 
+  const removeItem = async (product) => {
+    try {
+      const response = await axios.delete(`/api/user/wishlist/${product._id}`, {
+        headers: {
+          authorization: tokenValue,
+        },
+      });
+      setWishlist(response.data.wishlist);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-export {WishlistProvider,useWishlist}
+  return (
+    <wishlistContext.Provider
+      value={{ wishlist, getWishlist, removeItem, addItem }}
+    >
+      {children}
+    </wishlistContext.Provider>
+  );
+};
+
+export { WishlistProvider, useWishlist };
