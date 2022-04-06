@@ -2,7 +2,7 @@ import Navbar from '../../Component/Navbar/Navbar';
 import React from 'react';
 import { useCart } from '../../Context/Cart/Cart-Context';
 function Cart() {
-  const { cart, removeCart, incrementCart, decrementCart } = useCart();
+  const { cart, removeCart, incrementQuantity, decrementQuantity } = useCart();
 
   return (
     <>
@@ -48,14 +48,14 @@ function Cart() {
                             <div className='flex justify-even items-center '>
                               <span>Quantity: </span>
                               <button
-                                onClick={() => decrementCart(product)}
+                                onClick={() => decrementQuantity(product)}
                                 className='cursor rounded-full wt-fixed-5 h-fixed-5 '
                               >
                                 -
                               </button>
                               <span className=''>{product.qty}</span>
                               <button
-                                onClick={() => incrementCart(product)}
+                                onClick={() => incrementQuantity(product)}
                                 className='cursor rounded-full wt-fixed-5 h-fixed-5'
                               >
                                 +
@@ -63,18 +63,16 @@ function Cart() {
                             </div>
                           </div>
                           <div className='flex flex-column items-center m-y-3'>
-                            {cart.some((prod) => prod._id === _id) ? (
-                              <button
-                                onClick={() => removeCart(product)}
-                                className='cursor bg-red-7 text-color-0 rounded-xs outline-none border-none text-s pd-y-3 m-y-2 wt-100'
-                              >
-                                Remove from cart
-                              </button>
-                            ) : (
-                              <button className='cursor border-none rounded-xs text-color-0 pd-y-3 bg-black-4 text-color-0 outline-none text-s m-y-2 wt-100'>
-                                Move to wishlist
-                              </button>
-                            )}
+                            <button
+                              onClick={() => removeCart(product)}
+                              className='cursor bg-red-7 text-color-0 rounded-xs outline-none border-none text-s pd-y-3 m-y-2 wt-100'
+                            >
+                              Remove from cart
+                            </button>
+
+                            <button className='cursor border-none rounded-xs text-color-0 pd-y-3 bg-black-4 text-color-0 outline-none text-s m-y-2 wt-100'>
+                              Move to wishlist
+                            </button>
                           </div>
                         </div>
                       </section>

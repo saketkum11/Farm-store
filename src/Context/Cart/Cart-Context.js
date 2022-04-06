@@ -59,7 +59,7 @@ const CartProvider = ({children}) => {
             console.log(error)
         }
     }
-    const incrementCart = async(product)=>{
+    const incrementQuantity = async(product)=>{
         try {
             const response = await axios.post(`/api/user/cart/${product._id}`,
                 { action: { type: "increment" } },{
@@ -74,7 +74,7 @@ const CartProvider = ({children}) => {
         }
     }
 
-    const decrementCart = async(product)=>{
+    const decrementQuantity  = async(product)=>{
         try {
             const response = await axios.post(`/api/user/cart/${product._id}`,
                 { action: { type: "decrement" } },{
@@ -90,7 +90,7 @@ const CartProvider = ({children}) => {
     }
       
 
-    return(<cartContext.Provider value={{cart,addCart,removeCart,incrementCart,decrementCart}}>{children}</cartContext.Provider>)
+    return(<cartContext.Provider value={{cart,addCart,removeCart,incrementQuantity,decrementQuantity}}>{children}</cartContext.Provider>)
 }
 
 export {CartProvider,useCart}
