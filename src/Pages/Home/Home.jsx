@@ -2,10 +2,24 @@ import React from 'react';
 import Navbar from '../../Component/Navbar/Navbar';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import { useProduct } from '../../Context/Product/Product-Context';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function Home() {
-  const { items } = useProduct();
+  const [categoriesValue, setCategoriesValue] = useState([]);
+
+  useEffect(() => {
+    const categories = async () => {
+      try {
+        const response = await axios.get('/api/categories');
+        setCategoriesValue(response.data.categories);
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    categories();
+  }, []);
   return (
     <>
       <Navbar></Navbar>
@@ -28,58 +42,25 @@ function Home() {
         </div>
 
         <section className='flex m-y-3 justify-around flex-wrap'>
-          <div className=' wt-20 flex justify-center  items-center position-rel flex-wrap'>
-            <Link to='/product' className=' object-content rounded-m'>
-              <img
-                src='/Assets/Egg.jpg'
-                className='wt-100 h-100 object-content rounded-m'
-                alt='no image'
-              />
-            </Link>
-            <span className=' position-ab text-color-0 text-m text-bold p-t-5'>
-              Egg and Meat{' '}
-            </span>
-          </div>
-          <div className=' wt-20 flex  justify-center items-center  position-rel flex-wrap'>
-            <Link to='/product' className=' object-content rounded-m'>
-              <img
-                src='/Assets/Grain.jpg'
-                className='wt-100 h-100 object-content rounded-m'
-                alt='no image'
-              />
-            </Link>
-            <span className='position-ab  text-color-0 text-m text-bold p-t-5'>
-              Grain
-            </span>
-          </div>
-          <div className='  wt-20 flex  justify-center items-center  position-rel flex-wrap'>
-            <Link to='/product' className=' object-content rounded-m'>
-              <img
-                src='/Assets/vegetable (2).jpg'
-                className='wt-100 h-100 object-content rounded-m'
-                alt='no image'
-              />
-            </Link>
-            <span className='position-ab  text-color-0 text-m text-bold p-t-5'>
-              Vegetable
-            </span>
-          </div>
-          <div className='rounded-s wt-20 flex justify-center   position-rel flex-wrap'>
-            <Link
-              to='/product'
-              className='wt-100 h-100 object-content rounded-m'
-            >
-              <img
-                src='/Assets/strawberri.jpg'
-                className='wt-100 h-100 object-content rounded-m'
-                alt='no image'
-              />
-            </Link>
-
-            <span className='position-ab  text-color-0 text-m text-bold p-t-5'>
-              Fruits
-            </span>
-          </div>
+          {categoriesValue.map((categ) => {
+            const { imageSrc, categoryName } = categ;
+            return (
+              <>
+                <div className=' wt-20 flex justify-center  items-center position-rel flex-wrap'>
+                  <Link to='/product' className=' object-content rounded-m'>
+                    <img
+                      src={imageSrc}
+                      className='wt-100 h-100 object-content rounded-m'
+                      alt='no image'
+                    />
+                  </Link>
+                  <span className=' position-ab text-color-0 text-m text-bold p-t-5'>
+                    {categoryName}{' '}
+                  </span>
+                </div>
+              </>
+            );
+          })}
         </section>
         <section className='m-y-11'>
           <div className='m-y-11'>
