@@ -62,7 +62,7 @@ function Login() {
                 <input
                   type='checkbox'
                   className='m-x-2'
-                  name=''
+                  name='checkout'
                   id='checkout'
                 />
                 <label for='checkout'>Remember me</label>
