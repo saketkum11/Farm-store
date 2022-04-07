@@ -13,7 +13,6 @@ function Home() {
       try {
         const response = await axios.get('/api/categories');
         setCategoriesValue(response.data.categories);
-        console.log(response);
       } catch (error) {
         console.log(error);
       }
