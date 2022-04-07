@@ -78,10 +78,10 @@ function Wishlist() {
                       )}
                       <small className=' text-s'>{quantity}</small>
                       <small className=' text-sm'>{categoryName}</small>
-                      <div class='bg-green-7 pd-2 m-y-5'>
+                      <div className='bg-green-7 pd-2 m-y-5'>
                         <small className='text-color-0 text-sm'>
                           rating {rating}/5{' '}
-                          <i class='fas fa-star text-color-0'></i>
+                          <i className='fas fa-star text-color-0'></i>
                         </small>
                       </div>
                       <button
