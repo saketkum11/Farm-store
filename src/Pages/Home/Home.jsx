@@ -42,10 +42,13 @@ function Home() {
 
         <section className='flex m-y-3 justify-around flex-wrap'>
           {categoriesValue.map((categ) => {
-            const { imageSrc, categoryName } = categ;
+            const { imageSrc, categoryName, _id } = categ;
             return (
               <>
-                <div className=' wt-20 flex justify-center  items-center position-rel flex-wrap'>
+                <div
+                  key={_id}
+                  className=' wt-20 flex justify-center  items-center position-rel flex-wrap'
+                >
                   <Link to='/product' className=' object-content rounded-m'>
                     <img
                       src={imageSrc}
