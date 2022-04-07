@@ -67,11 +67,6 @@ function Login() {
                 />
                 <label for='checkout'>Remember me</label>
               </div>
-              <div className=''>
-                <Link to='/forgot' className='text-dec color-red-7'>
-                  Forgot your password?
-                </Link>
-              </div>
             </div>
             <div className='wt-100'>
               <button
