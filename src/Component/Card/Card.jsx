@@ -1,13 +1,14 @@
 import React from 'react';
+import { useCart } from '../../Context/Cart/Cart-Context';
 import { useFilter } from '../../Context/Filter/Filter-Context';
 import { useProduct } from '../../Context/Product/Product-Context';
-
 import { useWishlist } from '../../Context/Wishlist/Wishlist-Context';
 
 function Card() {
   const { sortPriceData } = useFilter();
   const { items } = useProduct();
   const { addItem, wishlist, removeItem } = useWishlist();
+  const { removeCart, addCart, cart } = useCart();
 
   return (
     <>
@@ -59,27 +60,46 @@ function Card() {
                       alt='have  no imgae'
                     />
                   </div>
-                  <div className='wt-100 m-y-9 flex flex-column items-end'>
-                    <div className=' flex flex-column items-start pd-x-2 wt-100 '>
-                      <span className='text-sm text-light'>{title}</span>
-                      <small className=' text-sm'>Rs.{price}</small>
+                  <div className=' m-y-9 '>
+                    <div className=' flex flex-column items-start pd-4 '>
+                      <span className='text-s text-light'>{title}</span>
+
                       {inStock ? (
                         <small className=' text-sm'>inStock</small>
                       ) : (
                         <small className=' text-sm'>outofStock</small>
                       )}
-                      <small className=' text-sm'>{quantity}</small>
+
+                      <small className=' text-s'>Rs.{price}</small>
+                      <small className=' text-s'>{quantity}</small>
+
                       <small className=' text-sm'>{categoryName}</small>
-                      <small className=' text-sm'>rating - {rating}/5</small>
+                      <div class='bg-green-7 pd-2 m-y-5'>
+                        <small className='text-color-0 text-sm'>
+                          rating {rating}/5{' '}
+                          <i className='fas fa-star text-color-0'></i>
+                        </small>
+                      </div>
                     </div>
                   </div>
 
-                  <button
-                    className=' flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3 text-color-0 bg-black-8
+                  {cart.some((prod) => prod._id === _id) ? (
+                    <button
+                      onClick={() => removeCart(product)}
+                      className=' flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3 text-color-0 bg-black-8
                       text-dec '
-                  >
-                    Add to cart
-                  </button>
+                    >
+                      remove from cart
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => addCart(product)}
+                      className=' flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3 text-color-0 bg-black-8
+                      text-dec '
+                    >
+                      Add to cart
+                    </button>
+                  )}
                 </div>
               );
             })}

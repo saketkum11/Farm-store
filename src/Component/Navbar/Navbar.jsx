@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { useAuth } from '../../Context/Auth/Auth';
+import { useCart } from '../../Context/Cart/Cart-Context';
+import { useWishlist } from '../../Context/Wishlist/Wishlist-Context';
 
 function Navbar() {
   const { authToken } = useAuth();
+  const { cart } = useCart();
+  const { wishlist } = useWishlist();
 
   return (
     <div>
@@ -46,18 +50,22 @@ function Navbar() {
                 <Link to='/wishlist' className='text-dec text-color-0 cursor'>
                   <i className='fa-solid  fa-heart text-color-0'></i>
                 </Link>
-                <span className=' text-s position-ab p-t-n-2 flex items-center justify-center bg-red-7 wt-fixed-5 h-fixed-5 rounded-full p-r-0'>
-                  0
-                </span>
+                {wishlist.length >= 0 && (
+                  <span className=' text-s position-ab p-t-n-2 flex items-center justify-center bg-red-7 wt-fixed-5 h-fixed-5 rounded-full p-r-0'>
+                    {wishlist.length}
+                  </span>
+                )}
               </li>
 
               <li className=' pd-x-4 flex  items-center position-rel justify-center'>
                 <Link to='/cart' className='text-dec text-color-0 cursor'>
                   <i className='fa-solid fa-cart-shopping'></i>
                 </Link>
-                <span className=' text-s position-ab p-t-n-2 flex items-center justify-center bg-red-7 wt-fixed-5 h-fixed-5 rounded-full p-r-0'>
-                  0
-                </span>
+                {cart.length >= 0 && (
+                  <span className=' text-s position-ab p-t-n-2 flex items-center justify-center bg-red-7 wt-fixed-5 h-fixed-5 rounded-full p-r-0'>
+                    {cart.length}
+                  </span>
+                )}
               </li>
               <li className='pd-x-4'>
                 <small>cart</small>
