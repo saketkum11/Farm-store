@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useProduct } from '../../Context/Product/Product-Context';
 
 function Home() {
   const [categoriesValue, setCategoriesValue] = useState([]);
-
+  const { setCategories, productName } = useProduct();
   useEffect(() => {
     const categories = async () => {
       try {
@@ -19,6 +20,7 @@ function Home() {
     };
     categories();
   }, []);
+
   return (
     <>
       <Navbar></Navbar>
@@ -49,7 +51,11 @@ function Home() {
                   key={_id}
                   className=' wt-20 flex justify-center  items-center position-rel flex-wrap'
                 >
-                  <Link to='/product' className=' object-content rounded-m'>
+                  <Link
+                    to='/product'
+                    onClick={() => setCategories(categoryName)}
+                    className=' object-content rounded-m'
+                  >
                     <img
                       src={imageSrc}
                       className='wt-100 h-100 object-content rounded-m'

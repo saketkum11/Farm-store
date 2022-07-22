@@ -7,7 +7,11 @@ const RequireAuth = ({ children }) => {
   return tokenValue ? (
     children
   ) : (
-    <Navigate to='/login' state={{ from: location }} replace></Navigate>
+    <Navigate
+      to='/login'
+      state={{ from: location.pathname }}
+      replace
+    ></Navigate>
   );
 };
 export { RequireAuth };

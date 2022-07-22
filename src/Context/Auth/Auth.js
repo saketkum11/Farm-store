@@ -58,6 +58,13 @@ const AuthProvider = ({ children }) => {
       console.error(error);
     }
   };
+  const logoutHandler = async () => {
+    try {
+      localStorage.removeItem('token');
+    } catch (error) {
+      console.error(error);
+    }
+  };
   console.log('auth', tokenValue);
   return (
     <AuthContext.Provider
@@ -68,6 +75,7 @@ const AuthProvider = ({ children }) => {
         tokenValue,
         setLoader,
         fetchLoginDetails,
+        logoutHandler,
       }}
     >
       {children}

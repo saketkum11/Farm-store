@@ -6,16 +6,27 @@ import { useWishlist } from '../../Context/Wishlist/Wishlist-Context';
 
 function Card() {
   const { sortPriceData } = useFilter();
-  const { items } = useProduct();
+  const { items, categories, setCatrgories } = useProduct();
   const { addItem, wishlist, removeItem } = useWishlist();
   const { removeCart, addCart, cart } = useCart();
 
+  const filteredCategories = (category) => {
+    if (category) {
+      return sortPriceData?.filter((item) => item.categoryName === category);
+      setCategories('');
+    }
+    return sortPriceData;
+  };
+
+  const filterCategories = filteredCategories(categories);
+
+  console.log('data from card', filterCategories);
   return (
     <>
       <div className='wt-80 bg-black-2'>
         <div className='grid product-content pd-3'>
-          {sortPriceData &&
-            sortPriceData.map((product) => {
+          {filterCategories &&
+            filterCategories.map((product) => {
               const {
                 _id,
                 imageSrc,
