@@ -5,7 +5,7 @@ import { useCart } from '../../Context/Cart/Cart-Context';
 import { useWishlist } from '../../Context/Wishlist/Wishlist-Context';
 
 function Navbar() {
-  const { authToken } = useAuth();
+  const { authToken, tokenValue, logoutHandler } = useAuth();
   const { cart } = useCart();
   const { wishlist } = useWishlist();
 
@@ -29,8 +29,9 @@ function Navbar() {
           <div className='m-lf'>
             <ul className='style-none flex items-center'>
               <li className='pd-x-4'>
-                {authToken ? (
+                {tokenValue ? (
                   <Link
+                    onClick={() => logoutHandler()}
                     to='/login'
                     className='text-dec text-color-0 pd-x-5 pd-y-3 bg-red-7'
                   >

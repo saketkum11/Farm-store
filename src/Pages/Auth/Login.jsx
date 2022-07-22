@@ -8,6 +8,10 @@ function Login() {
   const { fetchLoginDetails } = useAuth();
   const [newClient, setNewClient] = useState({ email: '', password: '' });
 
+  const handleForm = (e) => {
+    setNewClient({ ...newClient, [e.target.name]: e.target.value });
+  };
+
   const navigate = useNavigate();
 
   return (
@@ -27,19 +31,15 @@ function Login() {
           >
             <div className=' bg-black-0 flex flex-column  m-t-8 wt-100 '>
               <label for='email' className='bg-white-0 '>
-                {' '}
                 Email address
                 <input
-                  onChange={() =>
-                    setNewClient({
-                      ...newClient,
-                      email: 'adarshbalika@gmail.com',
-                    })
-                  }
+                  onChange={(e) => handleForm(e)}
                   type='email'
                   placeholder='saketkumar@gmail.com'
                   className=' rounded-xs pd-3 wt-100 '
                   id='email'
+                  name='email'
+                  value={newClient.email}
                 />
               </label>
             </div>
@@ -48,13 +48,12 @@ function Login() {
                 Password
               </label>
               <input
-                onChange={() =>
-                  setNewClient({ ...newClient, password: 'adarshbalika' })
-                }
+                onChange={(e) => handleForm(e)}
                 type='password'
                 placeholder='***************************'
                 className='rounded-xs pd-3 wt-100'
                 id='password'
+                name='password'
               />
             </div>
             <div className='flex  text-s m-y-4 justify-btw wt-100 flex-wrap'>
@@ -64,6 +63,7 @@ function Login() {
                   className='m-x-2'
                   name='checkout'
                   id='checkout'
+                  value={newClient.password}
                 />
                 <label for='checkout'>Remember me</label>
               </div>
@@ -71,9 +71,6 @@ function Login() {
             <div className='wt-100'>
               <button
                 type='submit'
-                onClick={() =>
-                  fetchLoginDetails('adarshbalika@gmail.com', 'adarshbalika')
-                }
                 className='cursor bg-red-7 text-color-0 text-xm outline-none border-none pd-x-11 pd-y-3
                         rounded-xs wt-100'
               >
@@ -82,6 +79,15 @@ function Login() {
             </div>
           </form>
           <div className='m-y-3'>
+            <button
+              onClick={() => {
+                fetchLoginDetails('adarshbalika@gmail.com', 'adarshbalika');
+              }}
+              className='cursor bg-red-7 text-color-0 text-xm outline-none border-none pd-x-11 pd-y-3
+                        rounded-xs wt-100'
+            >
+              Login As Guest
+            </button>
             <Link to='/signup' className='text-dec text-color-9'>
               Create New Account
             </Link>
