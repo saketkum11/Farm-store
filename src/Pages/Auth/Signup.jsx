@@ -23,9 +23,7 @@ function Signup() {
           <form
             onSubmit={function (e) {
               e.preventDefault();
-
               signupHandler(newClient);
-
               navigate('/login');
             }}
             className=' box-shadow-1 m-auto m-y-11 wt-30 flex
@@ -44,6 +42,7 @@ function Signup() {
                   type='text'
                   required
                   id='firstName'
+                  value={newClient.firstName}
                   placeholder='Anish'
                   className=' rounded-xs pd-3 wt-100 '
                 />
@@ -59,6 +58,7 @@ function Signup() {
                   type='text'
                   required
                   id='lastName'
+                  value={newClient.lastName}
                   placeholder='Kumar'
                   className=' rounded-xs pd-3 wt-100 '
                 />
@@ -77,6 +77,7 @@ function Signup() {
                   type='email'
                   required
                   id='email'
+                  value={newClient.email}
                   placeholder='saketkumar@gmail.com'
                   className=' rounded-xs pd-3 wt-100 '
                 />
@@ -92,7 +93,8 @@ function Signup() {
                   type='password'
                   required
                   id='password'
-                  placeholder='***************************'
+                  value={newClient.password}
+                  placeholder='eg.saket&098'
                   className='rounded-xs pd-3 wt-100'
                 />
               </label>

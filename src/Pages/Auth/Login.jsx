@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useAuth } from '../../Context/Auth/Auth';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 function Login() {
   const { fetchLoginDetails } = useAuth();
   const [newClient, setNewClient] = useState({ email: '', password: '' });
@@ -54,6 +55,7 @@ function Login() {
                 className='rounded-xs pd-3 wt-100'
                 id='password'
                 name='password'
+                value={newClient.password}
               />
             </div>
             <div className='flex  text-s m-y-4 justify-btw wt-100 flex-wrap'>
@@ -63,7 +65,6 @@ function Login() {
                   className='m-x-2'
                   name='checkout'
                   id='checkout'
-                  value={newClient.password}
                 />
                 <label for='checkout'>Remember me</label>
               </div>
@@ -82,6 +83,8 @@ function Login() {
             <button
               onClick={() => {
                 fetchLoginDetails('adarshbalika@gmail.com', 'adarshbalika');
+                toast.success('SuccessFully loggedIn');
+                navigate('/');
               }}
               className='cursor bg-red-7 text-color-0 text-xm outline-none border-none pd-x-11 pd-y-3
                         rounded-xs wt-100'
