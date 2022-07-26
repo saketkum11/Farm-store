@@ -55,6 +55,7 @@ function Login() {
                 className='rounded-xs pd-3 wt-100'
                 id='password'
                 name='password'
+                value={newClient.password}
               />
             </div>
             <div className='flex  text-s m-y-4 justify-btw wt-100 flex-wrap'>
@@ -64,7 +65,6 @@ function Login() {
                   className='m-x-2'
                   name='checkout'
                   id='checkout'
-                  value={newClient.password}
                 />
                 <label for='checkout'>Remember me</label>
               </div>
