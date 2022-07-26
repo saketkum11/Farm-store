@@ -1,6 +1,8 @@
 import Navbar from '../../Component/Navbar/Navbar';
 import React from 'react';
 import { useCart } from '../../Context/Cart/Cart-Context';
+import toast from 'react-hot-toast';
+
 function Cart() {
   const {
     cart,
@@ -78,13 +80,19 @@ function Cart() {
                           </div>
                           <div className='flex flex-column items-center m-y-3'>
                             <button
-                              onClick={() => removeCart(product)}
+                              onClick={() => {
+                                removeCart(product);
+                                toast.success('removed from cart');
+                              }}
                               className='cursor bg-red-7 text-color-0 rounded-xs outline-none border-none text-s pd-y-3 m-y-2 wt-100'
                             >
                               Remove from cart
                             </button>
                             <button
-                              onClick={() => moveToWishlist(product)}
+                              onClick={() => {
+                                moveToWishlist(product);
+                                toast.success('Moved to wishlist');
+                              }}
                               className='cursor bg-black-8 text-color-0 rounded-xs outline-none border-none text-s pd-y-3 m-y-2 wt-100'
                             >
                               move to wishlist

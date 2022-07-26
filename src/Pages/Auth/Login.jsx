@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useAuth } from '../../Context/Auth/Auth';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 function Login() {
   const { fetchLoginDetails } = useAuth();
   const [newClient, setNewClient] = useState({ email: '', password: '' });
@@ -82,6 +83,8 @@ function Login() {
             <button
               onClick={() => {
                 fetchLoginDetails('adarshbalika@gmail.com', 'adarshbalika');
+                toast.success('SuccessFully loggedIn');
+                navigate('/');
               }}
               className='cursor bg-red-7 text-color-0 text-xm outline-none border-none pd-x-11 pd-y-3
                         rounded-xs wt-100'

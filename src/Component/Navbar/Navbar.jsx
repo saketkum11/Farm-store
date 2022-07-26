@@ -3,7 +3,7 @@ import React from 'react';
 import { useAuth } from '../../Context/Auth/Auth';
 import { useCart } from '../../Context/Cart/Cart-Context';
 import { useWishlist } from '../../Context/Wishlist/Wishlist-Context';
-
+import toast from 'react-hot-toast';
 function Navbar() {
   const { authToken, tokenValue, logoutHandler } = useAuth();
   const { cart } = useCart();
@@ -18,20 +18,15 @@ function Navbar() {
               Farmgistic
             </Link>
           </div>
-          <div className='flex items-center justify-even m-lf'>
-            <input
-              type='search'
-              placeholder='search'
-              className='pd-y-3 pd-x-5 rounded-L border-none text-center outline-none'
-            />
-            <i className='fa-solid fa-magnifying-glass bg-black-0 text-color-9 rounded-L pd-3 text-xm'></i>
-          </div>
           <div className='m-lf'>
             <ul className='style-none flex items-center'>
               <li className='pd-x-4'>
                 {tokenValue ? (
                   <Link
-                    onClick={() => logoutHandler()}
+                    onClick={() => {
+                      logoutHandler();
+                      toast.success('Logged Out  successfully');
+                    }}
                     to='/login'
                     className='text-dec text-color-0 pd-x-5 pd-y-3 bg-red-7'
                   >
