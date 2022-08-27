@@ -19,14 +19,13 @@ function Wishlist() {
   return (
     <>
       <div className='h-100'>
-        <Navbar></Navbar>
         <main className='wt-80 m-y-11 m-auto bg-black-0  '>
           <div className='text-center m-y-11'>
             <h3 className='text-m'>My wishlist</h3>
           </div>
 
           <div className='grid product-content '>
-            {wishlist.map((product) => {
+            {[...wishlist].reverse().map((product) => {
               const {
                 _id,
                 imageSrc,

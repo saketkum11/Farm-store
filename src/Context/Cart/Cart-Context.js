@@ -10,22 +10,19 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const { authToken, tokenValue } = useAuth();
   const { addItem, removeItem } = useWishlist();
-  useEffect(() => {
-    const getCart = async () => {
-      try {
-        const response = await axios.get('/api/user/cart', {
-          headers: {
-            authorization: tokenValue,
-          },
-        });
+  const getCart = async () => {
+    try {
+      const response = await axios.get('/api/user/cart', {
+        headers: {
+          authorization: tokenValue,
+        },
+      });
 
-        setCart(response.data.cart);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getCart();
-  }, []);
+      setCart(response.data.cart);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const addCart = async (product) => {
     try {
@@ -115,6 +112,7 @@ const CartProvider = ({ children }) => {
     <cartContext.Provider
       value={{
         cart,
+        getCart,
         addCart,
         removeCart,
         incrementQuantity,

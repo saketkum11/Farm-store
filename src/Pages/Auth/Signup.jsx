@@ -18,7 +18,6 @@ function Signup() {
   return (
     <>
       <div className='h-100'>
-        <Navbar></Navbar>
         <main>
           <form
             onSubmit={function (e) {

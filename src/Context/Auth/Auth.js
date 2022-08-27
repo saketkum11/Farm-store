@@ -50,7 +50,6 @@ const AuthProvider = ({ children }) => {
         email: data.email,
         password: data.password,
       });
-      // saving the encodedToken in the localStorage
       localStorage.setItem('token', response.data.encodedToken);
 
       setLoader(true);
@@ -65,7 +64,6 @@ const AuthProvider = ({ children }) => {
       console.error(error);
     }
   };
-  console.log('auth', tokenValue);
   return (
     <AuthContext.Provider
       value={{

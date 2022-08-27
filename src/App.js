@@ -10,9 +10,12 @@ import Mockman from 'mockman-js';
 import { RequireAuth } from './utilities/RequireAuth';
 import { NotFound } from './Pages/NotFound/NotFound';
 import { Toaster } from 'react-hot-toast';
+import { Checkout } from './Pages/Checkout/Checkout';
+import Navbar from './Component/Navbar/Navbar';
 function App() {
   return (
     <div className='App'>
+      <Navbar />
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/product' element={<Product />}></Route>
@@ -29,6 +32,14 @@ function App() {
           element={
             <RequireAuth>
               <Cart />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path='/checkout'
+          element={
+            <RequireAuth>
+              <Checkout />
             </RequireAuth>
           }
         ></Route>

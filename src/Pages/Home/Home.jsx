@@ -23,7 +23,6 @@ function Home() {
 
   return (
     <>
-      <Navbar></Navbar>
       <main className='wt-80 m-auto '>
         <div className='flex items-start justify-center h-lg m-y-11 position-rel'>
           <img

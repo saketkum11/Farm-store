@@ -18,7 +18,6 @@ function Login() {
   return (
     <>
       <main>
-        <Navbar></Navbar>
         <section className=' box-shadow-1 m-auto m-y-11  wt-30 flex flex-column items-center pd-8 '>
           <div className='text-xm text-semi'>
             <span>Login</span>

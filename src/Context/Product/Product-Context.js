@@ -20,7 +20,6 @@ const ProductProvider = ({ children }) => {
     }
     productName();
   }, []);
-  console.log('item', items);
   return (
     <productContext.Provider
       value={{ items, setItems, setCategories, categories }}
