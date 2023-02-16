@@ -10,15 +10,15 @@ function Navbar() {
   const { wishlist } = useWishlist();
 
   return (
-    <div>
-      <nav className=' bg-green-7 text-color-0 pd-5 position-fixed t-0'>
-        <div className='wt-80  m-auto  flex items-center'>
+    <header>
+      <div className='pd-5 '>
+        <div className='wt-80  m-auto flex items-center justify-btw'>
           <div className='text-xm'>
-            <Link className='text-dec text-color-0 text-m cursor' to='/'>
+            <Link className='text-dec text-color-grey-9 text-lg cursor' to='/'>
               Farmgistic
             </Link>
           </div>
-          <div className='m-lf'>
+          <nav>
             <ul className='style-none flex items-center'>
               <li className='pd-x-4'>
                 {tokenValue ? (
@@ -28,14 +28,14 @@ function Navbar() {
                       toast.success('Logged Out  successfully');
                     }}
                     to='/login'
-                    className='text-dec text-color-0 pd-x-5 pd-y-3 bg-red-7'
+                    className='text-dec text-color-0 pd-x-5 pd-y-3 bg-green-7'
                   >
                     logout
                   </Link>
                 ) : (
                   <Link
                     to='/login'
-                    className='text-dec text-color-0 pd-x-5 pd-y-3 bg-red-7'
+                    className='text-dec text-xm text-color-grey-0 pd-x-5 pd-y-3 bg-green-6 rounded-s'
                   >
                     Login
                   </Link>
@@ -43,34 +43,37 @@ function Navbar() {
               </li>
 
               <li className='pd-x-4 flex  items-center position-rel justify-center'>
-                <Link to='/wishlist' className='text-dec text-color-0 cursor'>
-                  <i className='fa-solid  fa-heart text-color-0'></i>
+                <Link
+                  to='/wishlist'
+                  className='text-dec text-color-green-6 cursor text-xm'
+                >
+                  <i className='fa-solid  fa-heart '></i>
                 </Link>
                 {wishlist.length >= 0 && (
-                  <span className=' text-s position-ab p-t-n-2 flex items-center justify-center bg-red-7 wt-fixed-5 h-fixed-5 rounded-full p-r-0'>
+                  <span className='flex justify-center items-center text-color-green-6  position-ab    rounded-full top--50 right--20 pd-x-3 right--10 text-xm'>
                     {wishlist.length}
                   </span>
                 )}
               </li>
 
               <li className=' pd-x-4 flex  items-center position-rel justify-center'>
-                <Link to='/cart' className='text-dec text-color-0 cursor'>
+                <Link
+                  to='/cart'
+                  className='text-dec text-color-green-6 cursor text-xm'
+                >
                   <i className='fa-solid fa-cart-shopping'></i>
                 </Link>
                 {cart.length >= 0 && (
-                  <span className=' text-s position-ab p-t-n-2 flex items-center justify-center bg-red-7 wt-fixed-5 h-fixed-5 rounded-full p-r-0'>
+                  <span className=' flex justify-center items-center text-color-green-6  position-ab    rounded-full top--50 right--20 pd-x-3 right--10 text-xm'>
                     {cart.length}
                   </span>
                 )}
               </li>
-              <li className='pd-x-4'>
-                <small>cart</small>
-              </li>
             </ul>
-          </div>
+          </nav>
         </div>
-      </nav>
-    </div>
+      </div>
+    </header>
   );
 }
 
