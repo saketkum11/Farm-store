@@ -1,26 +1,24 @@
-import React from "react";
-import Card from "../../Component/Card/Card";
-import Navbar from "../../Component/Navbar/Navbar";
-import Filter from "./Filter";
-import "./Product.css";
+import React from 'react';
+import Card from '../../Component/Card/Card';
+import Navbar from '../../Component/Navbar/Navbar';
+import Filter from './Filter';
+import './Product.css';
 
 function Product() {
-return (<>
+  return (
+    <>
+      <div className='h-100 product overflow-hidden'>
+        <Navbar></Navbar>
 
-  <div className="h-100 product overflow-hidden">
-
-
-    <Navbar></Navbar>
-
-
-    <main className="flex h-vh-100 overflow-hidden ">
-
-       <Filter></Filter>
-       <Card></Card>
-    </main>
-  </div>
-</>
-);
+        <main>
+          <div className='flex width-max-100 '>
+            <Filter></Filter>
+            <Card></Card>
+          </div>
+        </main>
+      </div>
+    </>
+  );
 }
 
 export default Product;

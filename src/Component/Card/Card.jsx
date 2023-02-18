@@ -59,8 +59,8 @@ function Card() {
   };
   return (
     <>
-      <div className='wt-80 bg-black-2'>
-        <div className='grid product-content pd-3'>
+      <div className=' width-max-100  '>
+        <div className='flex gap-3 flex-wrap justify-center'>
           {filterCategories &&
             filterCategories.map((product) => {
               const {
@@ -76,7 +76,7 @@ function Card() {
               return (
                 <div
                   key={_id}
-                  className='flex flex-column  bg-black-0 wt-100 position-rel'
+                  className='flex flex-column  bg-black-0 width-scaled4-5 position-rel overflow-hide'
                 >
                   {wishlist.some((prod) => prod._id === _id) ? (
                     <div className='position-ab t-2 r-5'>
@@ -98,10 +98,10 @@ function Card() {
                     </div>
                   )}
 
-                  <div className='pd-4 bg-black-3 '>
+                  <div className='bg-black-3 '>
                     <img
                       src={imageSrc}
-                      className=' m-t-8 wt-100  rounded-m object-content'
+                      className='wt-100  rounded-m object-content'
                       alt='have  no imgae'
                     />
                   </div>

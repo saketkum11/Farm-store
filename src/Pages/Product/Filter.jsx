@@ -7,15 +7,15 @@ function Filter() {
 
   return (
     <>
-      <aside className='wt-20 h-vh-100 bg-black-2 text-color-9 position-fixed t-0'>
-        <div className='flex flex-column items-start h-100 pd-8 '>
+      <aside className=' text-color-9  '>
+        <div className='flex width-scaled4-5 flex-column items-start h-100 pd-8 '>
           <div className='flex justify-btw wt-100 m-y-2'>
             <div className='text-s text-bold'>
               <span>Filter</span>
             </div>
             <div className='text-s text-bold '>
               <button
-                className='cursor'
+                className='cursor bg-green-5 text-color-grey-0 pd-3 text-s rounded-s'
                 onClick={() => dispatch({ type: 'CLEAR' })}
               >
                 clear
@@ -51,7 +51,7 @@ function Filter() {
             <div className='text-s text-bold'>
               <span>Categories</span>
             </div>
-            <div>
+            <div className='flex flex-column items-start'>
               <div className=''>
                 <label for=''>
                   <input
