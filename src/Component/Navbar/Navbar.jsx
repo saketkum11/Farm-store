@@ -61,7 +61,7 @@ function Navbar() {
                       toast.success('Logged Out  successfully');
                     }}
                     to='/login'
-                    className='text-dec text-color-0 pd-x-5 pd-y-3 bg-green-7'
+                    className='text-dec text-xm pd-x-5 pd-y-3 bg-green-7 text-color-grey-0 rounded-s'
                   >
                     logout
                   </Link>

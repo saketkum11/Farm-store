@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '../../Component/Card/Card';
 import Navbar from '../../Component/Navbar/Navbar';
 import Filter from './Filter';
+import Footer from '../../Component/Footer/Footer';
 import './Product.css';
 
 function Product() {
@@ -16,6 +17,7 @@ function Product() {
             <Card></Card>
           </div>
         </main>
+        <Footer></Footer>
       </div>
     </>
   );

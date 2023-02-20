@@ -7,8 +7,8 @@ function Filter() {
 
   return (
     <>
-      <aside className=' text-color-9  '>
-        <div className='flex width-scaled4-5 flex-column items-start h-100 pd-8 '>
+      <aside className=' text-color-9 width-max-100 '>
+        <div className='position-sticky  top-0 flex width-scaled4-4 flex-column items-start h-100 pd-8 '>
           <div className='flex justify-btw wt-100 m-y-2'>
             <div className='text-s text-bold'>
               <span>Filter</span>
@@ -41,14 +41,13 @@ function Filter() {
                   dispatch({ type: 'RANGE', payload: event.target.value })
                 }
                 name=''
-                className='wt-100'
-                id=''
+                className='wt-100 input-green-800 width-scaled4-8'
               />
             </div>
           </div>
 
           <div className='m-y-2'>
-            <div className='text-s text-bold'>
+            <div className='text-s  text-bold'>
               <span>Categories</span>
             </div>
             <div className='flex flex-column items-start'>

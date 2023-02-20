@@ -59,7 +59,7 @@ function Card() {
   };
   return (
     <>
-      <div className=' width-max-100  '>
+      <div className=' width-max-100 m-y-9 pd-4 m-auto'>
         <div className='flex gap-3 flex-wrap justify-center'>
           {filterCategories &&
             filterCategories.map((product) => {
@@ -76,38 +76,17 @@ function Card() {
               return (
                 <div
                   key={_id}
-                  className='flex flex-column  bg-black-0 width-scaled4-5 position-rel overflow-hide'
+                  className='flex flex-column  bg-black-0 width-scaled4-4 position-rel overflow-hide rounded-m box-shadow-1'
                 >
-                  {wishlist.some((prod) => prod._id === _id) ? (
-                    <div className='position-ab t-2 r-5'>
-                      <button
-                        onClick={() => handleRemovedFromWishlist(product)}
-                        className='pd-x-3 bg-black-2 border-none pd-y-2 rounded-full cursor'
-                      >
-                        <i className='fa-solid fa-heart color-red-7'></i>
-                      </button>
-                    </div>
-                  ) : (
-                    <div className='position-ab t-2 r-5'>
-                      <button
-                        onClick={() => handleAddToWishlist(product)}
-                        className='pd-x-3 bg-black-2 border-none pd-y-2 rounded-full cursor'
-                      >
-                        <i className='fa-solid fa-heart color-black-7'></i>
-                      </button>
-                    </div>
-                  )}
+                  <img
+                    src={imageSrc}
+                    className=' rounded-top-3 object-content-cover'
+                    alt='have  no imgae'
+                  />
 
-                  <div className='bg-black-3 '>
-                    <img
-                      src={imageSrc}
-                      className='wt-100  rounded-m object-content'
-                      alt='have  no imgae'
-                    />
-                  </div>
-                  <div className=' m-y-9 '>
-                    <div className=' flex flex-column items-start pd-4 '>
-                      <span className='text-s text-light'>{title}</span>
+                  <div className='pd-4'>
+                    <div className=' flex flex-column items-start '>
+                      <span className='text-xm text-bold'>{title}</span>
 
                       {inStock ? (
                         <small className=' text-sm'>inStock</small>
@@ -115,36 +94,50 @@ function Card() {
                         <small className=' text-sm'>outofStock</small>
                       )}
 
-                      <small className=' text-s'>Rs.{price}</small>
-                      <small className=' text-s'>{quantity}</small>
+                      <span className=' text-s pd-y-2 '>
+                        Rs.{price} / {quantity}
+                      </span>
 
-                      <small className=' text-sm'>{categoryName}</small>
-                      <div class='bg-green-7 pd-2 m-y-5'>
+                      <span className=' text-sm pd-y-2 '>{categoryName}</span>
+                      <div class='text-color-green-6 pd-y-2 '>
                         <small className='text-color-0 text-sm'>
-                          rating {rating}/5{' '}
-                          <i className='fas fa-star text-color-0'></i>
+                          rating {rating}/5
                         </small>
                       </div>
                     </div>
                   </div>
-
-                  {cart.some((prod) => prod._id === _id) ? (
-                    <button
-                      onClick={() => handleAdRemovedFromCart(product)}
-                      className=' flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3 text-color-0 bg-black-8
-                      text-dec '
-                    >
-                      remove from cart
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => handleAddCart(product)}
-                      className=' flex flex-wrap flex-column items-center wt-100 border-none cursor pd-y-3 text-color-0 bg-black-8
-                      text-dec '
-                    >
-                      Add to cart
-                    </button>
-                  )}
+                  <div className='flex pd-4 justify-btw items-center'>
+                    {cart.some((prod) => prod._id === _id) ? (
+                      <button
+                        onClick={() => handleAdRemovedFromCart(product)}
+                        className=' rounded-s cursor border-red-700 border-solid border-1  text-color-red-7 pd-x-5 pd-y-4 text-m"'
+                      >
+                        Remove from cart
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => handleAddCart(product)}
+                        className='bg-black-0 rounded-s cursor border-green-700 border-solid border-1  text-color-green-7 pd-x-5 pd-y-4 text-xm"'
+                      >
+                        Add to cart
+                      </button>
+                    )}
+                    {wishlist.some((prod) => prod._id === _id) ? (
+                      <button
+                        onClick={() => handleRemovedFromWishlist(product)}
+                        className='text-m bg-none cursor text-color-red-9'
+                      >
+                        <i className='fa-solid fa-heart '></i>
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => handleAddToWishlist(product)}
+                        className=' text-m  cursor text-color-grey-8'
+                      >
+                        <i className='fa-solid fa-heart '></i>
+                      </button>
+                    )}
+                  </div>
                 </div>
               );
             })}

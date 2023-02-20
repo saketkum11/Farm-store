@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <div className='bg-black-6 pd-y-8'>
+        <div className='bg-black-6 pd-y-8 width-max-100'>
           <span className='text-color-grey-0 text-m'>Made by Saket kumar.</span>
           <ul className='flex style-none itms-center justify-center gap-3'>
             <li className='m-y-2 text-m'>

@@ -14,16 +14,14 @@ const CategoryCard = () => {
         {[...categoryItem].map(({ categoryName, imageSrc, _id }) => {
           return (
             <div className='width-scaled4-4  position-rel'>
-              <figure className=''>
-                <img
-                  src={imageSrc}
-                  alt={categoryName}
-                  className=' rounded-m object-content-cover wt-100 ht-auto '
-                />
-                <div class='position-ab flex justify-center items-center top-0 ht-100 bg-overlay z-index-1 wt-100 text-color-grey-0 text-bold text-m rounded-m overflow-hide'>
-                  <p>{categoryName}</p>
-                </div>
-              </figure>
+              <img
+                src={imageSrc}
+                alt={categoryName}
+                className=' rounded-m object-content-cover wt-100 ht-auto '
+              />
+              <div class='position-ab flex justify-center items-center top-0 ht-100 bg-overlay z-index-2 wt-100 text-color-grey-0 text-bold text-m rounded-m overflow-hide'>
+                <p>{categoryName}</p>
+              </div>
             </div>
           );
         })}

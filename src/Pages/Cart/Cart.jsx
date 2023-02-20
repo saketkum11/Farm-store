@@ -2,7 +2,7 @@ import Navbar from '../../Component/Navbar/Navbar';
 import React from 'react';
 import { useCart } from '../../Context/Cart/Cart-Context';
 import toast from 'react-hot-toast';
-
+import Footer from '../../Component/Footer/Footer';
 function Cart() {
   const {
     cart,
@@ -16,15 +16,15 @@ function Cart() {
   const { totalDiscount, totalProductPrice, deliveryPrice } = priceData;
   return (
     <>
-      <div className='h-100'>
+      <div className=''>
         <Navbar></Navbar>
-        <main className='wt-80 m-y-11 m-auto bg-black-0 flex  items-center flex-wrap'>
-          <div className='text-center m-y-8'>
+        <main>
+          <div className='text-center m-y-8  m-y-11 m-auto  flex items-center justify-center flex-column  flex-wrap width-max-100'>
             <h2 className='text-light text-center'>My Carts</h2>
           </div>
-          <div className='flex wt-100 '>
-            <div className=' flex flex-column justify-around pd-5 '>
-              {cart.map((product) => {
+          <div className='flex  justify-center flex-wrap gap-3 width-max-100 '>
+            <div className=' flex flex-column justify-around  pd-5 gap-3  width-scaled4-7'>
+              {[...cart].map((product) => {
                 const {
                   _id,
                   imageSrc,
@@ -37,54 +37,56 @@ function Cart() {
                   discount,
                   categoryName,
                 } = product;
-
                 return (
                   <>
-                    <div key={_id} className='flex '>
-                      <section className='box-shadow flex justify-btw wt-60 m-b-8 rounded-s '>
-                        <img
-                          src={imageSrc}
-                          className='wt-50 pd-2 object-content m-r-6'
-                          alt=''
-                        />
+                    <div
+                      key={_id}
+                      className='flex flex-column gap-2 bg-black-0 rounded-s cursor border-black-700 border-solid border-1 pd-x-5 pd-y-4 '
+                    >
+                      <div className='flex justify-center items-center gap-1'>
+                        <div className='width-max-100'>
+                          <img
+                            src={imageSrc}
+                            className='width-scaled4-10 ht-100 object-content-cover'
+                            alt=''
+                          />
+                        </div>
 
-                        <div className='pd-11 wt-80 flex flex-column justify-even '>
+                        <div className='flex flex-column items-start '>
                           <div className=' flex flex-column items-start '>
-                            <div className='flex flex-column items-start '>
-                              <span className='text-xm text-light'>
-                                {title}l
+                            <div className='flex flex-column items-start gap-1 '>
+                              <span className='text-m text-light'>{title}</span>
+                              <span className='text-s'>
+                                Rs {price} / {quantity}
                               </span>
-                              <span className='text-m'>Rs {price}</span>
-                              <span className='text-s'>{categoryName}</span>
-                              <span className='text-s'>{quantity}</span>
                               <span className='text-s'>
                                 Discount - Rs {discount}
                               </span>
                             </div>
-                            <div className='flex justify-even items-center '>
-                              <span>Quantity: </span>
+
+                            <div className='flex justify-even gap-2 items-center'>
                               <button
                                 onClick={() => decrementQuantity(product)}
-                                className='cursor rounded-full wt-fixed-5 h-fixed-5 '
+                                className='flex-1 cursor  border-black-700 border-solid border-1 pd-4'
                               >
                                 -
                               </button>
                               <span className=''>{qty}</span>
                               <button
                                 onClick={() => incrementQuantity(product)}
-                                className='cursor rounded-full wt-fixed-5 h-fixed-5'
+                                className=' flex-1 cursor border-black-700 border-solid border-1 pd-4'
                               >
                                 +
                               </button>
                             </div>
                           </div>
-                          <div className='flex flex-column items-center m-y-3'>
+                          <div className='flex flex-column items-start m-y-3 gap-1 '>
                             <button
                               onClick={() => {
                                 removeCart(product);
                                 toast.success('removed from cart');
                               }}
-                              className='cursor bg-red-7 text-color-0 rounded-xs outline-none border-none text-s pd-y-3 m-y-2 wt-100'
+                              className='flex-1  rounded-s cursor border-black-700 border-solid border-1 pd-y-4 pd-x-3 wt-100'
                             >
                               Remove from cart
                             </button>
@@ -93,19 +95,19 @@ function Cart() {
                                 moveToWishlist(product);
                                 toast.success('Moved to wishlist');
                               }}
-                              className='cursor bg-black-8 text-color-0 rounded-xs outline-none border-none text-s pd-y-3 m-y-2 wt-100'
+                              className='flex-1 rounded-s cursor border-black-700 border-solid border-1 pd-y-4 pd-x-3 wt-100'
                             >
                               move to wishlist
                             </button>
                           </div>
                         </div>
-                      </section>
+                      </div>
                     </div>
                   </>
                 );
               })}
             </div>
-            <div className='flex flex-column wt-50'>
+            <div className='flex flex-column width-scaled4-9'>
               <section className='box-shadow pd-8  flex flex-column justify-even rounded-s '>
                 <div>
                   <h3>Price Details</h3>
@@ -133,7 +135,7 @@ function Cart() {
 
                 <div className='pd-2'>
                   <p>You have saved Rs {totalDiscount}!</p>
-                  <button className='cursor bg-red-7 text-color-0 rounded-xs outline-none border-none text-s pd-y-3 m-y-2 wt-100'>
+                  <button className='cursor bg-green-7 text-color-grey-0 rounded-s  border-none text-s pd-y-3 m-y-2 wt-100'>
                     Place your Order
                   </button>
                 </div>
@@ -141,6 +143,7 @@ function Cart() {
             </div>
           </div>
         </main>
+        <Footer />
       </div>
     </>
   );
