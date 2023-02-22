@@ -19,8 +19,8 @@ function Login() {
     <>
       <Navbar />
       <main>
-        <div className=' '>
-          <div className='m-auto flex flex-column gap-1 box-shadow-2 pd-11 wt-50 width-scaled4-7'>
+        <div className=''>
+          <div className='m-auto flex flex-column gap-1 box-shadow-2 pd-11 wt-max-20 '>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -28,29 +28,26 @@ function Login() {
                 navigate('/');
               }}
             >
-              <div className='width-max-100 flex flex-column gap-2'>
-                <div className='flex flex-column items-center gap-1'>
-                  <label for='email' className=' '>
-                    Email address
-                  </label>
+              <div className=' flex flex-column gap-2'>
+                <div className='text-xm text-semi'>
+                  <span>Login</span>
+                </div>
+                <div className=''>
                   <input
                     onChange={(e) => handleForm(e)}
                     type='email'
-                    placeholder='saketkumar@gmail.com'
-                    className='width-scaled4-5 pd-4  border-1 border-solid border-black-700  text-s rounded-s text-color-grey-9'
+                    placeholder='email id'
+                    className='wt-100 pd-4  border-1 border-solid border-black-700  text-s rounded-s text-color-grey-9'
                     id='email'
                     name='email'
                     value={newClient.email}
                   />
                 </div>
-                <div className=' flex flex-column items-center gap-1 '>
-                  <label for='password' className=''>
-                    Password
-                  </label>
+                <div className='  '>
                   <input
                     onChange={(e) => handleForm(e)}
                     type='password'
-                    placeholder='***************************'
+                    placeholder='password'
                     className=' pd-4 border-1 width-scaled4-5 border-solid border-black-700 text-s rounded-s text-color-grey-9 '
                     id='password'
                     name='password'
@@ -58,10 +55,10 @@ function Login() {
                   />
                 </div>
 
-                <div className='flex items-center justify-center width-max-100'>
+                <div className=''>
                   <button
                     type='submit'
-                    className='cursor bg-green-8 text-color-grey-0 text-xm width-scaled4-4  pd-x-11 pd-y-3
+                    className='cursor bg-green-8 text-color-grey-0 text-xm wt-100 pd-x-11 pd-y-3
                         rounded-xs '
                   >
                     Login
@@ -76,13 +73,13 @@ function Login() {
                   toast.success('SuccessFully loggedIn');
                   navigate('/');
                 }}
-                className='cursor bg-green-8 text-color-grey-0 text-xm  border-none pd-x-11 pd-y-3 rounded-xs  '
+                className='cursor bg-green-8 wt-100 text-color-grey-0 text-xm  border-none pd-x-11 pd-y-3 rounded-xs  '
               >
                 Login As Guest
               </button>
               <Link
                 to='/signup'
-                className='cursor text-color-grey-9 text-xm  border-none pd-x-11 pd-y-3 '
+                className='cursor text-color-grey-9 text-xm text-dec  pd-x-11 pd-y-3 '
               >
                 Create New Account
               </Link>
