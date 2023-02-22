@@ -62,7 +62,7 @@ function Card() {
       <div className=' width-max-100 m-y-9 pd-4 m-auto'>
         <div className='flex gap-3 flex-wrap justify-center'>
           {filterCategories &&
-            filterCategories.map((product) => {
+            [...filterCategories].map((product) => {
               const {
                 _id,
                 imageSrc,

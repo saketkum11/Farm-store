@@ -5,7 +5,7 @@ const SideNav = ({ cart, wishlist, sideNavFlag, setSideNavFlag, nav }) => {
   const { tokenValue, logoutHandler } = useAuth();
   return (
     <>
-      <nav className='bg-black-0 width-scaled4-4 ht-auto pd-7 position-ab top-0 right-0 '>
+      <nav className='bg-black-0 width-scaled4-4 ht-auto pd-7 position-ab top-0 right-0 z-index-2'>
         <ul className='style-none flex flex-column items-start justify-start gap-1 position-rel wt-100'>
           <li
             className='flex items-end justify-end text-m'

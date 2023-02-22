@@ -26,7 +26,7 @@ function Wishlist() {
           </div>
 
           <div className=' flex justify-center items-center width-max-100 gap-2 flex-wrap'>
-            {wishlist.map((product) => {
+            {[...wishlist].map((product) => {
               const {
                 _id,
                 imageSrc,
