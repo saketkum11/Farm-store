@@ -1,24 +1,41 @@
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../../Context/Auth/Auth';
 import { useCart } from '../../Context/Cart/Cart-Context';
 import { useWishlist } from '../../Context/Wishlist/Wishlist-Context';
 import toast from 'react-hot-toast';
+import SideNav from '../SideNav/SideNav';
 function Navbar() {
   const { authToken, tokenValue, logoutHandler } = useAuth();
   const { cart } = useCart();
   const { wishlist } = useWishlist();
+  const [sideNavFLag, setSideNavFlag] = useState(false);
   return (
     <header>
+      {sideNavFLag && (
+        <SideNav
+          cart={cart}
+          wishlist={wishlist}
+          tokenValue={tokenValue}
+          navFlag={sideNavFLag}
+          setSideNavFlag={setSideNavFlag}
+        />
+      )}
       <div className='pd-5 '>
         <div className='m-auto flex items-center justify-btw'>
-          <div className='text-xm'>
+          <div className='text-xm '>
             <Link className='text-dec text-color-grey-9 text-lg cursor' to='/'>
               Farmgistic
             </Link>
           </div>
-          <nav>
-            <ul className='style-none flex items-center'>
+          <nav className='flex'>
+            <div
+              className='text-m side-nav'
+              onClick={() => setSideNavFlag((flag) => !flag)}
+            >
+              <i class='fa-solid fa-bars'></i>
+            </div>
+            <ul className='style-none flex items-center nav-hide'>
               <li className='pd-x-4'>
                 <Link
                   to='/'
