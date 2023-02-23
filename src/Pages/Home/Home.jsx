@@ -11,6 +11,7 @@ import { useCart } from '../../Context/Cart/Cart-Context';
 import { useWishlist } from '../../Context/Wishlist/Wishlist-Context';
 import { useAuth } from '../../Context/Auth/Auth';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 function Home() {
   const [categoriesValue, setCategoriesValue] = useState([]);
   const { setCategories, productName, items } = useProduct();
@@ -18,6 +19,7 @@ function Home() {
   const { addItem, wishlist, removeItem } = useWishlist();
   const { tokenValue } = useAuth();
   let productToshow = items.slice(4);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const categories = async () => {
