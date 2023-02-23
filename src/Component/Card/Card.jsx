@@ -13,6 +13,7 @@ function Card() {
   const { removeCart, addCart, cart } = useCart();
   const { tokenValue } = useAuth();
   const navigate = useNavigate();
+
   const filteredCategories = (category) => {
     if (category) {
       return sortPriceData?.filter((item) => item.categoryName === category);

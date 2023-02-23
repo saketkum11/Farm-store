@@ -7,10 +7,16 @@ import axios from 'axios';
 import { useProduct } from '../../Context/Product/Product-Context';
 import Footer from '../../Component/Footer/Footer';
 import CategoryCard from '../../Component/CategoryCard/CategoryCard';
-
+import { useCart } from '../../Context/Cart/Cart-Context';
+import { useWishlist } from '../../Context/Wishlist/Wishlist-Context';
+import { useAuth } from '../../Context/Auth/Auth';
+import toast from 'react-hot-toast';
 function Home() {
   const [categoriesValue, setCategoriesValue] = useState([]);
   const { setCategories, productName, items } = useProduct();
+  const { removeCart, addCart, cart } = useCart();
+  const { addItem, wishlist, removeItem } = useWishlist();
+  const { tokenValue } = useAuth();
   let productToshow = items.slice(4);
 
   useEffect(() => {
@@ -24,6 +30,43 @@ function Home() {
     };
     categories();
   }, []);
+
+  const handleAdRemovedFromCart = (product) => {
+    if (tokenValue) {
+      removeCart(product);
+      toast.success('Removed from Cart');
+    } else if (!tokenValue) {
+      navigate('/login');
+      toast.error('You must login');
+    }
+  };
+  const handleRemovedFromWishlist = (product) => {
+    if (tokenValue) {
+      removeItem(product);
+      toast.success('removed from Wishlist');
+    } else if (!tokenValue) {
+      navigate('/login');
+      toast.error('You must login');
+    }
+  };
+  const handleAddCart = (product) => {
+    if (tokenValue) {
+      addCart(product);
+      toast.success('Added to Cart');
+    } else if (!tokenValue) {
+      navigate('/login');
+      toast.error('You must login');
+    }
+  };
+  const handleAddToWishlist = (product) => {
+    if (tokenValue) {
+      addItem(product);
+      toast.success('Added to Wishlist');
+    } else if (!tokenValue) {
+      navigate('/login');
+      toast.error('You must login');
+    }
+  };
 
   return (
     <>
@@ -63,43 +106,66 @@ function Home() {
                 <span className='text-lg'>Product</span>
               </div>
               <div className='flex gap-2 justify-center items-center flex-wrap overflow-auto pd-4'>
-                {[...productToshow].map(
-                  ({ id, title, imageSrc, price, rating }) => {
-                    return (
-                      <>
-                        <div
-                          key={id}
-                          className='flex flex-column position-rel  width-scaled4-4  box-shadow-1 overflow-hide rounded-s'
-                        >
-                          <figure>
-                            <img
-                              src={imageSrc}
-                              alt={title}
-                              className='object-content-cover rounded-top-3 wt-100 ht-100'
-                            />
-                          </figure>
-                          <div className='flex flex-column justify-start items-start pd-4 '>
-                            <span className='m-y-1  text-xm text-semibold'>
-                              {title}
-                            </span>
+                {[...productToshow].map((product) => {
+                  const { id, title, imageSrc, price, rating } = product;
+                  return (
+                    <>
+                      <div
+                        key={id}
+                        className='flex flex-column position-rel  width-scaled4-4  box-shadow-1 overflow-hide rounded-s'
+                      >
+                        <figure>
+                          <img
+                            src={imageSrc}
+                            alt={title}
+                            className='object-content-cover rounded-top-3 wt-100 ht-100'
+                          />
+                        </figure>
+                        <div className='flex flex-column justify-start items-start pd-4 '>
+                          <span className='m-y-1  text-xm text-semibold'>
+                            {title}
+                          </span>
 
-                            <span className='m-y-1'>Rs {price} / kg</span>
+                          <span className='m-y-1'>Rs {price} / kg</span>
 
-                            <span className='m-y-1'>Rating - {rating}/5</span>
-                          </div>
-                          <div className='flex pd-4 justify-btw items-center'>
-                            <span className='text-dec text-s text-color-grey-0 pd-x-5 pd-y-3 bg-green-6 rounded-s'>
-                              Add to Cart
-                            </span>
-                            <span className='text-lg text-color-grey-4'>
-                              <i class='fa-solid fa-heart'></i>
-                            </span>
-                          </div>
+                          <span className='m-y-1'>Rating - {rating}/5</span>
                         </div>
-                      </>
-                    );
-                  }
-                )}
+                        <div className='flex pd-4 justify-btw items-center'>
+                          {cart.some((prod) => prod.id === id) ? (
+                            <button
+                              onClick={() => handleAdRemovedFromCart(product)}
+                              className=' rounded-s cursor border-red-700 border-solid border-1  text-color-red-7 pd-x-5 pd-y-4 text-m"'
+                            >
+                              Remove from cart
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => handleAddCart(product)}
+                              className='bg-black-0 rounded-s cursor border-green-700 border-solid border-1  text-color-green-7 pd-x-5 pd-y-4 text-xm"'
+                            >
+                              Add to cart
+                            </button>
+                          )}
+                          {wishlist.some((prod) => prod.id === id) ? (
+                            <button
+                              onClick={() => handleRemovedFromWishlist(product)}
+                              className='text-m bg-none cursor text-color-red-9'
+                            >
+                              <i className='fa-solid fa-heart '></i>
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => handleAddToWishlist(product)}
+                              className=' text-m  cursor text-color-grey-8'
+                            >
+                              <i className='fa-solid fa-heart '></i>
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </>
+                  );
+                })}
               </div>
             </section>
             <section>
