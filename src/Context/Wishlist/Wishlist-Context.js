@@ -19,7 +19,6 @@ const WishlistProvider = ({ children }) => {
         },
       });
       setWishlist(response.data.wishlist);
-      console.log('response from whislist', response.data);
     } catch (error) {
       console.error(error);
     }
@@ -36,7 +35,6 @@ const WishlistProvider = ({ children }) => {
         }
       );
       setWishlist(response.data.wishlist);
-      console.log('response from whislist', response.data);
     } catch (error) {
       console.error(error);
     }
@@ -50,7 +48,6 @@ const WishlistProvider = ({ children }) => {
         },
       });
       setWishlist(response.data.wishlist);
-      console.log('response from whislist', response.data);
     } catch (error) {
       console.error(error);
     }

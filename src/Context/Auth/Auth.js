@@ -65,7 +65,6 @@ const AuthProvider = ({ children }) => {
       console.error(error);
     }
   };
-  console.log('auth', tokenValue);
   return (
     <AuthContext.Provider
       value={{
