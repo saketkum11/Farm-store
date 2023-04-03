@@ -10,7 +10,7 @@ const Footer = () => {
                 href='https://github.com/saketkum11'
                 className='text-dec text-color-grey-0'
               >
-                <i class='fa-brands fa-github'></i>
+                <i className='fa-brands fa-github'></i>
               </a>
             </li>
             <li className='m-y-2 text-m'>
@@ -18,7 +18,7 @@ const Footer = () => {
                 href='https://www.linkedin.com/in/saketkumar21/'
                 className='text-dec text-color-grey-0'
               >
-                <i class='fa-brands fa-linkedin'></i>
+                <i className='fa-brands fa-linkedin'></i>
               </a>
             </li>
             <li className='m-y-2 text-m'>
@@ -26,7 +26,7 @@ const Footer = () => {
                 href='https://twitter.com/saketkum11'
                 className='text-dec text-color-grey-0'
               >
-                <i class='fa-brands fa-twitter'></i>
+                <i className='fa-brands fa-twitter'></i>
               </a>
             </li>
           </ul>

@@ -33,7 +33,7 @@ function Navbar() {
               className='text-m side-nav'
               onClick={() => setSideNavFlag((flag) => !flag)}
             >
-              <i class='fa-solid fa-bars'></i>
+              <i className='fa-solid fa-bars'></i>
             </div>
             <ul className='style-none flex items-center nav-hide'>
               <li className='pd-x-4'>

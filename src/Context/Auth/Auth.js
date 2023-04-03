@@ -31,9 +31,7 @@ const AuthProvider = ({ children }) => {
       // saving the encodedToken in the localStorage
 
       localStorage.setItem('token', response.data.encodedToken);
-
       navigate('/');
-      console.log('reposnse from login', response.data);
     } catch (error) {
       console.error(error);
     }
@@ -52,7 +50,6 @@ const AuthProvider = ({ children }) => {
       });
       // saving the encodedToken in the localStorage
       localStorage.setItem('token', response.data.encodedToken);
-
       setLoader(true);
     } catch (error) {
       console.error(error);

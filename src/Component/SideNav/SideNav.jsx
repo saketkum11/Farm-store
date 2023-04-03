@@ -11,7 +11,7 @@ const SideNav = ({ cart, wishlist, sideNavFlag, setSideNavFlag, nav }) => {
             className='flex items-end justify-end text-m'
             onClick={() => setSideNavFlag((nav) => !nav)}
           >
-            <i class='fa-solid fa-xmark'></i>
+            <i className='fa-solid fa-xmark'></i>
           </li>
           <li className='pd-x-4'>
             <Link className='text-dec text-color-grey-9 text-xm cursor' to='/'>
