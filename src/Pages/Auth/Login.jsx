@@ -17,85 +17,75 @@ function Login() {
 
   return (
     <>
+      <Navbar />
       <main>
-        <Navbar></Navbar>
-        <section className=' box-shadow-1 m-auto m-y-11  wt-30 flex flex-column items-center pd-8 '>
-          <div className='text-xm text-semi'>
-            <span>Login</span>
-          </div>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              fetchLoginDetails(newClient.email, newClient.password);
-              navigate('/');
-            }}
-          >
-            <div className=' bg-black-0 flex flex-column  m-t-8 wt-100 '>
-              <label for='email' className='bg-white-0 '>
-                Email address
-                <input
-                  onChange={(e) => handleForm(e)}
-                  type='email'
-                  placeholder='saketkumar@gmail.com'
-                  className=' rounded-xs pd-3 wt-100 '
-                  id='email'
-                  name='email'
-                  value={newClient.email}
-                />
-              </label>
-            </div>
-            <div className='bg-black-0 flex  flex-column  m-y-4 wt-100'>
-              <label for='password' className='bg-white-0'>
-                Password
-              </label>
-              <input
-                onChange={(e) => handleForm(e)}
-                type='password'
-                placeholder='***************************'
-                className='rounded-xs pd-3 wt-100'
-                id='password'
-                name='password'
-                value={newClient.password}
-              />
-            </div>
-            <div className='flex  text-s m-y-4 justify-btw wt-100 flex-wrap'>
-              <div className='flex items-center   '>
-                <input
-                  type='checkbox'
-                  className='m-x-2'
-                  name='checkout'
-                  id='checkout'
-                />
-                <label for='checkout'>Remember me</label>
-              </div>
-            </div>
-            <div className='wt-100'>
-              <button
-                type='submit'
-                className='cursor bg-red-7 text-color-0 text-xm outline-none border-none pd-x-11 pd-y-3
-                        rounded-xs wt-100'
-              >
-                Login
-              </button>
-            </div>
-          </form>
-          <div className='m-y-3'>
-            <button
-              onClick={() => {
-                fetchLoginDetails('adarshbalika@gmail.com', 'adarshbalika');
-                toast.success('SuccessFully loggedIn');
+        <div className=''>
+          <div className='m-auto flex flex-column gap-1 box-shadow-2 pd-11 wt-max-20 '>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                fetchLoginDetails(newClient.email, newClient.password);
                 navigate('/');
               }}
-              className='cursor bg-red-7 text-color-0 text-xm outline-none border-none pd-x-11 pd-y-3
-                        rounded-xs wt-100'
             >
-              Login As Guest
-            </button>
-            <Link to='/signup' className='text-dec text-color-9'>
-              Create New Account
-            </Link>
+              <div className=' flex flex-column gap-2'>
+                <div className='text-xm text-semi'>
+                  <span>Login</span>
+                </div>
+                <div className=''>
+                  <input
+                    onChange={(e) => handleForm(e)}
+                    type='email'
+                    placeholder='email id'
+                    className='wt-100 pd-4  border-1 border-solid border-black-700  text-s rounded-s text-color-grey-9'
+                    id='email'
+                    name='email'
+                    value={newClient.email}
+                  />
+                </div>
+                <div className='  '>
+                  <input
+                    onChange={(e) => handleForm(e)}
+                    type='password'
+                    placeholder='password'
+                    className=' pd-4 border-1 width-scaled4-5 border-solid border-black-700 text-s rounded-s text-color-grey-9 '
+                    id='password'
+                    name='password'
+                    value={newClient.password}
+                  />
+                </div>
+
+                <div className=''>
+                  <button
+                    type='submit'
+                    className='cursor bg-green-8 text-color-grey-0 text-xm wt-100 pd-x-11 pd-y-3
+                        rounded-xs '
+                  >
+                    Login
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div className='flex flex-column justify-center items-center  gap-1'>
+              <button
+                onClick={() => {
+                  fetchLoginDetails('adarshbalika@gmail.com', 'adarshbalika');
+                  toast.success('SuccessFully loggedIn');
+                  navigate('/');
+                }}
+                className='cursor bg-green-8 wt-100 text-color-grey-0 text-xm  border-none pd-x-11 pd-y-3 rounded-xs  '
+              >
+                Login As Guest
+              </button>
+              <Link
+                to='/signup'
+                className='cursor text-color-grey-9 text-xm text-dec  pd-x-11 pd-y-3 '
+              >
+                Create New Account
+              </Link>
+            </div>
           </div>
-        </section>
+        </div>
       </main>
     </>
   );

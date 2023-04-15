@@ -16,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/product' element={<Product />}></Route>
+        <Route path='/user' element={<RequireAuth></RequireAuth>}></Route>
         <Route
           path='/wishlist'
           element={
@@ -32,7 +33,14 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-
+        <Route
+          path='/'
+          element={
+            <RequireAuth>
+              <Cart />
+            </RequireAuth>
+          }
+        ></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='*' element={<NotFound />}></Route>

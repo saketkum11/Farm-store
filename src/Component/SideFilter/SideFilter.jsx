@@ -1,13 +1,19 @@
-import React from 'react';
 import { useFilter } from '../../Context/Filter/Filter-Context';
-import { useProduct } from '../../Context/Product/Product-Context';
 
-function Filter() {
+const SideFilter = ({ filterFlag, setFilterFlag }) => {
   const { state, dispatch } = useFilter();
-
   return (
     <>
-      <aside className=' text-color-9 width-max-100  bg-black-0  filter-show'>
+      <aside className=' text-color-9 width-max-100  bg-black-0 position-rel side-filter'>
+        <button
+          className='position-ab top-0 right-10 flex justify-center text-m text-right cursor'
+          onClick={() => {
+            setFilterFlag((flag) => !flag);
+          }}
+        >
+          <i class='fa-solid fa-xmark'></i>
+        </button>
+
         <div className='position-sticky  top-0 flex width-scaled4-4 flex-column items-start h-100 pd-8 '>
           <div className='flex justify-btw wt-100 m-y-2'>
             <div className='text-s text-bold'>
@@ -214,6 +220,5 @@ function Filter() {
       </aside>
     </>
   );
-}
-
-export default Filter;
+};
+export default SideFilter;
