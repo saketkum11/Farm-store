@@ -9,6 +9,8 @@ Tech Stack
 - component library : Webkit-ui
 - Backend : Mockbee Backend
 
+Responsive: fully responsive
+
 Lists: 
 
 <a href="https://farmstore.netlify.app/">Home Page</a>
