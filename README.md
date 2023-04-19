@@ -2,6 +2,12 @@
 
 FarmStore solves your daily uses problem , we sell vegetable ,fruit,egg and meat and at last grain. We would love to see you buy product from us.
 
+Tech Stack 
+
+- React JS
+- Html
+- component library : Webkit-ui
+- Backend : Mockbee Backend
 
 Lists: 
 
@@ -20,4 +26,5 @@ Lists:
  
 
 
+![image](https://user-images.githubusercontent.com/46194436/233014927-1f84f216-bc85-4673-a883-2c1dffb14142.png)
 
