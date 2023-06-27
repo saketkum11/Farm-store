@@ -16,7 +16,7 @@ function Filter() {
             <div className='text-s text-bold '>
               <button
                 className='cursor bg-green-5 text-color-grey-0 pd-3 text-s rounded-s'
-                onClick={() => dispatch({ type: 'CLEAR' })}
+                onClick={() => dispatch({ type: 'CLEA11R' })}
               >
                 clear
               </button>
