@@ -14,6 +14,14 @@ function Cart() {
   } = useCart();
 
   const { totalDiscount, totalProductPrice, deliveryPrice } = priceData;
+  const handlePlacedOrder = () => {
+    if (cart.length !== 0) {
+      toast.success(
+        'Thanks for placing your. Your order has been proceed successfully'
+      );
+    }
+  };
+
   return (
     <>
       <div className=''>
@@ -121,21 +129,20 @@ function Cart() {
                   <span className='text-s'>Discount Price </span>
                   <span>-Rs {totalDiscount}</span>
                 </div>
-                <div className='flex items-center justify-btw pd-2'>
-                  <span className='text-s'>Delivery Charges </span>
-                  <span>Rs {deliveryPrice}</span>
-                </div>
 
                 <div className='flex items-center justify-btw pd-2'>
                   <h4>Total Amount</h4>
                   <span className='text-bold'>
-                    Rs {totalProductPrice + deliveryPrice - totalDiscount}
+                    Rs {totalProductPrice - totalDiscount}
                   </span>
                 </div>
 
                 <div className='pd-2'>
                   <p>You have saved Rs {totalDiscount}!</p>
-                  <button className='cursor bg-green-7 text-color-grey-0 rounded-s  border-none text-s pd-y-3 m-y-2 wt-100'>
+                  <button
+                    onClick={() => handlePlacedOrder()}
+                    className='cursor bg-green-7 text-color-grey-0 rounded-s  border-none text-s pd-y-3 m-y-2 wt-100'
+                  >
                     Place your Order
                   </button>
                 </div>
